@@ -30,13 +30,13 @@ March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de sli
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Firma legal · logo negro, tarjetas, piezas digitales, folder, fachada
 
-Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Logos de la cinta en `img/logos/` y logo Orangy en `img/logo-orangy.png` (ambos PENDIENTES; mientras, la cinta y el nav usan wordmarks de texto).
+Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy en `img/logo-orangy.png` (PENDIENTE; el nav usa wordmark de texto).
 
 ## Pendientes
 
 - [ ] **Grid "Más proyectos"**: falta imagen + industria de Weecom, Kalu, LC Agency y Pikipuki (sus brandbooks PDF los tiene March; extraer 1 imagen por cliente con su aprobación). Actualizar los `mini-proyecto` del HTML (hoy son placeholders de texto).
 - [ ] **Fuente Deutschlander**: conseguir el .ttf y ponerlo en `fonts/Deutschlander.ttf`.
-- [ ] **Cinta de logos**: conseguir los archivos de logo (PNG/SVG) para `img/logos/` y el logo Orangy (`img/logo-orangy.png`); hoy son wordmarks de texto.
+- [ ] **Logo Orangy** (`img/logo-orangy.png`) para el nav; hoy es wordmark de texto.
 - [ ] **Revisar con March la copy** de hero, manifiesto, metodología, tríada y pilares (redactada en la reconstrucción de jul 2026; el HTML original no llegó al repo).
 - [ ] Confirmar el correo del CTA "Solicitar diagnóstico" (hoy apunta a hola@orangy.com.mx).
 - [ ] Datos de resultado por caso (números duros para los contadores animados, si los hay).

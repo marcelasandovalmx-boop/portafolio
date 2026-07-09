@@ -175,12 +175,11 @@ nav.hidden{transform:translateY(-100%)}
 .mini-proyecto p{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-claro);margin-top:4px}
 
 /* ============ Cinta de logos ============ */
-.cinta{padding:56px 0;border-bottom:1px solid var(--hairline)}
+.cinta{padding:72px 0;border-bottom:1px solid var(--hairline)}
+.cinta-label{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-claro);text-align:center;margin-bottom:40px}
 .cinta-track{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(32px,6vw,72px)}
-.cinta-item{font-family:var(--display);font-weight:800;font-size:clamp(18px,2.4vw,26px);text-transform:uppercase;letter-spacing:.02em;color:#787878;transition:color .3s}
-.cinta-item:hover{color:var(--gris)}
-/* Cuando existan los archivos en img/logos/: usar <img class="cinta-logo"> */
-.cinta-logo{height:34px;width:auto;filter:brightness(0) invert(.47);transition:filter .3s}
+.cinta-logo{height:30px;width:auto;filter:brightness(0) invert(.47);transition:filter .3s}
+.cinta-logo.alta{height:64px}
 .cinta-logo:hover{filter:none}
 
 /* ============ Qué construimos ============ */
@@ -412,18 +411,17 @@ footer .barra{margin-top:72px}
   </div>
 </section>
 
-<!-- Cinta de logos -->
+<!-- Cinta de logos: marcas que han confiado en nosotros -->
 <section class="cinta">
-  <div class="wrap cinta-track reveal">
-    <span class="cinta-item">Xcaanda'</span>
-    <span class="cinta-item">Kaleia</span>
-    <span class="cinta-item">Lucía Li</span>
-    <span class="cinta-item">Xipotle</span>
-    <span class="cinta-item">GAMA IP</span>
-    <span class="cinta-item">Weecom</span>
-    <span class="cinta-item">Kalu</span>
-    <span class="cinta-item">LC Agency</span>
-    <span class="cinta-item">Pikipuki</span>
+  <div class="wrap reveal">
+    <p class="cinta-label">Marcas que han confiado en nosotros</p>
+    <div class="cinta-track">
+      <img class="cinta-logo" src="img/logos/aeromexico.png" alt="Aeroméxico" loading="lazy">
+      <img class="cinta-logo" src="img/logos/netflix.png" alt="Netflix" loading="lazy">
+      <img class="cinta-logo" src="img/logos/new-relic.png" alt="New Relic" loading="lazy">
+      <img class="cinta-logo alta" src="img/logos/paramount-plus.png" alt="Paramount+" loading="lazy">
+      <img class="cinta-logo" src="img/logos/la-europea.png" alt="La Europea" loading="lazy">
+    </div>
   </div>
 </section>
 
