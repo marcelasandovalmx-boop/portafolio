@@ -42,10 +42,15 @@ Toda la copy sale del PDF "Brochure Orangy" (10 págs) que mandó March — NO i
 
 Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado por política de red); si hay copy del sitio que deba reflejarse, March la comparte en texto.
 
+## Página de enlaces (linktree propio)
+
+`links/index.html` — mini página con identidad Orangy (logo, barra, Montserrat, fondo papel) publicada en `/links/`. Botones: Ver portafolio (naranja sólido, el único), WhatsApp, sitio web, correo. En el HTML hay botones comentados para YouTube/Instagram esperando que March pase las URLs exactas (NUNCA adivinarlas).
+
 ## Pendientes
 
 - [ ] **Publicar**: March activa GitHub Pages (Settings → Pages → Deploy from a branch) o sube la carpeta a Netlify; después conectar subdominio (posible portafolio.orangy.com.mx).
 - [ ] Cifra o dato tangible para Lucía Li (hoy es el único caso solo cualitativo; March puede conseguir % de ocupación de agenda o recompra).
+- [ ] URLs de YouTube/Instagram (u otras redes) de March para activar sus botones en `links/index.html`.
 
 ## Decisiones cerradas (jul 2026)
 
