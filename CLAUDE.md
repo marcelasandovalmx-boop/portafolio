@@ -24,11 +24,13 @@ Hero (Deutschlander gigante + barra) → Marquee naranja → Manifiesto → Bran
 
 March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte.
 
-1. **Xcaanda'** — Panadería artesanal · logo rojo, bolsas, stickers, letrero, collage posts
-2. **Kaleia** — Intérprete floral · logo azul, fachada, tarjetas, mandil, collage posts · Resultado: llegó a Costco
+1. **Xcaanda'** — Repostería fina · logo rojo, bolsas, stickers, letrero, collage posts
+2. **Kaleia** — Intérprete floral · logo azul, fachada, tarjetas, mandil, collage posts · Resultado: retail, incluida Costco
 3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
-5. **GAMA IP** — Firma legal · logo negro, tarjetas, piezas digitales, folder, fachada
+5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, piezas digitales, folder, fachada
+
+Cada caso lleva una descripción (`caso-desc`) redactada a partir de las notas que March pasó por chat (jul 2026): qué se hizo (naming/rebranding/ADN/estrategia) y el beneficio. Ella aprueba la redacción final.
 
 Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy oficial (naranja + hoja teal, "Integrated Marketing") en `img/logo-orangy.png`, extraído del brochure, usado en el nav.
 
