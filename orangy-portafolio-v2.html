@@ -128,7 +128,10 @@ nav.hidden{transform:translateY(-100%)}
 .como-pilares{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:1px solid var(--hairline);margin-top:16px}
 .como-pilares li{padding:22px 28px 26px 0;border-bottom:1px solid var(--hairline);font-size:15px;font-weight:700}
 .como-pilares li + li{border-left:1px solid var(--hairline);padding-left:28px}
-@media(max-width:980px){.como-pilares li + li{border-left:none;padding-left:0}}
+@media(max-width:980px){
+  .como-pilares{grid-template-columns:1fr}
+  .como-pilares li + li{border-left:none;padding-left:0}
+}
 
 /* ============ Casos ============ */
 .casos{padding:clamp(80px,10vw,140px) 0 0}
@@ -430,7 +433,7 @@ footer .barra{margin-top:72px}
 <footer id="contacto">
   <div class="wrap reveal">
     <p class="display">Si sientes que tu negocio tiene más potencial del que el mercado está viendo, podemos conversar.</p>
-    <a class="cta" href="mailto:hola@orangy.com.mx?subject=Platiquemos%20de%20mi%20proyecto">Platiquemos de tu proyecto</a>
+    <a class="cta" href="https://wa.me/525571903021?text=Hola%2C%20me%20gustar%C3%ADa%20platicar%20de%20mi%20proyecto" target="_blank" rel="noopener">Platiquemos de tu proyecto</a>
     <div class="barra"><span></span><span></span><span></span><span></span></div>
     <div class="footer-base">
       <p>© Orangy Integrated Marketing · CDMX &nbsp;·&nbsp; hola@orangy.com.mx &nbsp;·&nbsp; 55 71 90 30 21 &nbsp;·&nbsp; orangy.com.mx</p>
