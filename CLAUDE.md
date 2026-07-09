@@ -12,7 +12,7 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `orangy-portafolio-v2.html`) que
 
 - **Tipografías: SOLO Montserrat (cuerpo/etiquetas) y Deutschlander (títulos).** Deutschlander se carga por @font-face desde `fonts/Deutschlander.ttf` (archivo PENDIENTE de conseguir; mientras, fallback Montserrat 800). Nunca serif, nunca otra fuente.
 - **Paleta oficial:** naranja `#E5501C` (solo acento), gris `#545454`, gris claro `#A6A6A6` (solo si es necesario). Fondo papel `#F4F1EB`, hairlines `#E3DED5`, footer `#3D3D3D`.
-- **Barra de color segmentada** (naranja→rojo→teal→aqua) = firma visual de March; aparece en hero, manifiesto y footer, animada al aparecer.
+- **Barra de color segmentada** = firma visual de March; aparece en hero, manifiesto y footer, animada al aparecer. Colores y proporciones REALES muestreados del brochure: `#E5501C` 48% → `#F27405` 15.5% → `#32A6A6` 27.4% → `#99E9F2` 6.8% (segmentos desiguales, no cuartos).
 - **Máximo un bloque naranja sólido** (el marquee). Elegancia = contraste de escala, no de peso; nada de "tics de IA" (números fantasma, fade-ups excesivos, eyebrows en todo).
 - **Slides de casos: 4:5, imagen llenando el marco completo** (cover crop centrado en el sujeto). Nada de bandas de color/aire. Excepción: logos sobre su propio color de fondo (ej. slide 1 de Lucía Li).
 
@@ -30,15 +30,19 @@ March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de sli
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Firma legal · logo negro, tarjetas, piezas digitales, folder, fachada
 
-Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy en `img/logo-orangy.png` (PENDIENTE; el nav usa wordmark de texto).
+Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy oficial (naranja + hoja teal, "Integrated Marketing") en `img/logo-orangy.png`, extraído del brochure, usado en el nav.
+
+### Copy (basada en el brochure oficial, jul 2026)
+
+Toda la copy sale del PDF "Brochure Orangy" (10 págs) que mandó March — NO inventar texto. Frases clave: "Brand Intelligence & Desarrollo de Negocios", "Arquitectura estratégica que conecta marca, comunicación y crecimiento comercial", "traducir valor real en dirección clara", "Primero entendemos. Luego ordenamos. Después activamos.", los 4 pilares de "Qué construimos" (p7), el Diagnóstico Orangy (p8) y "No por velocidad. Por dirección." (p9). Contacto (p10): hola@orangy.com.mx, 55 71 90 30 21, orangy.com.mx. Cliente ideal: negocios/líderes AAA que piensan a largo plazo (p5, p9). SEO: title/meta description/OG/JSON-LD ProfessionalService con estos datos.
+
+Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado por política de red); si hay copy del sitio que deba reflejarse, March la comparte en texto.
 
 ## Pendientes
 
 - [ ] **Grid "Más proyectos"**: falta imagen + industria de Weecom, Kalu, LC Agency y Pikipuki (sus brandbooks PDF los tiene March; extraer 1 imagen por cliente con su aprobación). Actualizar los `mini-proyecto` del HTML (hoy son placeholders de texto).
 - [ ] **Fuente Deutschlander**: conseguir el .ttf y ponerlo en `fonts/Deutschlander.ttf`.
-- [ ] **Logo Orangy** (`img/logo-orangy.png`) para el nav; hoy es wordmark de texto.
-- [ ] **Revisar con March la copy** de hero, manifiesto, metodología, tríada y pilares (redactada en la reconstrucción de jul 2026; el HTML original no llegó al repo).
-- [ ] Confirmar el correo del CTA "Solicitar diagnóstico" (hoy apunta a hola@orangy.com.mx).
+- [ ] **OK final de March a la copy** (ya está basada en el brochure oficial, pero ella da el visto bueno).
 - [ ] Datos de resultado por caso (números duros para los contadores animados, si los hay).
 - [ ] Al publicar: renombrar a `index.html`, deploy en Netlify/Vercel, y conectar dominio (posible subdominio de orangy.com.mx).
 
