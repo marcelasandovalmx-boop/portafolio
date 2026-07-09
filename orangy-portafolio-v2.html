@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orangy Integrated Marketing — Portafolio de identidades</title>
+<meta name="description" content="Brand Intelligence e identidades visuales. Orangy Integrated Marketing, CDMX.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============ Base ============ */
+@font-face{
+  font-family:'Deutschlander';
+  src:url('fonts/Deutschlander.ttf') format('truetype');
+  font-weight:normal;font-style:normal;font-display:swap;
+}
+:root{
+  --naranja:#E5501C;
+  --gris:#545454;
+  --gris-claro:#A6A6A6;
+  --papel:#F4F1EB;
+  --hairline:#E3DED5;
+  --footer:#3D3D3D;
+  --rojo:#B23A2E;
+  --teal:#2F6D66;
+  --aqua:#8FBDB5;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --display:'Deutschlander','Montserrat',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--papel);
+  color:var(--gris);
+  font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+
+h1,h2,.display{
+  font-family:var(--display);
+  font-weight:800; /* fallback Montserrat 800 mientras llega Deutschlander */
+  line-height:.95;
+  letter-spacing:-.02em;
+  color:var(--gris);
+  text-transform:uppercase;
+}
+
+/* ============ Barra de color segmentada (firma) ============ */
+.barra{display:flex;height:6px;width:min(360px,60vw)}
+.barra span{flex:1;transform:scaleX(0);transform-origin:left;transition:transform 1s var(--ease)}
+.barra span:nth-child(1){background:var(--naranja)}
+.barra span:nth-child(2){background:var(--rojo);transition-delay:.12s}
+.barra span:nth-child(3){background:var(--teal);transition-delay:.24s}
+.barra span:nth-child(4){background:var(--aqua);transition-delay:.36s}
+.in-view .barra span{transform:scaleX(1)}
+
+/* ============ Reveals ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in-view{opacity:1;transform:none}
+
+/* ============ Nav ============ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:color-mix(in srgb,var(--papel) 92%,transparent);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--hairline);
+  transition:transform .5s var(--ease);
+}
+nav.hidden{transform:translateY(-100%)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav-logo{font-family:var(--display);font-weight:800;font-size:22px;letter-spacing:-.02em;text-transform:uppercase}
+.nav-logo em{font-style:normal;color:var(--naranja)}
+.nav-links{display:flex;gap:28px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.nav-links a{padding:4px 0;border-bottom:2px solid transparent;transition:border-color .3s}
+.nav-links a:hover{border-color:var(--naranja)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ============ Hero ============ */
+.hero{min-height:92vh;display:flex;align-items:flex-end;padding:120px 0 72px;border-bottom:1px solid var(--hairline)}
+.hero h1{font-size:clamp(64px,13vw,190px)}
+.hero h1 .acento{color:var(--naranja)}
+.hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:36px}
+.hero-meta p{font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-claro)}
+
+/* ============ Marquee (único bloque naranja sólido) ============ */
+.marquee{background:var(--naranja);color:var(--papel);overflow:hidden;padding:18px 0;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:0;animation:marquee 28s linear infinite}
+.marquee-track span{font-family:var(--display);font-weight:800;font-size:26px;text-transform:uppercase;letter-spacing:.02em;padding-right:56px}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ============ Manifiesto ============ */
+.manifiesto{padding:clamp(90px,12vw,160px) 0;border-bottom:1px solid var(--hairline)}
+.manifiesto p.grande{
+  font-size:clamp(28px,4.4vw,54px);line-height:1.18;font-weight:500;
+  max-width:20em;letter-spacing:-.01em;
+}
+.manifiesto p.grande strong{font-weight:700;color:var(--naranja)}
+.manifiesto .barra{margin-bottom:48px}
+
+/* ============ Brand Intelligence ============ */
+.metodo{padding:clamp(80px,10vw,140px) 0;border-bottom:1px solid var(--hairline)}
+.metodo h2{font-size:clamp(40px,6vw,84px);margin-bottom:16px}
+.metodo > .wrap > p.intro{max-width:34em;margin-bottom:64px}
+.puntos{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:1px solid var(--hairline)}
+.punto{padding:32px 28px 40px 0;border-bottom:1px solid var(--hairline)}
+.punto + .punto{border-left:1px solid var(--hairline);padding-left:28px}
+@media(max-width:980px){.punto + .punto{border-left:none;padding-left:0}}
+.punto .num{font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--naranja)}
+.punto h3{font-size:17px;font-weight:700;margin:10px 0 8px;color:var(--gris)}
+.punto p{font-size:14px;color:var(--gris);opacity:.85}
+
+/* ============ Tríada ============ */
+.triada{padding:clamp(80px,10vw,140px) 0;border-bottom:1px solid var(--hairline)}
+.triada-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,64px)}
+@media(max-width:820px){.triada-grid{grid-template-columns:1fr}}
+.triada h2{font-size:clamp(30px,3.6vw,48px);line-height:1.02;margin-bottom:18px}
+.triada h2 em{font-style:normal;color:var(--naranja)}
+.triada p{font-size:15px;max-width:26em}
+
+/* ============ Casos ============ */
+.casos{padding:clamp(80px,10vw,140px) 0 0}
+.casos-header{margin-bottom:clamp(48px,7vw,96px)}
+.casos-header h2{font-size:clamp(48px,8vw,110px)}
+.caso{padding-bottom:clamp(80px,10vw,140px);border-bottom:1px solid var(--hairline);margin-bottom:clamp(80px,10vw,140px)}
+.caso:last-of-type{margin-bottom:0}
+.caso-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:28px}
+.caso-head h3{font-family:var(--display);font-weight:800;font-size:clamp(34px,5vw,64px);line-height:1;text-transform:uppercase;letter-spacing:-.02em}
+.caso-head h3 span.idx{color:var(--naranja);font-size:.55em;vertical-align:top;margin-right:10px}
+.caso-head .industria{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-claro)}
+.caso-resultado{margin-top:22px;font-size:14px;font-weight:600}
+.caso-resultado strong{color:var(--naranja);font-weight:700}
+
+/* Carrusel */
+.carrusel{position:relative}
+.pista{
+  display:flex;gap:16px;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  cursor:grab;
+}
+.pista::-webkit-scrollbar{display:none}
+.pista.arrastrando{cursor:grabbing;scroll-snap-type:none}
+.slide{
+  flex:0 0 min(420px,78vw);
+  scroll-snap-align:start;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  background:var(--hairline);
+}
+.slide img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+.carrusel-ui{display:flex;align-items:center;gap:18px;margin-top:18px}
+.flecha{
+  width:44px;height:44px;border:1px solid var(--gris);background:transparent;
+  color:var(--gris);font-size:18px;line-height:1;cursor:pointer;border-radius:50%;
+  transition:background .3s,color .3s,border-color .3s;
+}
+.flecha:hover{background:var(--gris);color:var(--papel)}
+.flecha:disabled{opacity:.3;cursor:default}
+.flecha:disabled:hover{background:transparent;color:var(--gris)}
+.contador{font-size:13px;font-weight:600;letter-spacing:.1em;color:var(--gris-claro);font-variant-numeric:tabular-nums}
+
+/* ============ Más proyectos ============ */
+.mas{padding:clamp(80px,10vw,140px) 0;border-bottom:1px solid var(--hairline)}
+.mas h2{font-size:clamp(36px,5vw,64px);margin-bottom:48px}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.mini-proyecto{aspect-ratio:4/5;background:#EAE6DD;border:1px solid var(--hairline);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;transition:background .4s}
+.mini-proyecto:hover{background:#E3DED5}
+.mini-proyecto h3{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:-.01em;color:var(--gris)}
+.mini-proyecto p{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-claro);margin-top:4px}
+
+/* ============ Cinta de logos ============ */
+.cinta{padding:56px 0;border-bottom:1px solid var(--hairline)}
+.cinta-track{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(32px,6vw,72px)}
+.cinta-item{font-family:var(--display);font-weight:800;font-size:clamp(18px,2.4vw,26px);text-transform:uppercase;letter-spacing:.02em;color:#787878;transition:color .3s}
+.cinta-item:hover{color:var(--gris)}
+/* Cuando existan los archivos en img/logos/: usar <img class="cinta-logo"> */
+.cinta-logo{height:34px;width:auto;filter:brightness(0) invert(.47);transition:filter .3s}
+.cinta-logo:hover{filter:none}
+
+/* ============ Qué construimos ============ */
+.pilares{padding:clamp(80px,10vw,140px) 0}
+.pilares h2{font-size:clamp(36px,5vw,64px);margin-bottom:48px}
+.pilares-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:1px solid var(--hairline)}
+.pilar{padding:32px 28px 40px 0;border-bottom:1px solid var(--hairline)}
+.pilar + .pilar{border-left:1px solid var(--hairline);padding-left:28px}
+@media(max-width:980px){.pilar + .pilar{border-left:none;padding-left:0}}
+.pilar h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.pilar p{font-size:14px;opacity:.85}
+
+/* ============ Footer ============ */
+footer{background:var(--footer);color:var(--papel);padding:clamp(90px,12vw,150px) 0 48px}
+footer .display{color:var(--papel);font-size:clamp(44px,7vw,100px)}
+.cta{
+  display:inline-block;margin-top:40px;padding:18px 42px;
+  border:1px solid var(--papel);border-radius:999px;
+  font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  transition:background .3s,color .3s,border-color .3s;
+}
+.cta:hover{background:var(--naranja);border-color:var(--naranja)}
+footer .barra{margin-top:72px}
+.footer-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;margin-top:40px;padding-top:28px;border-top:1px solid rgba(244,241,235,.18);font-size:12px;letter-spacing:.08em;color:rgba(244,241,235,.6)}
+.footer-base .cierre{font-weight:700;color:var(--papel);letter-spacing:.12em;text-transform:uppercase}
+
+/* ============ Reduced motion ============ */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal,.barra span{opacity:1!important;transform:none!important;transition:none!important}
+  .marquee-track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="#top">Orangy<em>.</em></a>
+    <div class="nav-links">
+      <a href="#metodologia">Metodología</a>
+      <a href="#casos">Casos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<header class="hero" id="top">
+  <div class="wrap reveal">
+    <h1>Marcas con<br><span class="acento">dirección</span>.</h1>
+    <div class="hero-meta">
+      <div class="barra"><span></span><span></span><span></span><span></span></div>
+      <p>Orangy Integrated Marketing · CDMX</p>
+    </div>
+  </div>
+</header>
+
+<!-- Marquee naranja -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Brand Intelligence</span><span>Identidad visual</span><span>Estrategia</span><span>Activación</span>
+    <span>Brand Intelligence</span><span>Identidad visual</span><span>Estrategia</span><span>Activación</span>
+  </div>
+</div>
+
+<!-- Manifiesto -->
+<section class="manifiesto">
+  <div class="wrap reveal">
+    <div class="barra"><span></span><span></span><span></span><span></span></div>
+    <p class="grande">No diseñamos logos sueltos. Construimos <strong>sistemas de identidad</strong> que ordenan el negocio, alinean la comunicación y le dan a cada marca un lugar propio en su mercado.</p>
+  </div>
+</section>
+
+<!-- Brand Intelligence -->
+<section class="metodo" id="metodologia">
+  <div class="wrap">
+    <div class="reveal">
+      <h2>Brand Intelligence</h2>
+      <p class="intro">Nuestra metodología. Antes de dibujar, entendemos: el negocio, la categoría, la audiencia y lo que la marca puede llegar a ser.</p>
+    </div>
+    <div class="puntos reveal">
+      <div class="punto"><p class="num">01</p><h3>Diagnóstico</h3><p>Leemos el negocio y su contexto: qué vende, a quién, contra quién y con qué fuerzas.</p></div>
+      <div class="punto"><p class="num">02</p><h3>Estrategia</h3><p>Definimos el territorio de marca: posicionamiento, personalidad y mensaje central.</p></div>
+      <div class="punto"><p class="num">03</p><h3>Sistema de identidad</h3><p>Diseñamos el sistema completo: logotipo, paleta, tipografía, voz y universo visual.</p></div>
+      <div class="punto"><p class="num">04</p><h3>Activación</h3><p>Llevamos la marca a la calle y a las redes con piezas que sostienen el sistema en el tiempo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Tríada -->
+<section class="triada">
+  <div class="wrap triada-grid reveal">
+    <div><h2>Primero <em>entendemos</em>.</h2><p>El negocio antes que la estética. Sin diagnóstico no hay diseño que aguante.</p></div>
+    <div><h2>Luego <em>ordenamos</em>.</h2><p>Estrategia y sistema: cada pieza tiene una razón y un lugar.</p></div>
+    <div><h2>Después <em>activamos</em>.</h2><p>La identidad sale a trabajar: empaque, punto de venta, redes, experiencia.</p></div>
+  </div>
+</section>
+
+<!-- Casos -->
+<section class="casos" id="casos">
+  <div class="wrap">
+    <div class="casos-header reveal"><h2>Casos</h2></div>
+
+    <!-- Caso 1: Xcaanda' -->
+    <article class="caso reveal">
+      <div class="caso-head">
+        <h3><span class="idx">01</span>Xcaanda'</h3>
+        <p class="industria">Panadería artesanal</p>
+      </div>
+      <div class="carrusel">
+        <div class="pista" tabindex="0" aria-label="Carrusel Xcaanda'">
+          <div class="slide"><img src="img/caso-1/slide-1.jpg" alt="Xcaanda' — logotipo sobre rojo" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-2.jpg" alt="Xcaanda' — bolsas de papel con croissants" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-3.jpg" alt="Xcaanda' — stickers ilustrados" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-4.jpg" alt="Xcaanda' — letrero circular de fachada" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-5.jpg" alt="Xcaanda' — posts para redes sociales" loading="lazy"></div>
+        </div>
+        <div class="carrusel-ui">
+          <button class="flecha prev" aria-label="Slide anterior">←</button>
+          <button class="flecha next" aria-label="Slide siguiente">→</button>
+          <p class="contador">1 / 5</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Caso 2: Kaleia -->
+    <article class="caso reveal">
+      <div class="caso-head">
+        <h3><span class="idx">02</span>Kaleia</h3>
+        <p class="industria">Intérprete floral</p>
+      </div>
+      <div class="carrusel">
+        <div class="pista" tabindex="0" aria-label="Carrusel Kaleia">
+          <div class="slide"><img src="img/caso-2/slide-1.jpg" alt="Kaleia — logotipo sobre azul" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-2.jpg" alt="Kaleia — fachada de la florería" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-3.jpg" alt="Kaleia — tarjetas de presentación" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-4.jpg" alt="Kaleia — mandil bordado" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-5.jpg" alt="Kaleia — posts para redes sociales" loading="lazy"></div>
+        </div>
+        <div class="carrusel-ui">
+          <button class="flecha prev" aria-label="Slide anterior">←</button>
+          <button class="flecha next" aria-label="Slide siguiente">→</button>
+          <p class="contador">1 / 5</p>
+        </div>
+      </div>
+      <p class="caso-resultado"><strong>Resultado:</strong> la marca llegó a Costco.</p>
+    </article>
+
+    <!-- Caso 3: Lucía Li -->
+    <article class="caso reveal">
+      <div class="caso-head">
+        <h3><span class="idx">03</span>Lucía Li</h3>
+        <p class="industria">Skincare de lujo</p>
+      </div>
+      <div class="carrusel">
+        <div class="pista" tabindex="0" aria-label="Carrusel Lucía Li">
+          <div class="slide"><img src="img/caso-3/slide-1.jpg" alt="Lucía Li — logotipo sobre azul claro" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-2.jpg" alt="Lucía Li — post Glow Up" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-3.jpg" alt="Lucía Li — línea de productos" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-4.jpg" alt="Lucía Li — bolsa y productos" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-5.jpg" alt="Lucía Li — aplicación del producto" loading="lazy"></div>
+        </div>
+        <div class="carrusel-ui">
+          <button class="flecha prev" aria-label="Slide anterior">←</button>
+          <button class="flecha next" aria-label="Slide siguiente">→</button>
+          <p class="contador">1 / 5</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Caso 4: Xipotle -->
+    <article class="caso reveal">
+      <div class="caso-head">
+        <h3><span class="idx">04</span>Xipotle</h3>
+        <p class="industria">Salsas mexicanas</p>
+      </div>
+      <div class="carrusel">
+        <div class="pista" tabindex="0" aria-label="Carrusel Xipotle">
+          <div class="slide"><img src="img/caso-4/slide-1.jpg" alt="Xipotle — logotipo sobre morado" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-2.jpg" alt="Xipotle — botella de salsa en cocina" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-3.jpg" alt="Xipotle — post Recetas que amamos" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-4.jpg" alt="Xipotle — post receta de pasta" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-5.jpg" alt="Xipotle — etiqueta colgante" loading="lazy"></div>
+        </div>
+        <div class="carrusel-ui">
+          <button class="flecha prev" aria-label="Slide anterior">←</button>
+          <button class="flecha next" aria-label="Slide siguiente">→</button>
+          <p class="contador">1 / 5</p>
+        </div>
+      </div>
+    </article>
+
+    <!-- Caso 5: GAMA IP -->
+    <article class="caso reveal">
+      <div class="caso-head">
+        <h3><span class="idx">05</span>GAMA IP</h3>
+        <p class="industria">Firma legal</p>
+      </div>
+      <div class="carrusel">
+        <div class="pista" tabindex="0" aria-label="Carrusel GAMA IP">
+          <div class="slide"><img src="img/caso-5/slide-1.jpg" alt="GAMA IP — logotipo sobre negro" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-2.jpg" alt="GAMA IP — tarjetas de presentación" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-3.jpg" alt="GAMA IP — piezas digitales" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-4.jpg" alt="GAMA IP — papelería y folder" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-5.jpg" alt="GAMA IP — fachada corporativa" loading="lazy"></div>
+        </div>
+        <div class="carrusel-ui">
+          <button class="flecha prev" aria-label="Slide anterior">←</button>
+          <button class="flecha next" aria-label="Slide siguiente">→</button>
+          <p class="contador">1 / 5</p>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Más proyectos -->
+<section class="mas">
+  <div class="wrap reveal">
+    <h2>Más proyectos</h2>
+    <div class="mini-grid">
+      <div class="mini-proyecto"><h3>Weecom</h3><p>Identidad visual</p></div>
+      <div class="mini-proyecto"><h3>Kalu</h3><p>Identidad visual</p></div>
+      <div class="mini-proyecto"><h3>LC Agency</h3><p>Identidad visual</p></div>
+      <div class="mini-proyecto"><h3>Pikipuki</h3><p>Identidad visual</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Cinta de logos -->
+<section class="cinta">
+  <div class="wrap cinta-track reveal">
+    <span class="cinta-item">Xcaanda'</span>
+    <span class="cinta-item">Kaleia</span>
+    <span class="cinta-item">Lucía Li</span>
+    <span class="cinta-item">Xipotle</span>
+    <span class="cinta-item">GAMA IP</span>
+    <span class="cinta-item">Weecom</span>
+    <span class="cinta-item">Kalu</span>
+    <span class="cinta-item">LC Agency</span>
+    <span class="cinta-item">Pikipuki</span>
+  </div>
+</section>
+
+<!-- Qué construimos -->
+<section class="pilares">
+  <div class="wrap reveal">
+    <h2>Qué construimos</h2>
+    <div class="pilares-grid">
+      <div class="pilar"><h3>Identidad visual</h3><p>Logotipo, paleta, tipografía y universo gráfico con sistema, no con ocurrencias.</p></div>
+      <div class="pilar"><h3>Estrategia de marca</h3><p>Posicionamiento, arquitectura y mensaje: el porqué detrás de cada decisión.</p></div>
+      <div class="pilar"><h3>Aplicaciones</h3><p>Empaque, papelería, señalética y punto de venta: la marca en el mundo físico.</p></div>
+      <div class="pilar"><h3>Contenido y redes</h3><p>Sistemas de contenido que mantienen la identidad viva y consistente.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer id="contacto">
+  <div class="wrap reveal">
+    <p class="display">¿Tu marca ya<br>sabe a dónde va?</p>
+    <a class="cta" href="mailto:hola@orangy.com.mx?subject=Solicitar%20diagn%C3%B3stico">Solicitar diagnóstico</a>
+    <div class="barra"><span></span><span></span><span></span><span></span></div>
+    <div class="footer-base">
+      <p>© Orangy Integrated Marketing · CDMX</p>
+      <p class="cierre">No por velocidad. Por dirección.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Nav: se oculta al bajar */
+  var nav = document.getElementById('nav'), lastY = window.scrollY;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    nav.classList.toggle('hidden', y > lastY && y > 120);
+    lastY = y;
+  }, {passive:true});
+
+  /* Reveals + barras */
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, {threshold:.18});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* Carruseles */
+  document.querySelectorAll('.carrusel').forEach(function(car){
+    var pista = car.querySelector('.pista');
+    var slides = pista.querySelectorAll('.slide');
+    var prev = car.querySelector('.prev'), next = car.querySelector('.next');
+    var contador = car.querySelector('.contador');
+    var total = slides.length;
+
+    function paso(){ return slides[0].getBoundingClientRect().width + 16; }
+    function indice(){ return Math.min(total-1, Math.round(pista.scrollLeft / paso())); }
+    function actualizar(){
+      var i = indice();
+      contador.textContent = (i+1) + ' / ' + total;
+      prev.disabled = i === 0;
+      next.disabled = pista.scrollLeft >= pista.scrollWidth - pista.clientWidth - 4;
+    }
+    function ir(dir){
+      pista.scrollBy({left: dir * paso(), behavior: reduced ? 'auto' : 'smooth'});
+    }
+    prev.addEventListener('click', function(){ ir(-1); });
+    next.addEventListener('click', function(){ ir(1); });
+    pista.addEventListener('scroll', actualizar, {passive:true});
+    window.addEventListener('resize', actualizar);
+
+    /* Teclado */
+    pista.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowRight'){ e.preventDefault(); ir(1); }
+      if(e.key === 'ArrowLeft'){ e.preventDefault(); ir(-1); }
+    });
+
+    /* Arrastre con pointer */
+    var abajo = false, inicioX = 0, inicioScroll = 0, movio = false;
+    pista.addEventListener('pointerdown', function(e){
+      abajo = true; movio = false;
+      inicioX = e.clientX; inicioScroll = pista.scrollLeft;
+      pista.setPointerCapture(e.pointerId);
+    });
+    pista.addEventListener('pointermove', function(e){
+      if(!abajo) return;
+      var dx = e.clientX - inicioX;
+      if(Math.abs(dx) > 6){ movio = true; pista.classList.add('arrastrando'); }
+      if(movio) pista.scrollLeft = inicioScroll - dx;
+    });
+    function soltar(e){
+      if(!abajo) return;
+      abajo = false;
+      pista.classList.remove('arrastrando');
+      if(movio){
+        var i = Math.max(0, Math.min(total-1, Math.round(pista.scrollLeft / paso())));
+        pista.scrollTo({left: i * paso(), behavior: reduced ? 'auto' : 'smooth'});
+      }
+    }
+    pista.addEventListener('pointerup', soltar);
+    pista.addEventListener('pointercancel', soltar);
+
+    actualizar();
+  });
+})();
+</script>
+</body>
+</html>

@@ -20,21 +20,25 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `orangy-portafolio-v2.html`) que
 
 Hero (Deutschlander gigante + barra) → Marquee naranja → Manifiesto → Brand Intelligence (metodología, 4 puntos) → Tríada "Primero entendemos / Luego ordenamos / Después activamos" → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador) → Grid "Más proyectos" → Cinta de logos gris → Qué construimos (4 pilares) → Footer con CTA "Solicitar diagnóstico" y cierre "No por velocidad. Por dirección."
 
-### Casos (orden y contenido aprobados por March)
+### Casos (orden y contenido aprobados por March — PDFs curados, jul 2026, 5 slides c/u)
 
-1. **Xcaanda'** — Panadería artesanal · 7 slides (bolsas, letrero, panadera, 3 posts, collage stickers)
-2. **Kaleia** — Intérprete floral · 7 slides (fachada, tarjetas, ramo, mandil, 3 posts) · Resultado: llegó a Costco
-3. **Lucía Li** — Skincare de lujo · 6 slides (logo azul, productos, post, arco, bolsa, doctora)
-4. **Xipotle** — Salsas mexicanas · 6 slides (extraídos del brandbook; orden NO revisado aún por March)
-5. **GAMA IP** — Firma legal · 6 slides (extraídos del brandbook; orden NO revisado aún por March)
+March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte.
 
-Imágenes en `img/caso-1/` … `img/caso-5/`, logos de la cinta en `img/logos/`, logo Orangy en `img/logo-orangy.png`.
+1. **Xcaanda'** — Panadería artesanal · logo rojo, bolsas, stickers, letrero, collage posts
+2. **Kaleia** — Intérprete floral · logo azul, fachada, tarjetas, mandil, collage posts · Resultado: llegó a Costco
+3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación
+4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
+5. **GAMA IP** — Firma legal · logo negro, tarjetas, piezas digitales, folder, fachada
+
+Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Logos de la cinta en `img/logos/` y logo Orangy en `img/logo-orangy.png` (ambos PENDIENTES; mientras, la cinta y el nav usan wordmarks de texto).
 
 ## Pendientes
 
-- [ ] **Grid "Más proyectos"**: falta imagen + industria de Weecom, Kalu, LC Agency y Pikipuki (sus brandbooks PDF los tiene March; extraer 1 imagen por cliente con su aprobación). Actualizar los `mini-proyecto` del HTML.
+- [ ] **Grid "Más proyectos"**: falta imagen + industria de Weecom, Kalu, LC Agency y Pikipuki (sus brandbooks PDF los tiene March; extraer 1 imagen por cliente con su aprobación). Actualizar los `mini-proyecto` del HTML (hoy son placeholders de texto).
 - [ ] **Fuente Deutschlander**: conseguir el .ttf y ponerlo en `fonts/Deutschlander.ttf`.
-- [ ] Revisar con March el orden de slides de Xipotle y GAMA IP.
+- [ ] **Cinta de logos**: conseguir los archivos de logo (PNG/SVG) para `img/logos/` y el logo Orangy (`img/logo-orangy.png`); hoy son wordmarks de texto.
+- [ ] **Revisar con March la copy** de hero, manifiesto, metodología, tríada y pilares (redactada en la reconstrucción de jul 2026; el HTML original no llegó al repo).
+- [ ] Confirmar el correo del CTA "Solicitar diagnóstico" (hoy apunta a hola@orangy.com.mx).
 - [ ] Datos de resultado por caso (números duros para los contadores animados, si los hay).
 - [ ] Al publicar: renombrar a `index.html`, deploy en Netlify/Vercel, y conectar dominio (posible subdominio de orangy.com.mx).
 
