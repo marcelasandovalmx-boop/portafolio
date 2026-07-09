@@ -20,7 +20,7 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `orangy-portafolio-v2.html`) que
 
 Regla de oro acordada con March: **el trabajo aparece en el segundo scroll**; el texto del brochure va en dosis de portafolio (la web y el brochure cuentan la historia completa, este doc muestra el trabajo).
 
-Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador; cada caso con `caso-desc` de una-dos líneas) → Manifiesto de UNA línea ("Orangy existe para traducir valor real en dirección clara") → Grid "Más proyectos" → Cinta "Marcas que han confiado en nosotros" → Sección compacta "Primero entendemos / Luego ordenamos / Después activamos" + los 4 pilares de "Qué construimos" como lista de títulos → Footer con CTA "Platiquemos de tu proyecto" y cierre "No por velocidad. Por dirección."
+Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador; cada caso con `caso-desc` de una-dos líneas) → Manifiesto de UNA línea ("Orangy existe para traducir valor real en dirección clara") → Carrusel "Más proyectos" (orden sagrado de March: Kalu, JF Group, LC Agency, Tactrick, PikiPuki — Weecom salió del line-up; imágenes en `img/otros/*.jpg`) → Cinta "Marcas que han confiado en nosotros" → Sección compacta "Primero entendemos / Luego ordenamos / Después activamos" + los 4 pilares de "Qué construimos" como lista de títulos → Footer con CTA "Platiquemos de tu proyecto" y cierre "No por velocidad. Por dirección."
 
 ### Casos (orden y contenido aprobados por March — PDFs curados, jul 2026, 5 slides c/u)
 
@@ -44,7 +44,7 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 
 ## Pendientes
 
-- [ ] **Grid "Más proyectos"**: falta imagen + industria de Weecom, Kalu, LC Agency y Pikipuki (sus brandbooks PDF los tiene March; extraer 1 imagen por cliente con su aprobación). Actualizar los `mini-proyecto` del HTML (hoy son placeholders de texto).
+- [ ] **Imagen de LC Agency** para el carrusel "Más proyectos" (slide 3, hoy placeholder `.slide-pendiente`): la página 3 del PDF otras_marcas salió vacía (lila) y la imagen pegada en chat no llega como archivo — March debe subirla como adjunto (es el hoodie blanco con logo lc agency sobre fondo azul, 4:5).
 - [ ] **Fuente Deutschlander**: conseguir el .ttf y ponerlo en `fonts/Deutschlander.ttf`.
 - [ ] **OK final de March a la copy** (ya está basada en el brochure oficial, pero ella da el visto bueno).
 - [ ] Datos de resultado por caso (números duros para los contadores animados, si los hay).

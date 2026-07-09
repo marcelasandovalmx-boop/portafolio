@@ -177,11 +177,9 @@ nav.hidden{transform:translateY(-100%)}
 /* ============ Más proyectos ============ */
 .mas{padding:clamp(80px,10vw,140px) 0;border-bottom:1px solid var(--hairline)}
 .mas h2{font-size:clamp(36px,5vw,64px);margin-bottom:48px}
-.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.mini-proyecto{aspect-ratio:4/5;background:#EAE6DD;border:1px solid var(--hairline);display:flex;flex-direction:column;justify-content:flex-end;padding:22px;transition:background .4s}
-.mini-proyecto:hover{background:#E3DED5}
-.mini-proyecto h3{font-family:var(--display);font-weight:800;font-size:24px;text-transform:uppercase;letter-spacing:-.01em;color:var(--gris)}
-.mini-proyecto p{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gris-claro);margin-top:4px}
+/* Slide placeholder mientras llega la imagen (LC Agency) */
+.slide-pendiente{display:flex;align-items:center;justify-content:center;background:#EAE6DD}
+.slide-pendiente p{font-family:var(--display);font-weight:800;font-size:26px;text-transform:uppercase;color:var(--gris-claro)}
 
 /* ============ Cinta de logos ============ */
 .cinta{padding:72px 0;border-bottom:1px solid var(--hairline)}
@@ -382,11 +380,19 @@ footer .barra{margin-top:72px}
 <section class="mas">
   <div class="wrap reveal">
     <h2>Más proyectos</h2>
-    <div class="mini-grid">
-      <div class="mini-proyecto"><h3>Weecom</h3><p>Identidad visual</p></div>
-      <div class="mini-proyecto"><h3>Kalu</h3><p>Identidad visual</p></div>
-      <div class="mini-proyecto"><h3>LC Agency</h3><p>Identidad visual</p></div>
-      <div class="mini-proyecto"><h3>Pikipuki</h3><p>Identidad visual</p></div>
+    <div class="carrusel">
+      <div class="pista" tabindex="0" aria-label="Carrusel Más proyectos">
+        <div class="slide"><img src="img/otros/kalu.jpg" alt="Kalu Cakes &amp; More — identidad y empaque" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/jf-group.jpg" alt="JF Group — papelería corporativa" loading="lazy"></div>
+        <div class="slide slide-pendiente"><p>LC Agency</p></div>
+        <div class="slide"><img src="img/otros/tactrick.jpg" alt="Tactrick — sistema de logotipo" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/pikipuki.jpg" alt="PikiPuki — empaque de repostería para mascotas" loading="lazy"></div>
+      </div>
+      <div class="carrusel-ui">
+        <button class="flecha prev" aria-label="Slide anterior">←</button>
+        <button class="flecha next" aria-label="Slide siguiente">→</button>
+        <p class="contador">1 / 5</p>
+      </div>
     </div>
   </div>
 </section>
