@@ -16,9 +16,11 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `orangy-portafolio-v2.html`) que
 - **Máximo un bloque naranja sólido** (el marquee). Elegancia = contraste de escala, no de peso; nada de "tics de IA" (números fantasma, fade-ups excesivos, eyebrows en todo).
 - **Slides de casos: 4:5, imagen llenando el marco completo** (cover crop centrado en el sujeto). Nada de bandas de color/aire. Excepción: logos sobre su propio color de fondo (ej. slide 1 de Lucía Li).
 
-## Estructura del sitio
+## Estructura del sitio (reestructura "portafolio primero", jul 2026)
 
-Hero (Deutschlander gigante + barra) → Marquee naranja → Manifiesto → Brand Intelligence (metodología, 4 puntos) → Tríada "Primero entendemos / Luego ordenamos / Después activamos" → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador) → Grid "Más proyectos" → Cinta de logos gris → Qué construimos (4 pilares) → Footer con CTA "Solicitar diagnóstico" y cierre "No por velocidad. Por dirección."
+Regla de oro acordada con March: **el trabajo aparece en el segundo scroll**; el texto del brochure va en dosis de portafolio (la web y el brochure cuentan la historia completa, este doc muestra el trabajo).
+
+Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador; cada caso con `caso-desc` de una-dos líneas) → Manifiesto de UNA línea ("Orangy existe para traducir valor real en dirección clara") → Grid "Más proyectos" → Cinta "Marcas que han confiado en nosotros" → Sección compacta "Primero entendemos / Luego ordenamos / Después activamos" + los 4 pilares de "Qué construimos" como lista de títulos → Footer con CTA "Platiquemos de tu proyecto" y cierre "No por velocidad. Por dirección."
 
 ### Casos (orden y contenido aprobados por March — PDFs curados, jul 2026, 5 slides c/u)
 
