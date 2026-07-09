@@ -1,6 +1,6 @@
 # Portafolio visual de Orangy Integrated Marketing
 
-Sitio one-page (HTML/CSS/JS en un solo archivo: `orangy-portafolio-v2.html`) que muestra el trabajo de identidades visuales de Orangy. Dueña: Marcela Sandoval (March), directora de Orangy, CDMX.
+Sitio one-page (HTML/CSS/JS en un solo archivo: `index.html`, renombrado desde orangy-portafolio-v2.html para publicar) que muestra el trabajo de identidades visuales de Orangy. Dueña: Marcela Sandoval (March), directora de Orangy, CDMX.
 
 ## Reglas de trabajo con March (IMPORTANTES)
 
@@ -10,7 +10,7 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `orangy-portafolio-v2.html`) que
 
 ## Sistema de diseño (NO modificar sin su OK)
 
-- **Tipografías: SOLO Montserrat (cuerpo/etiquetas) y Deutschlander (títulos).** Deutschlander se carga por @font-face desde `fonts/Deutschlander.ttf` (archivo PENDIENTE de conseguir; mientras, fallback Montserrat 800). Nunca serif, nunca otra fuente.
+- **Tipografía: SOLO Montserrat** (títulos en 800, cuerpo/etiquetas en 400–700). March decidió (jul 2026) descartar Deutschlander; el @font-face se eliminó. Nunca serif, nunca otra fuente.
 - **Paleta oficial:** naranja `#E5501C` (solo acento), gris `#545454`, gris claro `#A6A6A6` (solo si es necesario). Fondo papel `#F4F1EB`, hairlines `#E3DED5`, footer `#3D3D3D`.
 - **Barra de color segmentada** = firma visual de March; aparece en hero, manifiesto y footer, animada al aparecer. Colores y proporciones REALES muestreados del brochure: `#E5501C` 48% → `#F27405` 15.5% → `#32A6A6` 27.4% → `#99E9F2` 6.8% (segmentos desiguales, no cuartos).
 - **Máximo un bloque naranja sólido** (el marquee). Elegancia = contraste de escala, no de peso; nada de "tics de IA" (números fantasma, fade-ups excesivos, eyebrows en todo).
@@ -27,12 +27,12 @@ Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** 
 March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte.
 
 1. **Xcaanda'** — Repostería fina · logo rojo, bolsas, stickers, letrero, collage posts
-2. **Kaleia** — Intérprete floral · logo azul, fachada, tarjetas, mandil, collage posts · Resultado: retail, incluida Costco
+2. **Kaleia** — Intérprete floral · logo azul, fachada, tarjetas, mandil, collage posts
 3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, piezas digitales, folder, fachada
 
-Cada caso lleva una descripción (`caso-desc`) redactada a partir de las notas que March pasó por chat (jul 2026): qué se hizo (naming/rebranding/ADN/estrategia) y el beneficio. Ella aprueba la redacción final.
+Cada caso lleva descripción (`caso-desc`) y línea de **Resultado** (`caso-resultado`), redactadas a partir de las notas de March (jul 2026) y aprobadas por ella al publicar. OJO Kaleia: Costco NO es resultado de Orangy (ya estaban ahí antes); se menciona solo como contexto de la empresa en la descripción. Los resultados son cualitativos; si March consigue números duros, se convierten en contadores animados.
 
 Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy oficial (naranja + hoja teal, "Integrated Marketing") en `img/logo-orangy.png`, extraído del brochure, usado en el nav.
 
@@ -44,10 +44,14 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 
 ## Pendientes
 
-- [ ] **Fuente Deutschlander**: conseguir el .ttf y ponerlo en `fonts/Deutschlander.ttf`.
-- [ ] **OK final de March a la copy** (ya está basada en el brochure oficial, pero ella da el visto bueno).
-- [ ] Datos de resultado por caso (números duros para los contadores animados, si los hay).
-- [ ] Al publicar: renombrar a `index.html`, deploy en Netlify/Vercel, y conectar dominio (posible subdominio de orangy.com.mx).
+- [ ] **Publicar**: March activa GitHub Pages (Settings → Pages → Deploy from a branch) o sube la carpeta a Netlify; después conectar subdominio (posible portafolio.orangy.com.mx).
+- [ ] Números duros por caso (si los consigue March, convertir los resultados en contadores animados).
+
+## Decisiones cerradas (jul 2026)
+
+- WhatsApp del CTA confirmado por March: 55 7190 3021 (wa.me/525571903021).
+- Deutschlander descartada; títulos en Montserrat 800 definitivo.
+- Copy y resultados de casos aprobados por March al dar la orden de publicar.
 
 ## Técnica
 
