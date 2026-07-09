@@ -44,7 +44,6 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 
 ## Pendientes
 
-- [ ] **Imagen de LC Agency** para el carrusel "Más proyectos" (slide 3, hoy placeholder `.slide-pendiente`): la página 3 del PDF otras_marcas salió vacía (lila) y la imagen pegada en chat no llega como archivo — March debe subirla como adjunto (es el hoodie blanco con logo lc agency sobre fondo azul, 4:5).
 - [ ] **Fuente Deutschlander**: conseguir el .ttf y ponerlo en `fonts/Deutschlander.ttf`.
 - [ ] **OK final de March a la copy** (ya está basada en el brochure oficial, pero ella da el visto bueno).
 - [ ] Datos de resultado por caso (números duros para los contadores animados, si los hay).
