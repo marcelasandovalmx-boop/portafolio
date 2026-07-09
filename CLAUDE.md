@@ -32,7 +32,7 @@ March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de sli
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, piezas digitales, folder, fachada
 
-Cada caso lleva descripción (`caso-desc`) y línea de **Resultado** (`caso-resultado`), redactadas a partir de las notas de March (jul 2026) y aprobadas por ella al publicar. OJO Kaleia: Costco NO es resultado de Orangy (ya estaban ahí antes); se menciona solo como contexto de la empresa en la descripción. Los resultados son cualitativos; si March consigue números duros, se convierten en contadores animados.
+Cada caso lleva descripción (`caso-desc`) y bloque de métricas (`caso-metricas`) con etiquetas **Resultado** (logrado, cualitativo), **Proyección** (objetivo esperado, con cifras) y **Siguiente etapa** (en ejecución). Las cifras son PROYECCIONES reales que dio March (jul 2026), etiquetadas como tales para honestidad: Xcaanda' +25–30% ventas, Kaleia +15–25% retail (incl. Costco) y +15–20% por capacitación de piso, Xipotle +20% ventas MX/EUA, GAMA IP +10–12% cierre de propuestas. Lucía Li solo cualitativo (agenda llena). Los números van en `.dato` (naranja, bold, 1.6em) con contador animado (`.dato-num[data-val]`, IntersectionObserver, respeta reduced-motion). OJO Kaleia: Costco NO es resultado de Orangy (ya estaban ahí antes); es contexto en la descripción. NUNCA inventar cifras: solo las que dé March.
 
 Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy oficial (naranja + hoja teal, "Integrated Marketing") en `img/logo-orangy.png`, extraído del brochure, usado en el nav.
 
@@ -45,7 +45,7 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 ## Pendientes
 
 - [ ] **Publicar**: March activa GitHub Pages (Settings → Pages → Deploy from a branch) o sube la carpeta a Netlify; después conectar subdominio (posible portafolio.orangy.com.mx).
-- [ ] Números duros por caso (si los consigue March, convertir los resultados en contadores animados).
+- [ ] Cifra o dato tangible para Lucía Li (hoy es el único caso solo cualitativo; March puede conseguir % de ocupación de agenda o recompra).
 
 ## Decisiones cerradas (jul 2026)
 
