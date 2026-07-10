@@ -24,13 +24,13 @@ Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** 
 
 ### Casos (orden y contenido aprobados por March — PDFs curados, jul 2026, 5 slides c/u)
 
-March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte. Kaleia tiene un 6º slide: March mandó después la foto de la gorra y pidió insertarla en 3er lugar (los demás se recorren). Kaleia tiene 25 años de liderazgo (corregido de 35, jul 2026).
+March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte. Después mandó más imágenes con posiciones exactas (gorra Kaleia por chat; 4 mockups en PDF "portafolio__4" — los pegados en chat NO llegan como archivo, pedir PDF o Drive). Todos los casos quedaron de 6 slides. Kaleia tiene 25 años de liderazgo (corregido de 35, jul 2026).
 
-1. **Xcaanda'** — Repostería fina · logo rojo, bolsas, stickers, letrero, collage posts
-2. **Kaleia** — Intérprete floral (6 slides) · logo azul, fachada, gorra, tarjetas, mandil, collage posts
-3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación
-4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
-5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, piezas digitales, folder, fachada
+1. **Xcaanda'** — Repostería fina · logo rojo, bolsas croissant, stickers, letrero, bolsas de regalo, collage posts
+2. **Kaleia** — Intérprete floral · logo azul, fachada, gorra, tarjetas, mandil, collage posts
+3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación, bolsa listón azul
+4. **Xipotle** — Salsas mexicanas · logo morado, botella, tote con llaveros, post recetas, post pasta, etiqueta colgante
+5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, folder en mano, piezas digitales, folder papelería, fachada
 
 Cada caso lleva descripción (`caso-desc`) y bloque de métricas (`caso-metricas`) con etiquetas **Resultado** (logrado, cualitativo), **Proyección** (objetivo esperado, con cifras) y **Siguiente etapa** (en ejecución). Las cifras son las que dio March (jul 2026): Xcaanda' +25–30% ventas (proyección), Kaleia +15–25% retail incl. Costco y +15–20% por capacitación de piso (proyecciones), Xipotle +20% ventas MX/EUA (proyección), GAMA IP +10–12% cierre de propuestas (proyección), Lucía Li +18% en venta de productos (RESULTADO logrado, por naming de línea y universo sensorial) + agenda llena. Los números van en `.dato` (naranja, bold, 1.6em) con contador animado (`.dato-num[data-val]`, IntersectionObserver, respeta reduced-motion). OJO Kaleia: Costco NO es resultado de Orangy (ya estaban ahí antes); es contexto en la descripción. NUNCA inventar cifras: solo las que dé March.
 
