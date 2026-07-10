@@ -50,9 +50,10 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 
 - [ ] **Publicar**: March activa GitHub Pages (Settings → Pages → Deploy from a branch) o sube la carpeta a Netlify; después conectar subdominio (posible portafolio.orangy.com.mx).
 - [ ] URLs de YouTube/Instagram (u otras redes) de March para activar sus botones en `links/index.html`.
-- [ ] **Analytics privado**: March quiere dashboard solo para ella. Plan: GoatCounter (gratis, dashboard con login, sin cookies). March crea cuenta en goatcounter.com, elige su código de sitio y me lo pasa; se agrega el script de una línea a index.html y links/index.html.
 
 ## Decisiones cerradas (jul 2026)
+
+- Analytics: Google Analytics 4 con la cuenta Google de March, ID `G-RX21D5W3EB`, etiqueta gtag instalada en `index.html` y `links/index.html`. Dashboard privado en analytics.google.com (login de March).
 
 - WhatsApp del CTA confirmado por March: 55 7190 3021 (wa.me/525571903021).
 - Deutschlander descartada; títulos en Montserrat 800 definitivo.
