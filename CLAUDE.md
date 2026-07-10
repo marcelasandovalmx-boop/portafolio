@@ -24,10 +24,10 @@ Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** 
 
 ### Casos (orden y contenido aprobados por March — PDFs curados, jul 2026, 5 slides c/u)
 
-March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte.
+March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de slides (regla sagrada). Las páginas ya venían en 4:5 (810×1012); se extrajeron a JPG q90 de 1620px sin recorte. Kaleia tiene un 6º slide: March mandó después la foto de la gorra y pidió insertarla en 3er lugar (los demás se recorren). Kaleia tiene 25 años de liderazgo (corregido de 35, jul 2026).
 
 1. **Xcaanda'** — Repostería fina · logo rojo, bolsas, stickers, letrero, collage posts
-2. **Kaleia** — Intérprete floral · logo azul, fachada, tarjetas, mandil, collage posts
+2. **Kaleia** — Intérprete floral (6 slides) · logo azul, fachada, gorra, tarjetas, mandil, collage posts
 3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, piezas digitales, folder, fachada
