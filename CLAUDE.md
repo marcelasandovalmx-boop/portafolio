@@ -20,7 +20,7 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `index.html`, renombrado desde o
 
 Regla de oro acordada con March: **el trabajo aparece en el segundo scroll**; el texto del brochure va en dosis de portafolio (la web y el brochure cuentan la historia completa, este doc muestra el trabajo).
 
-Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador; cada caso con `caso-desc` de una-dos líneas) → Manifiesto de UNA línea ("Orangy existe para traducir valor real en dirección clara") → Carrusel "Más proyectos" (orden sagrado de March: Kalu, JF Group, LC Agency, Tactrick, PikiPuki — Weecom salió del line-up; imágenes en `img/otros/*.jpg`) → Cinta "Marcas que han confiado en nosotros" → Sección compacta "Primero entendemos / Luego ordenamos / Después activamos" + los 4 pilares de "Qué construimos" como lista de títulos → Footer con CTA "Platiquemos de tu proyecto" y cierre "No por velocidad. Por dirección."
+Hero (Deutschlander gigante + barra, breve) → Marquee naranja → **5 casos** con carrusel (scroll-snap, flechas, arrastre, contador; cada caso con `caso-desc` de una-dos líneas) → Manifiesto de UNA línea ("Orangy existe para traducir valor real en dirección clara") → Carrusel "Más proyectos" (orden sagrado de March: Kalu, JF Group, LC Agency, Tactrick, PikiPuki, Weecom — Weecom regresó al line-up como cierre, jul 2026; imágenes en `img/otros/*.jpg`) → Cinta "Marcas que han confiado en nosotros" → Sección compacta "Primero entendemos / Luego ordenamos / Después activamos" + los 4 pilares de "Qué construimos" como lista de títulos → Footer con CTA "Platiquemos de tu proyecto" y cierre "No por velocidad. Por dirección."
 
 ### Casos (orden y contenido aprobados por March — PDFs curados, jul 2026, 5 slides c/u)
 
@@ -28,7 +28,7 @@ March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de sli
 
 1. **Xcaanda'** — Repostería fina · logo rojo, bolsas croissant, stickers, letrero, bolsas de regalo, collage posts
 2. **Kaleia** — Intérprete floral · logo azul, fachada, gorra, tarjetas, mandil, collage posts
-3. **Lucía Li** — Skincare de lujo · logo azul claro, post Glow-Up, productos, bolsa, aplicación, bolsa listón azul
+3. **Lucía Li** — Skincare de lujo · cliente en Machala, Ecuador (etiqueta de industria lo indica: prueba de alcance internacional) · logo azul claro, post Glow-Up, productos, bolsa, aplicación, bolsa listón azul
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, tote con llaveros, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, folder en mano, piezas digitales, folder papelería, fachada
 
