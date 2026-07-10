@@ -32,7 +32,7 @@ March mandó un PDF de 5 páginas por marca; el orden de páginas = orden de sli
 4. **Xipotle** — Salsas mexicanas · logo morado, botella, post recetas, post pasta, etiqueta colgante
 5. **GAMA IP** — Propiedad intelectual · logo negro, tarjetas, piezas digitales, folder, fachada
 
-Cada caso lleva descripción (`caso-desc`) y bloque de métricas (`caso-metricas`) con etiquetas **Resultado** (logrado, cualitativo), **Proyección** (objetivo esperado, con cifras) y **Siguiente etapa** (en ejecución). Las cifras son PROYECCIONES reales que dio March (jul 2026), etiquetadas como tales para honestidad: Xcaanda' +25–30% ventas, Kaleia +15–25% retail (incl. Costco) y +15–20% por capacitación de piso, Xipotle +20% ventas MX/EUA, GAMA IP +10–12% cierre de propuestas. Lucía Li solo cualitativo (agenda llena). Los números van en `.dato` (naranja, bold, 1.6em) con contador animado (`.dato-num[data-val]`, IntersectionObserver, respeta reduced-motion). OJO Kaleia: Costco NO es resultado de Orangy (ya estaban ahí antes); es contexto en la descripción. NUNCA inventar cifras: solo las que dé March.
+Cada caso lleva descripción (`caso-desc`) y bloque de métricas (`caso-metricas`) con etiquetas **Resultado** (logrado, cualitativo), **Proyección** (objetivo esperado, con cifras) y **Siguiente etapa** (en ejecución). Las cifras son las que dio March (jul 2026): Xcaanda' +25–30% ventas (proyección), Kaleia +15–25% retail incl. Costco y +15–20% por capacitación de piso (proyecciones), Xipotle +20% ventas MX/EUA (proyección), GAMA IP +10–12% cierre de propuestas (proyección), Lucía Li +18% en venta de productos (RESULTADO logrado, por naming de línea y universo sensorial) + agenda llena. Los números van en `.dato` (naranja, bold, 1.6em) con contador animado (`.dato-num[data-val]`, IntersectionObserver, respeta reduced-motion). OJO Kaleia: Costco NO es resultado de Orangy (ya estaban ahí antes); es contexto en la descripción. NUNCA inventar cifras: solo las que dé March.
 
 Imágenes en `img/caso-1/slide-1..5.jpg` … `img/caso-5/slide-1..5.jpg`. Cinta "Marcas que han confiado en nosotros" (PDF MARCAS de March, orden sagrado): Aeroméxico, Netflix, New Relic, Paramount+, La Europea en `img/logos/*.png` (PNG transparentes tintados `#545454`, extraídos del PDF). Logo Orangy oficial (naranja + hoja teal, "Integrated Marketing") en `img/logo-orangy.png`, extraído del brochure, usado en el nav.
 
@@ -49,8 +49,8 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 ## Pendientes
 
 - [ ] **Publicar**: March activa GitHub Pages (Settings → Pages → Deploy from a branch) o sube la carpeta a Netlify; después conectar subdominio (posible portafolio.orangy.com.mx).
-- [ ] Cifra o dato tangible para Lucía Li (hoy es el único caso solo cualitativo; March puede conseguir % de ocupación de agenda o recompra).
 - [ ] URLs de YouTube/Instagram (u otras redes) de March para activar sus botones en `links/index.html`.
+- [ ] **Analytics privado**: March quiere dashboard solo para ella. Plan: GoatCounter (gratis, dashboard con login, sin cookies). March crea cuenta en goatcounter.com, elige su código de sitio y me lo pasa; se agrega el script de una línea a index.html y links/index.html.
 
 ## Decisiones cerradas (jul 2026)
 
@@ -62,5 +62,8 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 
 - Todo inline en un archivo; sin dependencias externas salvo Google Fonts (Montserrat).
 - Carruseles: scroll-snap nativo + JS (arrastre pointer, teclado, contador). Nav se oculta al bajar. Reveals con IntersectionObserver, easing `cubic-bezier(.16,1,.3,1)`. `prefers-reduced-motion` respetado.
+- **Lightbox**: tap/clic en slide abre la imagen full-res a pantalla completa (se detecta la imagen en pointerdown porque la pista captura el puntero; el arrastre NO abre). Esc o clic cierra.
+- **Imágenes responsivas**: cada slide tiene versión `-sm.jpg` (800w, q82) + original 1620w vía `srcset/sizes`; el `src` queda apuntando a la full-res (la usa el lightbox).
+- **Compartir**: `img/og-image.png` (1200×630, logo+barra) como og:image con URL ABSOLUTA (actualizarla si cambia el dominio), favicon naranjita (`img/favicon*.png`, generados de HTML con Montserrat).
 - Cinta de logos: filtro CSS `brightness(0) invert(.47)` = gris medio uniforme; hover restaura.
 - Para procesar imágenes nuevas de casos: recorte cover a 4:5 centrado en el sujeto, JPG calidad 90, ~1400px+ de ancho.

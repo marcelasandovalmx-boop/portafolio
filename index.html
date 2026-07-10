@@ -9,6 +9,14 @@
 <meta property="og:description" content="Arquitectura estratégica que conecta marca, comunicación y crecimiento comercial.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_MX">
+<meta property="og:url" content="https://marcelasandovalmx-boop.github.io/portafolio/">
+<meta property="og:image" content="https://marcelasandovalmx-boop.github.io/portafolio/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="128x128" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -162,7 +170,18 @@ nav.hidden{transform:translateY(-100%)}
   overflow:hidden;
   background:var(--hairline);
 }
-.slide img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+.slide img{width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none;cursor:zoom-in}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:100;background:rgba(30,28,25,.94);display:none;align-items:center;justify-content:center;padding:24px}
+.lightbox.abierto{display:flex}
+.lightbox img{max-width:92vw;max-height:92vh;width:auto;height:auto;object-fit:contain;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+.lightbox-cerrar{position:absolute;top:20px;right:24px;width:44px;height:44px;border:1px solid rgba(244,241,235,.4);border-radius:50%;background:transparent;color:var(--papel);font-size:20px;line-height:1;cursor:pointer;transition:background .3s,border-color .3s}
+.lightbox-cerrar:hover{background:var(--naranja);border-color:var(--naranja)}
+@media(prefers-reduced-motion:no-preference){
+  .lightbox.abierto img{animation:lb-entra .35s var(--ease)}
+  @keyframes lb-entra{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+}
 .carrusel-ui{display:flex;align-items:center;gap:18px;margin-top:18px}
 .flecha{
   width:44px;height:44px;border:1px solid var(--gris);background:transparent;
@@ -255,11 +274,11 @@ footer .barra{margin-top:72px}
       <p class="caso-desc">Rebranding de una casa de repostería fina mexicana con expertise francesa, fundada por dos chefs reposteros. Definimos el ADN de la marca completo — identidad visual, comunicación para redes y estrategia de ventas — para una marca que se antoja antes de probarla.</p>
       <div class="carrusel">
         <div class="pista" tabindex="0" aria-label="Carrusel Xcaanda'">
-          <div class="slide"><img src="img/caso-1/slide-1.jpg" alt="Xcaanda' — logotipo sobre rojo" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-1/slide-2.jpg" alt="Xcaanda' — bolsas de papel con croissants" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-1/slide-3.jpg" alt="Xcaanda' — stickers ilustrados" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-1/slide-4.jpg" alt="Xcaanda' — letrero circular de fachada" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-1/slide-5.jpg" alt="Xcaanda' — posts para redes sociales" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-1.jpg" srcset="img/caso-1/slide-1-sm.jpg 800w, img/caso-1/slide-1.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xcaanda' — logotipo sobre rojo" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-2.jpg" srcset="img/caso-1/slide-2-sm.jpg 800w, img/caso-1/slide-2.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xcaanda' — bolsas de papel con croissants" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-3.jpg" srcset="img/caso-1/slide-3-sm.jpg 800w, img/caso-1/slide-3.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xcaanda' — stickers ilustrados" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-4.jpg" srcset="img/caso-1/slide-4-sm.jpg 800w, img/caso-1/slide-4.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xcaanda' — letrero circular de fachada" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-1/slide-5.jpg" srcset="img/caso-1/slide-5-sm.jpg 800w, img/caso-1/slide-5.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xcaanda' — posts para redes sociales" loading="lazy"></div>
         </div>
         <div class="carrusel-ui">
           <button class="flecha prev" aria-label="Slide anterior">←</button>
@@ -282,12 +301,12 @@ footer .barra{margin-top:72px}
       <p class="caso-desc">Naming y rebranding de una empresa con más de 25 años de liderazgo en su sector y presencia en retail como Costco. Estrategia de venta en cada punto de contacto, congruencia total de marca y un posicionamiento que por fin comunica lo que su fundadora siempre soñó.</p>
       <div class="carrusel">
         <div class="pista" tabindex="0" aria-label="Carrusel Kaleia">
-          <div class="slide"><img src="img/caso-2/slide-1.jpg" alt="Kaleia — logotipo sobre azul" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-2/slide-2.jpg" alt="Kaleia — fachada de la florería" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-2/slide-3.jpg" alt="Kaleia — gorra bordada con el logotipo" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-2/slide-4.jpg" alt="Kaleia — tarjetas de presentación" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-2/slide-5.jpg" alt="Kaleia — mandil bordado" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-2/slide-6.jpg" alt="Kaleia — posts para redes sociales" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-1.jpg" srcset="img/caso-2/slide-1-sm.jpg 800w, img/caso-2/slide-1.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kaleia — logotipo sobre azul" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-2.jpg" srcset="img/caso-2/slide-2-sm.jpg 800w, img/caso-2/slide-2.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kaleia — fachada de la florería" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-3.jpg" srcset="img/caso-2/slide-3-sm.jpg 800w, img/caso-2/slide-3.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kaleia — gorra bordada con el logotipo" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-4.jpg" srcset="img/caso-2/slide-4-sm.jpg 800w, img/caso-2/slide-4.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kaleia — tarjetas de presentación" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-5.jpg" srcset="img/caso-2/slide-5-sm.jpg 800w, img/caso-2/slide-5.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kaleia — mandil bordado" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-2/slide-6.jpg" srcset="img/caso-2/slide-6-sm.jpg 800w, img/caso-2/slide-6.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kaleia — posts para redes sociales" loading="lazy"></div>
         </div>
         <div class="carrusel-ui">
           <button class="flecha prev" aria-label="Slide anterior">←</button>
@@ -311,11 +330,11 @@ footer .barra{margin-top:72px}
       <p class="caso-desc">Rebranding integral que se extendió hasta el diseño interior: línea de productos, packaging y cada pieza necesaria para cumplir sus metas de venta — conquistando a un público más selecto, el que entiende la calidad.</p>
       <div class="carrusel">
         <div class="pista" tabindex="0" aria-label="Carrusel Lucía Li">
-          <div class="slide"><img src="img/caso-3/slide-1.jpg" alt="Lucía Li — logotipo sobre azul claro" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-3/slide-2.jpg" alt="Lucía Li — post Glow Up" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-3/slide-3.jpg" alt="Lucía Li — línea de productos" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-3/slide-4.jpg" alt="Lucía Li — bolsa y productos" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-3/slide-5.jpg" alt="Lucía Li — aplicación del producto" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-1.jpg" srcset="img/caso-3/slide-1-sm.jpg 800w, img/caso-3/slide-1.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Lucía Li — logotipo sobre azul claro" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-2.jpg" srcset="img/caso-3/slide-2-sm.jpg 800w, img/caso-3/slide-2.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Lucía Li — post Glow Up" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-3.jpg" srcset="img/caso-3/slide-3-sm.jpg 800w, img/caso-3/slide-3.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Lucía Li — línea de productos" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-4.jpg" srcset="img/caso-3/slide-4-sm.jpg 800w, img/caso-3/slide-4.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Lucía Li — bolsa y productos" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-3/slide-5.jpg" srcset="img/caso-3/slide-5-sm.jpg 800w, img/caso-3/slide-5.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Lucía Li — aplicación del producto" loading="lazy"></div>
         </div>
         <div class="carrusel-ui">
           <button class="flecha prev" aria-label="Slide anterior">←</button>
@@ -324,6 +343,7 @@ footer .barra{margin-top:72px}
         </div>
       </div>
       <div class="caso-metricas">
+        <p class="metrica"><span class="mlabel">Resultado</span><span class="dato">+<span class="dato-num" data-val="18">0</span>%</span> en venta de productos, impulsado por el naming de la línea y un universo de marca sensorial.</p>
         <p class="metrica"><span class="mlabel">Resultado</span>Agenda llena de manera constante y productos que el público prefiere frente a lo que ofrece el mercado.</p>
       </div>
     </article>
@@ -337,11 +357,11 @@ footer .barra{margin-top:72px}
       <p class="caso-desc">Rebranding de una salsa con solo 7 ingredientes y presencia internacional. El reto: que lo natural no solo fuera verdad, sino que se percibiera — mexicanidad y salud comunicadas desde el primer vistazo.</p>
       <div class="carrusel">
         <div class="pista" tabindex="0" aria-label="Carrusel Xipotle">
-          <div class="slide"><img src="img/caso-4/slide-1.jpg" alt="Xipotle — logotipo sobre morado" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-4/slide-2.jpg" alt="Xipotle — botella de salsa en cocina" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-4/slide-3.jpg" alt="Xipotle — post Recetas que amamos" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-4/slide-4.jpg" alt="Xipotle — post receta de pasta" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-4/slide-5.jpg" alt="Xipotle — etiqueta colgante" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-1.jpg" srcset="img/caso-4/slide-1-sm.jpg 800w, img/caso-4/slide-1.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xipotle — logotipo sobre morado" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-2.jpg" srcset="img/caso-4/slide-2-sm.jpg 800w, img/caso-4/slide-2.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xipotle — botella de salsa en cocina" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-3.jpg" srcset="img/caso-4/slide-3-sm.jpg 800w, img/caso-4/slide-3.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xipotle — post Recetas que amamos" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-4.jpg" srcset="img/caso-4/slide-4-sm.jpg 800w, img/caso-4/slide-4.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xipotle — post receta de pasta" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-4/slide-5.jpg" srcset="img/caso-4/slide-5-sm.jpg 800w, img/caso-4/slide-5.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Xipotle — etiqueta colgante" loading="lazy"></div>
         </div>
         <div class="carrusel-ui">
           <button class="flecha prev" aria-label="Slide anterior">←</button>
@@ -364,11 +384,11 @@ footer .barra{margin-top:72px}
       <p class="caso-desc">Branding y ADN de marca para un despacho mexicano de propiedad intelectual con presencia internacional y abogados reconocidos. Un branding de los cinco sentidos y propuestas fuera de la caja: presentarse no solo como expertos legales, sino como una experiencia de alta gama en cada punto de contacto.</p>
       <div class="carrusel">
         <div class="pista" tabindex="0" aria-label="Carrusel GAMA IP">
-          <div class="slide"><img src="img/caso-5/slide-1.jpg" alt="GAMA IP — logotipo sobre negro" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-5/slide-2.jpg" alt="GAMA IP — tarjetas de presentación" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-5/slide-3.jpg" alt="GAMA IP — piezas digitales" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-5/slide-4.jpg" alt="GAMA IP — papelería y folder" loading="lazy"></div>
-          <div class="slide"><img src="img/caso-5/slide-5.jpg" alt="GAMA IP — fachada corporativa" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-1.jpg" srcset="img/caso-5/slide-1-sm.jpg 800w, img/caso-5/slide-1.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="GAMA IP — logotipo sobre negro" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-2.jpg" srcset="img/caso-5/slide-2-sm.jpg 800w, img/caso-5/slide-2.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="GAMA IP — tarjetas de presentación" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-3.jpg" srcset="img/caso-5/slide-3-sm.jpg 800w, img/caso-5/slide-3.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="GAMA IP — piezas digitales" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-4.jpg" srcset="img/caso-5/slide-4-sm.jpg 800w, img/caso-5/slide-4.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="GAMA IP — papelería y folder" loading="lazy"></div>
+          <div class="slide"><img src="img/caso-5/slide-5.jpg" srcset="img/caso-5/slide-5-sm.jpg 800w, img/caso-5/slide-5.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="GAMA IP — fachada corporativa" loading="lazy"></div>
         </div>
         <div class="carrusel-ui">
           <button class="flecha prev" aria-label="Slide anterior">←</button>
@@ -399,11 +419,11 @@ footer .barra{margin-top:72px}
     <h2>Más proyectos</h2>
     <div class="carrusel">
       <div class="pista" tabindex="0" aria-label="Carrusel Más proyectos">
-        <div class="slide"><img src="img/otros/kalu.jpg" alt="Kalu Cakes &amp; More — identidad y empaque" loading="lazy"></div>
-        <div class="slide"><img src="img/otros/jf-group.jpg" alt="JF Group — papelería corporativa" loading="lazy"></div>
-        <div class="slide"><img src="img/otros/lc-agency.jpg" alt="LC Agency — merch con logotipo" loading="lazy"></div>
-        <div class="slide"><img src="img/otros/tactrick.jpg" alt="Tactrick — sistema de logotipo" loading="lazy"></div>
-        <div class="slide"><img src="img/otros/pikipuki.jpg" alt="PikiPuki — empaque de repostería para mascotas" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/kalu.jpg" srcset="img/otros/kalu-sm.jpg 800w, img/otros/kalu.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Kalu Cakes &amp; More — identidad y empaque" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/jf-group.jpg" srcset="img/otros/jf-group-sm.jpg 800w, img/otros/jf-group.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="JF Group — papelería corporativa" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/lc-agency.jpg" srcset="img/otros/lc-agency-sm.jpg 800w, img/otros/lc-agency.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="LC Agency — merch con logotipo" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/tactrick.jpg" srcset="img/otros/tactrick-sm.jpg 800w, img/otros/tactrick.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="Tactrick — sistema de logotipo" loading="lazy"></div>
+        <div class="slide"><img src="img/otros/pikipuki.jpg" srcset="img/otros/pikipuki-sm.jpg 800w, img/otros/pikipuki.jpg 1620w" sizes="(max-width:640px) 78vw, 420px" alt="PikiPuki — empaque de repostería para mascotas" loading="lazy"></div>
       </div>
       <div class="carrusel-ui">
         <button class="flecha prev" aria-label="Slide anterior">←</button>
@@ -526,10 +546,11 @@ footer .barra{margin-top:72px}
       if(e.key === 'ArrowLeft'){ e.preventDefault(); ir(-1); }
     });
 
-    /* Arrastre con pointer */
-    var abajo = false, inicioX = 0, inicioScroll = 0, movio = false;
+    /* Arrastre con pointer + tap en slide → lightbox */
+    var abajo = false, inicioX = 0, inicioScroll = 0, movio = false, imgTocada = null;
     pista.addEventListener('pointerdown', function(e){
       abajo = true; movio = false;
+      imgTocada = e.target.closest('.slide img');
       inicioX = e.clientX; inicioScroll = pista.scrollLeft;
       pista.setPointerCapture(e.pointerId);
     });
@@ -546,12 +567,40 @@ footer .barra{margin-top:72px}
       if(movio){
         var i = Math.max(0, Math.min(total-1, Math.round(pista.scrollLeft / paso())));
         pista.scrollTo({left: i * paso(), behavior: reduced ? 'auto' : 'smooth'});
+      } else if(imgTocada && e.type === 'pointerup'){
+        abrirLightbox(imgTocada);
       }
+      imgTocada = null;
     }
     pista.addEventListener('pointerup', soltar);
     pista.addEventListener('pointercancel', soltar);
 
     actualizar();
+  });
+
+  /* Lightbox */
+  var lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.setAttribute('role', 'dialog');
+  lb.setAttribute('aria-label', 'Imagen ampliada');
+  lb.innerHTML = '<button class="lightbox-cerrar" aria-label="Cerrar">✕</button><img alt="">';
+  document.body.appendChild(lb);
+  var lbImg = lb.querySelector('img');
+
+  window.abrirLightbox = function(img){
+    lbImg.src = img.src; /* el atributo src apunta a la versión de máxima resolución */
+    lbImg.alt = img.alt;
+    lb.classList.add('abierto');
+    document.body.style.overflow = 'hidden';
+  };
+  function cerrarLightbox(){
+    lb.classList.remove('abierto');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
+  lb.addEventListener('click', cerrarLightbox);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && lb.classList.contains('abierto')) cerrarLightbox();
   });
 })();
 </script>
