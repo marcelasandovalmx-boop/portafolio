@@ -63,7 +63,7 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 
 - Todo inline en un archivo; sin dependencias externas salvo Google Fonts (Montserrat).
 - Carruseles: scroll-snap nativo + JS (arrastre pointer, teclado, contador). Nav se oculta al bajar. Reveals con IntersectionObserver, easing `cubic-bezier(.16,1,.3,1)`. `prefers-reduced-motion` respetado.
-- **Lightbox**: tap/clic en slide abre la imagen full-res a pantalla completa (se detecta la imagen en pointerdown porque la pista captura el puntero; el arrastre NO abre). Esc o clic cierra.
+- **Lightbox**: tap/clic en slide abre la imagen full-res a pantalla completa (se detecta la imagen en pointerdown porque la pista captura el puntero; el arrastre NO abre). Esc o clic cierra. March pidió quitar el cursor de lupa (jul 2026): los slides usan el cursor grab de la pista, la función de abrir se mantiene.
 - **Imágenes responsivas**: cada slide tiene versión `-sm.jpg` (800w, q82) + original 1620w vía `srcset/sizes`; el `src` queda apuntando a la full-res (la usa el lightbox).
 - **Compartir**: `img/og-image.png` (1200×630, logo+barra) como og:image con URL ABSOLUTA (actualizarla si cambia el dominio), favicon naranjita (`img/favicon*.png`, generados de HTML con Montserrat).
 - Cinta de logos: filtro CSS `brightness(0) invert(.47)` = gris medio uniforme; hover restaura.
