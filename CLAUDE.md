@@ -68,3 +68,14 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 - **Compartir**: `img/og-image.png` (1200×630, logo+barra) como og:image con URL ABSOLUTA (actualizarla si cambia el dominio), favicon naranjita (`img/favicon*.png`, generados de HTML con Montserrat).
 - Cinta de logos: filtro CSS `brightness(0) invert(.47)` = gris medio uniforme; hover restaura.
 - Para procesar imágenes nuevas de casos: recorte cover a 4:5 centrado en el sujeto, JPG calidad 90, ~1400px+ de ancho.
+
+## Bóveda de Nar (bases vivas · oct 2026)
+
+Nar es el agente de desarrollo de negocio de March. Sus bases de datos viven en artefactos privados de Claude con base de datos propia; cualquier sesión las lee y escribe con la herramienta ArtifactData usando estas URLs (no hay datos personales aquí, solo las llaves):
+
+- **BNI Control Orangy** (fuente de verdad de la red BNI): https://claude.ai/artifact/39KCXJ8xQBChqqkvuT46SV · colecciones `contactos`, `unos` (1 a 1), `invitados`, `referencias`, `gpnc`, `semanal`, `config/meta`. March manda tarjetas, 1 a 1 y referencias por chat; Nar registra ficha (nombre, empresa, giro, origen, rol, estado, contacto, contexto, qué hace, un buen referido para él/ella, próxima acción). Respaldo a Excel en Drive › carpeta "BNI " cada viernes (cierre de semana) o cuando March diga "respaldo BNI".
+- **HQ Orangy** (facturación, pipeline, pendientes): https://claude.ai/artifact/1as2jZUCARuoPJeRU2xeNe (fuente nar-dashboard.html).
+- **Caja de Herramientas Growth**: https://claude.ai/artifact/4e41SvXr2YVrYHq2DueuXQ.
+- **Formularios de descubrimiento**: Tactrick https://claude.ai/artifact/AJssMrG3g2fo17C2Hy1YJz · Yasmín https://claude.ai/artifact/H4RpLf9ajFbsS5wrqUQZyY.
+
+Reglas: cada contacto nuevo o actualización se escribe primero en la base del tablero (es lo que March ve en el celular); el Excel es solo foto semanal. Nunca publicar datos de contactos en este repo (el sitio puede ser público).
