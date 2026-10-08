@@ -79,3 +79,7 @@ Nar es el agente de desarrollo de negocio de March. Sus bases de datos viven en 
 - **Formularios de descubrimiento**: Tactrick https://claude.ai/artifact/AJssMrG3g2fo17C2Hy1YJz · Yasmín https://claude.ai/artifact/H4RpLf9ajFbsS5wrqUQZyY.
 
 Reglas: cada contacto nuevo o actualización se escribe primero en la base del tablero (es lo que March ve en el celular); el Excel es solo foto semanal. Nunca publicar datos de contactos en este repo (el sitio puede ser público).
+
+- Los 1 a 1 llevan campo `bni` (Sí/No). Cuentan como BNI los que son con miembros o con gente conocida en sesiones de BNI (aunque no sea miembro); los externos (ej. aliados que llegaron por redes) se registran con `bni: No` y el tablero no los suma a los KPIs.
+- Cuando Nar detecte que dos contactos o prospectos pueden hacer sinergia (mismo cliente ideal, uno necesita lo que el otro vende, misma zona), se lo avisa a March en el momento para que ella haga la conexión; Nar no conecta por su cuenta.
+- Las notas sobre BNI que March comparte con terceros (ej. Charly) recogen solo lo que dijeron las personas y los huecos del sistema; no incluyen lo que March dijo o hizo en la sesión.
