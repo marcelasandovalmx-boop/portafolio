@@ -77,6 +77,7 @@ Nar es el agente de desarrollo de negocio de March. Sus bases de datos viven en 
 - **HQ Orangy** (facturación, pipeline, pendientes): https://claude.ai/artifact/1as2jZUCARuoPJeRU2xeNe (fuente nar-dashboard.html).
 - **Caja de Herramientas Growth**: https://claude.ai/artifact/4e41SvXr2YVrYHq2DueuXQ.
 - **Formularios de descubrimiento**: Tactrick https://claude.ai/artifact/AJssMrG3g2fo17C2Hy1YJz · Yasmín https://claude.ai/artifact/H4RpLf9ajFbsS5wrqUQZyY.
+- **Farmacia del Carmen · Señalética** (proyecto aparte, no va en HQ ni BNI): https://claude.ai/artifact/CP11oJHV1tPjx4cKdm6Abf (fuente farmacia-senaletica.html; capacidades db + user + assets). Colecciones `areas` (orden, nombre, zona, estado: Seleccionada fase 1 / Reserva / Descartada, medidas generales, sugerencia, fotos), `elementos` (areaId, tipo, ubicación, ancho/alto cm, contenido, material, prioridad, sugerencia, fotos), `benchmark` (visitas a otras farmacias) y `decisiones`. Las fotos se suben desde la página (assets) o Nar las sube con la herramienta Artifact (asset: true) y guarda el id en `fotos`. March describe áreas y medidas por chat; Nar las registra. El documento de las 5 áreas lleva T&C: cambios de área después de la entrega tienen costo.
 
 Reglas: cada contacto nuevo o actualización se escribe primero en la base del tablero (es lo que March ve en el celular); el Excel es solo foto semanal. Nunca publicar datos de contactos en este repo (el sitio puede ser público).
 
