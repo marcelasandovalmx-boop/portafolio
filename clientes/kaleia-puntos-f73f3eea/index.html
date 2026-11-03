@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../../img/favicon-32.png">
+<title>Puntos Kaleia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: una columna de lectura; saldo arriba, un bloque por mes con su barra de puntos, reglas y menú al final. */
+:root{
+  --bg:#F4F1EB; --fg:#3D3D3D; --muted:#545454; --faint:#8A8A8A; --line:#E3DED5; --card:#FBF9F5;
+  --accent:#E5501C; --teal:#32A6A6; --amber:#F27405; --soft:#FBE4DA; --track:#EAE5DC;
+  --display:'Montserrat',system-ui,sans-serif; --body:'Montserrat',system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#2A2926; --fg:#F4F1EB; --muted:#CFC9BF; --faint:#9A948B; --line:#45423C; --card:#33312D;
+  --accent:#F0683A; --teal:#4DBDBD; --amber:#F7922F; --soft:#4A322A; --track:#3E3B36; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#2A2926; --fg:#F4F1EB; --muted:#CFC9BF; --faint:#9A948B; --line:#45423C; --card:#33312D;
+  --accent:#F0683A; --teal:#4DBDBD; --amber:#F7922F; --soft:#4A322A; --track:#3E3B36; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+.wrap{max-width:860px;margin:0 auto}
+.barra{display:flex;height:6px;width:100%;margin:0 0 28px}.barra i{display:block;height:100%}
+.barra i:nth-child(1){flex:48;background:#E5501C}.barra i:nth-child(2){flex:15.5;background:#F27405}.barra i:nth-child(3){flex:27.4;background:#32A6A6}.barra i:nth-child(4){flex:9.1;background:#99E9F2}
+header{padding-top:28px}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 10px}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.2vw,40px);line-height:1.05;letter-spacing:-.02em;margin:0 0 10px;text-wrap:balance}
+.lead{max-width:62ch;color:var(--muted);margin:0}
+.meta{font-size:12px;color:var(--faint);margin-top:10px}
+.saldo{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0 8px}
+@media (max-width:640px){.saldo{grid-template-columns:1fr}}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 16px 14px;min-width:0}
+.tile .k{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.tile .v{font-family:var(--display);font-weight:800;font-size:34px;letter-spacing:-.02em;line-height:1.1;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.tile .v.acc{color:var(--accent)}.tile .v.teal{color:var(--teal)}
+.tile .s{font-size:12.5px;color:var(--muted)}
+section{margin-top:40px;border-top:2px solid var(--fg);padding-top:14px}
+section h2{font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:-.01em;margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+section h2 .pill{font-family:var(--body)}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.pill.hot{border-color:var(--accent);color:var(--accent)}.pill.ok{border-color:var(--teal);color:var(--teal)}
+.sub{color:var(--muted);font-size:14px;margin:0 0 14px;max-width:70ch}
+.mes{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 14px}
+.track{position:relative;height:14px;background:var(--track);border-radius:7px;overflow:hidden;margin:6px 0 8px}
+.track i{position:absolute;top:0;bottom:0;display:block}
+.track .u{background:var(--accent)}.track .a{background:var(--amber)}.track .c{background:var(--teal)}
+.leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--muted);margin:0 0 14px}
+.leg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.items{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line)}
+.item{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);align-items:start}
+.item .n{font-weight:600;font-size:14.5px}
+.item .d{font-size:13px;color:var(--muted);margin-top:2px}
+.item .p{font-family:var(--display);font-weight:800;font-size:20px;color:var(--accent);font-variant-numeric:tabular-nums;white-space:nowrap}
+.item .p small{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--faint);margin-left:3px}
+.item.libre .p{color:var(--teal)}
+.tot{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0 4px;font-size:13.5px;color:var(--muted)}
+.tot b{color:var(--fg)}
+.tot .p{font-family:var(--display);font-weight:800;font-size:18px;color:var(--fg);font-variant-numeric:tabular-nums}
+.nota{font-size:13px;color:var(--muted);background:var(--soft);border-radius:8px;padding:10px 12px;margin-top:12px}
+.nota b{color:var(--fg)}
+.pend{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.pend{grid-template-columns:1fr}}
+.pend .tile h3{font-family:var(--display);font-weight:800;font-size:14px;margin:0 0 8px}
+.pend ul{margin:0;padding-left:18px;font-size:14px;color:var(--muted)}.pend li{margin:0 0 6px}
+.reglas{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.reglas{grid-template-columns:1fr}}
+.reglas .tile b{display:block;font-size:14px;margin-bottom:4px;color:var(--fg)}
+.reglas .tile{font-size:13.5px;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:0 16px;margin-top:12px}
+summary{cursor:pointer;font-weight:700;padding:12px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:800;color:var(--accent);font-size:18px}
+details[open] summary::after{content:"−"}
+.menu{display:flex;flex-direction:column;border-top:1px solid var(--line);margin-bottom:12px}
+.menu h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:14px 0 6px}
+.menu .r{display:grid;grid-template-columns:1fr auto;gap:12px;padding:7px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.menu .r b{color:var(--fg);font-weight:600}
+.menu .r span:last-child{font-weight:800;color:var(--fg);white-space:nowrap;font-variant-numeric:tabular-nums}
+.dir{columns:2;column-gap:24px;font-size:13.5px;color:var(--muted);margin:0;padding-left:18px}
+@media (max-width:640px){.dir{columns:1}}
+.dir li{margin:0 0 6px;break-inside:avoid}
+footer{margin-top:40px;font-size:12px;color:var(--faint);max-width:70ch}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="barra"><i></i><i></i><i></i><i></i></div>
+  <p class="eyebrow">Kaleia × Orangy · Dirección de Marca</p>
+  <h1>Puntos de producción, mes a mes</h1>
+  <p class="lead">Cada mes la iguala trae 30 puntos de producción (25 de tarifa y 5 de cortesía). Aquí queda registrado en qué los invertimos, qué sobra, qué se adelanta y qué sigue. La capa de dirección (sesión de estrategia, juntas con el equipo, canal corporativo, tablero y coordinación) va incluida y no gasta puntos.</p>
+  <p class="meta" id="meta"></p>
+</header>
+
+<div class="saldo" id="saldo"></div>
+
+<div id="meses"></div>
+
+<section>
+  <h2>Pendientes para avanzar</h2>
+  <div class="pend" id="pend"></div>
+</section>
+
+<section>
+  <h2>Cómo funcionan los puntos</h2>
+  <div class="reglas">
+    <div class="tile"><b>30 puntos cada mes</b>25 de tarifa y 5 de cortesía, un detalle permanente de casa para Kaleia.</div>
+    <div class="tile"><b>Se arman desde el objetivo</b>El carrito del mes se decide en la sesión de estrategia, partiendo de lo que queremos lograr, nunca del menú por el menú.</div>
+    <div class="tile"><b>Lo que no se usa, pasa</b>Los puntos no usados pasan al mes siguiente, máximo un mes.</div>
+    <div class="tile"><b>Si un mes pide más</b>Se adelantan hasta 10 puntos del mes siguiente. Para un evento especial hay un pack de 10 puntos adicionales sin mover el plan.</div>
+  </div>
+  <details>
+    <summary>La capa de dirección, incluida cada mes</summary>
+    <ul class="dir">
+      <li>Sesión mensual de estrategia: el plan del mes se decide junto contigo.</li>
+      <li>Junta quincenal corta con el equipo: seguimiento real con las vendedoras.</li>
+      <li>Canal corporativo operado: prospección, propuestas y cierre de regalo corporativo y eventos.</li>
+      <li>Tablero mensual de métricas: seguimientos hechos, base de datos, ventas anticipadas de temporada.</li>
+      <li>Coordinación de producción y proveedores: arte, imprentas, sedes de talleres.</li>
+      <li>Prioridad de respuesta y tarifa congelada durante el semestre.</li>
+    </ul>
+  </details>
+  <details>
+    <summary>Menú de actividades y su costo en puntos</summary>
+    <div class="menu" id="menu"></div>
+  </details>
+</section>
+
+<footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = {
+  actualizado: "3 de noviembre de 2026",
+  puntosMes: 30,
+  meses: [
+    {
+      nombre: "Octubre 2026",
+      estado: { txt: "Propuesta de uso enviada a Ale · pendiente de luz verde", clase: "hot" },
+      entra: 0,
+      items: [
+        { n: "Diseño del servicio Intérprete Floral", d: "Brief de clienta, proceso paso a paso, niveles y precios, guion de entrega: la magia vuelta un servicio que todo el equipo puede ofrecer.", p: 10 },
+        { n: "Levantamiento de material", d: "Hasta 6 horas de captura de foto y video para contenido.", p: 8 },
+        { n: "Diseño integral de taller o activación de marca", d: "Método completo: plan de trabajo, capacitación a quien lo opera, checklist para que nada falte, estrategia de brief y cotización correcta, encuesta de satisfacción y seguimiento.", p: 16 },
+      ],
+      nota: "Suma 34 puntos: los 30 del mes más 4 adelantados de noviembre, dentro de la regla de adelantar hasta 10. Todo apunta a llegar a Arte Matilda con el servicio y los talleres listos para vender a clientas corporativas, personales y de eventos.",
+    },
+    {
+      nombre: "Noviembre 2026",
+      estado: { txt: "En curso · carrito por completar en la sesión de estrategia", clase: "" },
+      entra: -4,
+      items: [
+        { n: "Levantamiento de material en el vivero", d: "Primer jueves de noviembre. Levantamiento de más horas. [CONFIRMAR CON ALE: si rebasa las 6 horas del levantamiento estándar, se define en la sesión si cuenta como uno]", p: 8 },
+        { n: "Plan de contenido mensual + community", d: "4 reels, 4 carruseles, 8 historias, diseño y copywriting, respuesta de mensajes y comentarios. Se produce a partir del levantamiento del vivero y del contenido de la carpeta.", p: 10 },
+      ],
+      nota: "Entra con 4 puntos ya usados en octubre. Con el levantamiento y el plan de contenido van 18 de 26; quedan 8 por asignar en la sesión de estrategia de noviembre.",
+    },
+  ],
+  pendientes: {
+    ale: [
+      "Subir a la carpeta compartida el contenido que ya tiene (fotos y videos).",
+      "Confirmar la propuesta de uso de puntos de octubre, o pedir ajustes.",
+      "Definir el carrito de noviembre en la sesión de estrategia.",
+    ],
+    orangy: [
+      "Avanzar con todo lo que pide Arte Matilda a partir del contenido de la carpeta.",
+      "Crear el documento de estrategia comercial y de contenido: antes, durante y después de Arte Matilda.",
+      "Enviar factura de octubre en cuanto haya luz verde para empezar.",
+      "Dejar listos servicio, talleres y materiales para las clientas nuevas que lleguen de Arte Matilda: corporativas, personales y de eventos.",
+    ],
+  },
+  menu: [
+    ["Contenido y community", [["Plan de contenido mensual + community", "4 reels, 4 carruseles, 8 historias, diseño y copywriting, respuesta de mensajes y comentarios", 10], ["Historia adicional", "", 1], ["Carrusel adicional", "", 2], ["Reel adicional", "", 2], ["Post de arte única", "", 2], ["Levantamiento de material", "hasta 6 horas", 8]]],
+    ["Growth y comunidad", [["Gestión de pauta en Instagram", "la inversión publicitaria se paga directo a Meta", 6], ["Google Maps optimizado + sistema de reseñas", "", 6], ["Base de datos central de clientas", "estructura, formato y capacitación al equipo", 5], ["Sistema de seguimientos por vendedora", "guiones y rutina semanal; el envío lo hace el equipo", 5], ["Encuesta a clientas + lectura de resultados", "", 3], ["Banco de testimonios", "recolección, diseño y publicación", 4], ["Programa de clienta frecuente", "mecánica de lealtad y recompra", 6], ["Campaña de temporada", "concepto + piezas clave", 6], ["Transición del perfil de WhatsApp a Kaleia", "guía, anuncio a contactos y acompañamiento", 4]]],
+    ["Revendedores y Costco", [["Lista de primera línea de revendedores + mensaje de primicia", "", 3], ["Capacitación y estrategia para revendedores", "checklist, material, capacitación y planeación", 16], ["Catálogo / lookbook de temporada", "revendedores, corporativo y piso", 8], ["Inserto con QR para producto de Costco", "diseño + ficha de cuidados", 4]]],
+    ["Comunicación en punto de venta", [["Estrategia de comunicación en punto de venta", "mecánicas, piezas con propósito, medición", 6], ["Pieza para el local", "póster, QR a redes, tent de mesa, señalizador", 2], ["Kit de comunicación del local", "concepto + 3 o 4 piezas coordinadas", 5], ["Acción en punto de venta con mecánica", "concepto + piezas + medición", 4], ["Material narrativo de producto", "tarjeta de historia, ficha de cuidados y firma de quien lo hizo", 4]]],
+    ["Talleres, activaciones y expansión", [["Diseño integral de taller o activación de marca", "método completo, de la planeación a la encuesta", 16], ["Asistencia a evento", "por día: presencia, apoyo en sitio y captura de contenido", 8], ["Diseño de empaque", "", 5], ["Portafolio visual para eventos y regalo corporativo", "", 8], ["Gestión de colaboración o prensa", "pitch + seguimiento", 4], ["Propuesta de expansión o nueva línea de negocio", "idea aterrizada con números y primer paso", 5]]],
+    ["Procesos", [["Tablero de disponibilidad de producto", "qué hay, para vender con seguridad", 4], ["Política de precios de una página", "una sola voz de precios para el equipo", 4], ["Sesión de refuerzo de capacitación al equipo de piso", "argumentario, historia, manejo del regateo", 6], ["Proceso documentado adicional", "pedidos, entregas, apertura y cierre", 4], ["Diseño del servicio Intérprete Floral", "brief, proceso, niveles y precios, guion de entrega", 10]]],
+  ],
+};
+
+const $ = id => document.getElementById(id);
+$('meta').textContent = 'Actualizado el ' + DATA.actualizado + ' · Lo actualiza Orangy después de cada sesión de estrategia.';
+
+// Saldo
+const last = DATA.meses[DATA.meses.length - 1];
+const usadoUlt = last.items.reduce((t, i) => t + i.p, 0);
+const dispUlt = DATA.puntosMes + last.entra;
+const restan = dispUlt - usadoUlt;
+const totalUsado = DATA.meses.reduce((t, m) => t + m.items.reduce((s, i) => s + i.p, 0), 0);
+$('saldo').innerHTML = `
+  <div class="tile"><div class="k">${last.nombre} · disponibles</div><div class="v">${dispUlt}</div><div class="s">${DATA.puntosMes} del mes ${last.entra < 0 ? '− ' + Math.abs(last.entra) + ' adelantados en el mes anterior' : last.entra > 0 ? '+ ' + last.entra + ' que pasaron del mes anterior' : ''}</div></div>
+  <div class="tile"><div class="k">${last.nombre} · asignados</div><div class="v acc">${usadoUlt}</div><div class="s">${last.items.length} actividad${last.items.length === 1 ? '' : 'es'} en el carrito</div></div>
+  <div class="tile"><div class="k">${last.nombre} · por asignar</div><div class="v teal">${restan}</div><div class="s">Se deciden en la sesión de estrategia del mes</div></div>`;
+
+// Meses (más reciente primero)
+$('meses').innerHTML = [...DATA.meses].reverse().map(m => {
+  const usado = m.items.reduce((t, i) => t + i.p, 0);
+  const base = DATA.puntosMes + Math.min(m.entra, 0);          // puntos propios del mes
+  const arrastre = Math.max(m.entra, 0);                        // puntos que pasaron
+  const total = base + arrastre;
+  const adel = Math.max(usado - total, 0);                      // adelantados del siguiente
+  const libres = Math.max(total - usado, 0);
+  const cap = Math.max(usado, total);
+  const w = n => (100 * n / cap).toFixed(1) + '%';
+  let x = 0; const seg = (cls, n) => { if (n <= 0) return ''; const s = `<i class="${cls}" style="left:${w(x)};width:${w(n)}"></i>`; x += n; return s; };
+  const barra = seg('u', Math.min(usado, total)) + seg('a', adel) + seg('c', libres);
+  return `<section>
+    <h2>${m.nombre} <span class="pill ${m.estado.clase}">${m.estado.txt}</span></h2>
+    <p class="sub">${m.entra < 0 ? `Entra con ${Math.abs(m.entra)} puntos ya usados el mes anterior: quedan ${total} disponibles.` : m.entra > 0 ? `Entra con ${m.entra} puntos que pasaron del mes anterior: ${total} disponibles.` : `${total} puntos disponibles.`}</p>
+    <div class="mes">
+      <div class="track">${barra}</div>
+      <div class="leg"><span><i style="background:var(--accent)"></i>Asignados ${Math.min(usado, total)}</span>${adel ? `<span><i style="background:var(--amber)"></i>Adelantados del mes siguiente ${adel}</span>` : ''}${libres ? `<span><i style="background:var(--teal)"></i>Por asignar ${libres}</span>` : ''}</div>
+      <div class="items">${m.items.map(i => `<div class="item"><div><div class="n">${i.n}</div>${i.d ? `<div class="d">${i.d}</div>` : ''}</div><div class="p">${i.p}<small>PTS</small></div></div>`).join('')}
+        ${libres ? `<div class="item libre"><div><div class="n">Por asignar</div><div class="d">Se decide en la sesión de estrategia del mes.</div></div><div class="p">${libres}<small>PTS</small></div></div>` : ''}
+      </div>
+      <div class="tot"><div><b>Total del mes</b> · ${total} disponibles${adel ? ` + ${adel} adelantados` : ''}</div><div class="p">${usado} pts</div></div>
+      ${m.nota ? `<div class="nota">${m.nota}</div>` : ''}
+    </div>
+  </section>`;
+}).join('');
+
+// Pendientes
+$('pend').innerHTML = `<div class="tile"><h3>Del lado de Kaleia</h3><ul>${DATA.pendientes.ale.map(p => `<li>${p}</li>`).join('')}</ul></div><div class="tile"><h3>Del lado de Orangy</h3><ul>${DATA.pendientes.orangy.map(p => `<li>${p}</li>`).join('')}</ul></div>`;
+
+// Menú
+$('menu').innerHTML = DATA.menu.map(([g, rows]) => `<h4>${g}</h4>` + rows.map(r => `<div class="r"><span><b>${r[0]}</b>${r[1] ? ' · ' + r[1] : ''}</span><span>${r[2]} pts</span></div>`).join('')).join('');
+
+$('foot').innerHTML = `Lo que no incluye la iguala: la operación de WhatsApp la hace el equipo Kaleia (Orangy entrega mensajes, guiones y piezas listos para enviar); la inversión publicitaria se paga directo a Meta. Las cifras de puntos salen del menú de la propuesta de Dirección de Marca; cualquier actividad fuera de él se define en la sesión de estrategia.`;
+</script>
+
+</body>
+</html>
