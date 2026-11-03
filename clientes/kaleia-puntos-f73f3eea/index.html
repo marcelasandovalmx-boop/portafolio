@@ -163,16 +163,9 @@ const DATA = {
   ],
   pendientes: {
     ale: [
-      "Subir a la carpeta compartida el contenido que ya tiene (fotos y videos).",
-      "Confirmar la propuesta de uso de puntos de octubre, o pedir ajustes.",
-      "Definir el carrito de noviembre en la sesión de estrategia.",
+      "Confirmar cómo se quieren usar los 8 puntos restantes de noviembre.",
     ],
-    orangy: [
-      "Avanzar con todo lo que pide Arte Matilda a partir del contenido de la carpeta.",
-      "Crear el documento de estrategia comercial y de contenido: antes, durante y después de Arte Matilda.",
-      "Enviar factura de octubre en cuanto haya luz verde para empezar.",
-      "Dejar listos servicio, talleres y materiales para las clientas nuevas que lleguen de Arte Matilda: corporativas, personales y de eventos.",
-    ],
+    orangy: [],
   },
   menu: [
     ["Contenido y community", [["Plan de contenido mensual + community", "4 reels, 4 carruseles, 8 historias, diseño y copywriting, respuesta de mensajes y comentarios", 10], ["Historia adicional", "", 1], ["Carrusel adicional", "", 2], ["Reel adicional", "", 2], ["Post de arte única", "", 2], ["Levantamiento de material", "hasta 6 horas", 8]]],
@@ -226,7 +219,7 @@ $('meses').innerHTML = [...DATA.meses].reverse().map(m => {
 }).join('');
 
 // Pendientes
-$('pend').innerHTML = `<div class="tile"><h3>Del lado de Kaleia</h3><ul>${DATA.pendientes.ale.map(p => `<li>${p}</li>`).join('')}</ul></div><div class="tile"><h3>Del lado de Orangy</h3><ul>${DATA.pendientes.orangy.map(p => `<li>${p}</li>`).join('')}</ul></div>`;
+$('pend').innerHTML = [['Del lado de Kaleia', DATA.pendientes.ale], ['Del lado de Orangy', DATA.pendientes.orangy]].filter(g => g[1].length).map(g => `<div class="tile"><h3>${g[0]}</h3><ul>${g[1].map(p => `<li>${p}</li>`).join('')}</ul></div>`).join('') || '<div class="tile">Sin pendientes por ahora.</div>';
 
 // Menú
 $('menu').innerHTML = DATA.menu.map(([g, rows]) => `<h4>${g}</h4>` + rows.map(r => `<div class="r"><span><b>${r[0]}</b>${r[1] ? ' · ' + r[1] : ''}</span><span>${r[2]} pts</span></div>`).join('')).join('');
