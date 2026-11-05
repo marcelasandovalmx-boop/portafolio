@@ -10,6 +10,7 @@ FONT = '/root/reels/fuentes/Montserrat.ttf'
 MIN_DUR, ENTRADA, DESPL = 0.4, 0.2, 12
 import os
 BLOQUE = tuple(int(os.environ.get('BLOQUE', 'F4F1EB')[k:k+2], 16) for k in (0, 2, 4))   # fondo de la palabra clave
+TEMA = os.environ.get('TEMA', 'real')   # 'papel': apoyo gris #545454 sin sombra
 PAD_X = 26                         # aire lateral del bloque a 150 px
 
 W = json.load(open('../1-corte/words.json'))
@@ -78,7 +79,7 @@ def layout(b):
     piezas = []                       # (i_palabra, x, y, texto, fuente, track, color)
     x = X0; sp = f_apoyo.getlength(' ')
     for i in apoyo:
-        t = limpia(W[i]['word']); piezas.append((i, x, Y_APOYO, t, f_apoyo, -0.64, PAPEL)); x += largo(t, f_apoyo, -0.64) + sp
+        t = limpia(W[i]['word']); piezas.append((i, x, Y_APOYO, t, f_apoyo, -0.64, (84, 84, 84) if TEMA == 'papel' else PAPEL)); x += largo(t, f_apoyo, -0.64) + sp
     if b['clave'] is not None:
         t = limpia(W[b['clave']]['word']); y = Y_CLAVE if apoyo else Y_APOYO
         size = 150; f = fuente(size, 800)            # nunca se parte: se achica lo justo
@@ -117,7 +118,7 @@ def cuadro(b, visibles, prog):
             dibuja(d, (x, y + dy), t, f, tr, col + (255,))
     a = txt.getchannel('A')
     sombra = Image.new('RGBA', (W_, H_), SOMBRA + (0,))
-    sombra.putalpha(a.point(lambda v: int(v * .45)).filter(ImageFilter.GaussianBlur(12)))
+    sombra.putalpha(a.point(lambda v: 0 if TEMA == 'papel' else int(v * .45)).filter(ImageFilter.GaussianBlur(12)))
     capa = Image.new('RGBA', (W_, H_)); capa.alpha_composite(sombra, (0, 4)); capa.alpha_composite(txt); capa.alpha_composite(blq)
     if prog < 1: capa.putalpha(capa.getchannel('A').point(lambda v: int(v * prog)))
     cache.clear() if len(cache) > 64 else None
