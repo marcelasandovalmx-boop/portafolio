@@ -94,6 +94,7 @@ ESC = [  # (inicio, fin, tipo, datos)
 ]
 ZOOM = [(t_pel, LISTA_INI, 'seco'), (a_alto[0], a_det[1] + .25, 'seco'), (t_nopas, t_simil_fin + .2, 'lento')]
 CITA = (t_lam - .15, t_tien_fin + .5, '“Lamento mucho, pero no tenemos una solución con el presupuesto que tienes.”')
+json.dump({'escenas': [(a, b, k) for a, b, k, _ in ESC], 'zooms': ZOOM, 'cita': CITA[:2], 'dur': DUR + COLA}, open('escenas.json', 'w'), indent=1)
 print('escenas:', [(round(a, 2), round(b, 2), k) for a, b, k, _ in ESC]); print('zooms:', [(round(a, 2), round(b, 2), k) for a, b, k in ZOOM])
 
 def escena(t):
@@ -113,7 +114,7 @@ def escala(img, z):
     return img.crop((x, y, x + w, y + h)).resize((W_, H_), Image.LANCZOS)
 
 logo = Image.open(LOGO).convert('RGBA'); logo = logo.resize((560, round(560 * logo.height / logo.width)), Image.LANCZOS)
-f_lista, f_cita = fuente(46, 700), fuente(44, 600)
+f_lista, f_cita = fuente(40, 700), fuente(44, 600)
 
 def limpia_mate(al):                     # quita restos lejanos al cuerpo (marco del cuadro): máscara dilatada ~40 px
     chico = al.resize((W_ // 4, H_ // 4)).point(lambda v: 255 if v > 140 else 0)
@@ -150,13 +151,13 @@ def cuadro(t, real, fr, al, sub_r, sub_p):
         return img                                       # una idea: el título; sin subtítulos
     if e and e[2] == 'lista':
         img = Image.new('RGBA', (W_, H_), PAPEL + (255,))
-        p = fr.convert('RGBA'); p.putalpha(limpia_mate(al)); img.alpha_composite(p, (0, BAJA))
-        y = 262
+        p = fr.convert('RGBA'); p.putalpha(limpia_mate(al)); img.alpha_composite(p, (0, BAJA + 60))
+        y = 236
         for k, (txt, t0) in enumerate(LISTA):
             pr = bezier((t - t0) / .3)
             if pr <= 0: continue
-            capa = Image.new('RGBA', (W_, H_)); dc = ImageDraw.Draw(capa); yy = y + k * 72 + round(24 * (1 - pr))
-            dc.rectangle([X0, yy + 24, X0 + 22, yy + 28], fill=NARANJA + (255,))     # guion naranja, acento mínimo
+            capa = Image.new('RGBA', (W_, H_)); dc = ImageDraw.Draw(capa); yy = y + k * 56 + round(24 * (1 - pr))
+            dc.rectangle([X0, yy + 21, X0 + 20, yy + 25], fill=NARANJA + (255,))     # guion naranja, acento mínimo
             dibuja(dc, X0 + 44, yy, txt, f_lista, -0.5, GRIS + (255,))
             if pr < 1: capa.putalpha(capa.getchannel('A').point(lambda v: int(v * pr)))
             img.alpha_composite(capa)
@@ -181,7 +182,21 @@ def cuadro(t, real, fr, al, sub_r, sub_p):
 def lector(path, fmt):
     c = av.open(path)
     for f in c.decode(video=0): yield f.to_image() if fmt == 'rgb' else Image.fromarray(f.to_ndarray(format=fmt))
-src = [lector(CORTE, 'rgb'), lector(FRENTE, 'rgb'), lector(ALFA, 'gray'), lector(SUB_R, 'rgba'), lector(SUB_P, 'rgba')]
+# el recorte solo existe en los tramos sobre papel (gancho y lista): se lee por tramo, sincronizado por tiempo
+R = f'{P}/2-recorte'
+TRAMOS = [(0.0, f'{R}/dr0.4-frente.mp4', f'{R}/dr0.4-alfa.mkv'), (56.5, f'{R}/seg-lista-frente.mp4', f'{R}/seg-lista-alfa.mkv')]
+class Mate:
+    def __init__(s): s.act = None
+    def get(s, t):
+        ini, fp, ap = max((x for x in TRAMOS if x[0] <= t + 1e-6), key=lambda x: x[0])
+        if s.act is None or s.act[0] != ini: s.act = [ini, lector(fp, 'rgb'), lector(ap, 'gray'), -1, None]
+        n = round((t - ini) * FPS)
+        while s.act[3] < n:
+            try: s.act[4] = (next(s.act[1]), next(s.act[2])); s.act[3] += 1
+            except StopIteration: break
+        return s.act[4]
+mate = Mate()
+src = [lector(CORTE, 'rgb'), lector(SUB_R, 'rgba'), lector(SUB_P, 'rgba')]
 n_tot = round((DUR + COLA) * FPS); n_ini = round(DESDE * FPS); n_fin = min(n_tot, round(HASTA * FPS))
 dur_out = (n_fin - n_ini) / FPS
 ff = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W_}x{H_}', '-r', str(FPS), '-i', '-',
@@ -194,6 +209,8 @@ for n in range(n_fin):
         try: ultimo = [next(g) for g in src]
         except StopIteration: pass
     if n < n_ini: continue
-    ff.stdin.write(cuadro(t, *ultimo).convert('RGB').tobytes())
+    e = escena(t); fr, al = mate.get(t) if e and e[2] in ('gancho', 'lista') else (None, None)
+    real, sub_r, sub_p = ultimo
+    ff.stdin.write(cuadro(t, real, fr, al, sub_r, sub_p).convert('RGB').tobytes())
     if n % 300 == 0: print(f'{t:6.1f} s', flush=True)
 ff.stdin.close(); ff.wait(); print('listo', SALIDA)
