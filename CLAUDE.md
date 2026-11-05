@@ -6,7 +6,8 @@ Sitio one-page (HTML/CSS/JS en un solo archivo: `index.html`, renombrado desde o
 
 1. **El orden que ella indica es sagrado.** Si manda imágenes en un orden (PDF, lista), ese es el orden de los slides. Nunca curar/reordenar por cuenta propia.
 2. **Ante la duda, preguntar ANTES de hacer.** No sustituir contenido por "equivalentes".
-3. Es diseñadora senior — hablar de diseño de tú a tú, con criterio de brand manager AAA, pero ella decide.
+3. **Siempre su branding (nov 2026):** todo lo que se produzca para March (reels, videos, piezas, kits de terceros como el de Viegas Estudio) usa el sistema de diseño Orangy de abajo; las guías de otros estudios solo sirven como formato, nunca como estilo.
+4. Es diseñadora senior — hablar de diseño de tú a tú, con criterio de brand manager AAA, pero ella decide.
 
 ## Sistema de diseño (NO modificar sin su OK)
 
