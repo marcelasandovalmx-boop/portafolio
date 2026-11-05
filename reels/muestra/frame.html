@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&display=block" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden}
+body{background:#F4F1EB;font-family:Montserrat,sans-serif;color:#545454;position:relative}
+.barra{position:absolute;left:64px;top:300px;display:flex;width:600px;height:10px}
+.barra i{display:block}
+.titulo{position:absolute;left:64px;top:350px;font-weight:800;font-size:158px;line-height:.98;letter-spacing:-.02em;color:#545454;z-index:1}
+.persona{position:absolute;left:50%;bottom:0;transform:translateX(-46%);z-index:2}
+.sub{position:absolute;left:64px;top:1250px;width:812px;z-index:3}
+.sub .apoyo{font-weight:600;font-size:64px;letter-spacing:-.01em;line-height:1.1}
+.sub .clave{font-weight:800;font-size:150px;letter-spacing:-.02em;line-height:1;color:#E5501C}
+.guias .zona{position:absolute;background:rgba(229,80,28,.10);z-index:9}
+.guias .lbl{position:absolute;font:600 22px Montserrat;letter-spacing:.14em;text-transform:uppercase;color:#E5501C;z-index:10}
+.guias .borde{position:absolute;left:64px;top:220px;width:876px;height:1320px;border:2px dashed #E5501C;z-index:9}
+</style></head><body>
+<div class="barra"><i style="flex:48;background:#E5501C"></i><i style="flex:15.5;background:#F27405"></i><i style="flex:27.4;background:#32A6A6"></i><i style="flex:6.8;background:#99E9F2"></i></div>
+<div class="titulo">No por<br>velocidad.</div>
+<svg class="persona" width="760" height="1240" viewBox="0 0 760 1240">
+ <ellipse cx="380" cy="300" rx="150" ry="185" fill="#CFC7BB"/>
+ <rect x="320" y="460" width="120" height="110" fill="#CFC7BB"/>
+ <path d="M40 1240 C40 760 150 600 380 585 C610 600 720 760 720 1240 Z" fill="#DCD5CA"/>
+ <text x="380" y="315" text-anchor="middle" font-family="Montserrat" font-weight="600" font-size="22" letter-spacing="3" fill="#8E877D">SILUETA DE PRUEBA</text>
+</svg>
+<div class="sub"><div class="apoyo">Por</div><div class="clave">dirección.</div></div>
+<div class="guias" style="display:GUIAS">
+ <div class="zona" style="left:0;top:0;width:1080px;height:220px"></div>
+ <div class="zona" style="left:0;top:1540px;width:1080px;height:380px"></div>
+ <div class="zona" style="left:940px;top:220px;width:140px;height:1320px"></div>
+ <div class="borde"></div>
+ <div class="lbl" style="left:64px;top:96px">Zona reservada · 220 px</div>
+ <div class="lbl" style="left:64px;top:1700px">Zona reservada · 380 px</div>
+ <div class="lbl" style="left:990px;top:900px;writing-mode:vertical-rl">140 px</div>
+</div>
+</body></html>
