@@ -1,0 +1,352 @@
+[
+ {
+  "i": 15,
+  "palabra": "polémico",
+  "clave": "polémico",
+  "start": 4.25,
+  "end": 4.99
+ },
+ {
+  "i": 29,
+  "palabra": "acuerdo",
+  "clave": "acuerdo",
+  "start": 9.17,
+  "end": 9.47
+ },
+ {
+  "i": 45,
+  "palabra": "conclusión",
+  "clave": "conclusión",
+  "start": 14.65,
+  "end": 15.35
+ },
+ {
+  "i": 55,
+  "palabra": "recomiende.",
+  "clave": "recomiende",
+  "start": 18.59,
+  "end": 19.13
+ },
+ {
+  "i": 58,
+  "palabra": "repito",
+  "clave": "repito",
+  "start": 19.61,
+  "end": 19.81
+ },
+ {
+  "i": 67,
+  "palabra": "mundo",
+  "clave": "mundo",
+  "start": 22.65,
+  "end": 22.83
+ },
+ {
+  "i": 77,
+  "palabra": "contraproducente",
+  "clave": "contraproducente",
+  "start": 25.39,
+  "end": 26.27
+ },
+ {
+  "i": 95,
+  "palabra": "conocen,",
+  "clave": "conocen",
+  "start": 29.79,
+  "end": 30.55
+ },
+ {
+  "i": 120,
+  "palabra": "feliz,",
+  "clave": "feliz",
+  "start": 39.45,
+  "end": 39.91
+ },
+ {
+  "i": 127,
+  "palabra": "términos",
+  "clave": "términos",
+  "start": 42.45,
+  "end": 42.89
+ },
+ {
+  "i": 150,
+  "palabra": "recomendar,",
+  "clave": "recomendar",
+  "start": 47.81,
+  "end": 48.65
+ },
+ {
+  "i": 153,
+  "palabra": "hago.",
+  "clave": "hago",
+  "start": 49.15,
+  "end": 49.35
+ },
+ {
+  "i": 157,
+  "palabra": "peligroso",
+  "clave": "peligroso",
+  "start": 50.19,
+  "end": 50.55
+ },
+ {
+  "i": 187,
+  "palabra": "precio.",
+  "clave": "precio",
+  "start": 60.37,
+  "end": 60.61
+ },
+ {
+  "i": 192,
+  "palabra": "concesiones",
+  "clave": "concesiones",
+  "start": 62.11,
+  "end": 62.71
+ },
+ {
+  "i": 204,
+  "palabra": "urgencia,",
+  "clave": "urgencia",
+  "start": 66.09,
+  "end": 66.81
+ },
+ {
+  "i": 210,
+  "palabra": "más",
+  "clave": "más",
+  "start": 67.63,
+  "end": 67.91
+ },
+ {
+  "i": 224,
+  "palabra": "venga,",
+  "clave": "venga",
+  "start": 71.31,
+  "end": 71.69
+ },
+ {
+  "i": 241,
+  "palabra": "ceder",
+  "clave": "ceder",
+  "start": 77.09,
+  "end": 77.59
+ },
+ {
+  "i": 250,
+  "palabra": "detente.",
+  "clave": "detente",
+  "start": 81.01,
+  "end": 81.25
+ },
+ {
+  "i": 264,
+  "palabra": "cliente,",
+  "clave": "cliente",
+  "start": 85.73,
+  "end": 86.69
+ },
+ {
+  "i": 276,
+  "palabra": "barato",
+  "clave": "barato",
+  "start": 90.61,
+  "end": 91.25
+ },
+ {
+  "i": 286,
+  "palabra": "regateó",
+  "clave": "regateó",
+  "start": 94.89,
+  "end": 95.63
+ },
+ {
+  "i": 298,
+  "palabra": "deshoras,",
+  "clave": "deshoras",
+  "start": 98.73,
+  "end": 98.99
+ },
+ {
+  "i": 305,
+  "palabra": "recomiende?",
+  "clave": "recomiende",
+  "start": 101.35,
+  "end": 101.75
+ },
+ {
+  "i": 312,
+  "palabra": "decir",
+  "clave": "decir",
+  "start": 103.33,
+  "end": 103.57
+ },
+ {
+  "i": 328,
+  "palabra": "superbarato,",
+  "clave": "superbarato",
+  "start": 107.49,
+  "end": 108.85
+ },
+ {
+  "i": 337,
+  "palabra": "ordenado,",
+  "clave": "ordenado",
+  "start": 110.73,
+  "end": 111.19
+ },
+ {
+  "i": 350,
+  "palabra": "gratis.",
+  "clave": "gratis",
+  "start": 114.43,
+  "end": 114.93
+ },
+ {
+  "i": 352,
+  "palabra": "más,",
+  "clave": "más",
+  "start": 115.23,
+  "end": 115.49
+ },
+ {
+  "i": 364,
+  "palabra": "contraproducente",
+  "clave": "contraproducente",
+  "start": 119.53,
+  "end": 120.45
+ },
+ {
+  "i": 378,
+  "palabra": "respetan",
+  "clave": "respetan",
+  "start": 124.03,
+  "end": 124.39
+ },
+ {
+  "i": 392,
+  "palabra": "similares",
+  "clave": "similares",
+  "start": 129.59,
+  "end": 129.99
+ },
+ {
+  "i": 407,
+  "palabra": "regateando,",
+  "clave": "regateando",
+  "start": 133.67,
+  "end": 134.51
+ },
+ {
+  "i": 421,
+  "palabra": "negocio,",
+  "clave": "negocio",
+  "start": 138.41,
+  "end": 139.25
+ },
+ {
+  "i": 429,
+  "palabra": "paso",
+  "clave": "paso",
+  "start": 141.11,
+  "end": 141.45
+ },
+ {
+  "i": 436,
+  "palabra": "cotización",
+  "clave": "cotización",
+  "start": 143.83,
+  "end": 144.29
+ },
+ {
+  "i": 452,
+  "palabra": "presupuesto",
+  "clave": "presupuesto",
+  "start": 149.17,
+  "end": 149.61
+ },
+ {
+  "i": 463,
+  "palabra": "último",
+  "clave": "último",
+  "start": 152.15,
+  "end": 152.45
+ },
+ {
+  "i": 476,
+  "palabra": "personalidad",
+  "clave": "personalidad",
+  "start": 156.35,
+  "end": 156.99
+ },
+ {
+  "i": 491,
+  "palabra": "peligroso",
+  "clave": "peligroso",
+  "start": 160.41,
+  "end": 160.67
+ },
+ {
+  "i": 513,
+  "palabra": "costaba",
+  "clave": "costaba",
+  "start": 169.18,
+  "end": 169.64
+ },
+ {
+  "i": 536,
+  "palabra": "clientes.",
+  "clave": "clientes",
+  "start": 176.28,
+  "end": 177.08
+ },
+ {
+  "i": 544,
+  "palabra": "ellos.",
+  "clave": "ellos",
+  "start": 179.2,
+  "end": 179.74
+ },
+ {
+  "i": 553,
+  "palabra": "comentarios.",
+  "clave": "comentarios",
+  "start": 181.56,
+  "end": 181.98
+ },
+ {
+  "i": 561,
+  "palabra": "correcta",
+  "clave": "correcta",
+  "start": 184.08,
+  "end": 184.82
+ },
+ {
+  "i": 603,
+  "palabra": "sea,",
+  "clave": "sea",
+  "start": 193.52,
+  "end": 193.64
+ },
+ {
+  "i": 617,
+  "palabra": "clientes,",
+  "clave": "clientes",
+  "start": 195.96,
+  "end": 196.28
+ },
+ {
+  "i": 623,
+  "palabra": "respeten",
+  "clave": "respeten",
+  "start": 197.28,
+  "end": 197.64
+ },
+ {
+  "i": 636,
+  "palabra": "advertí",
+  "clave": "advertí",
+  "start": 201.13,
+  "end": 201.78
+ }
+]
