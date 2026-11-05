@@ -95,9 +95,19 @@ ESC = [  # (inicio, fin, tipo, datos)
     (t_pien[0], t_pien_fin + .45, 'titulo', ('No quieres más clientes como ellos.', {'como', 'ellos'})),
     (DUR, DUR + COLA, 'cierre', None),
 ]
+FRASES = [('pero', 27.3, '¿Pero cómo, Marcela?', {'marcela'}), ('mira', 49.9, 'Mira qué peligroso es esto.', {'peligroso'}),
+    ('Alto', 80.1, 'Alto ahí.', {'alto'}), ('Tú', 102.0, '¿Qué va a decir de ti?', {'decir'}), ('No', 117.2, '¿No pasará entonces…?', {'pasará'}),
+    ('primer', 140, 'El primer paso.', {'primer', 'paso'}), ('algo', 160.3, 'Algo bien peligroso.', {'peligroso'}),
+    ('no', 183, 'No hay una sola manera correcta.', {'correcta'})]
+if os.environ.get('CORTES'):
+    for w, cerca, txt, nar in FRASES:
+        t0 = palabra(w, cerca)[0]
+        prev_fin = max([b for a, b, k, d in ESC if a <= t0 < b] or [t0])
+        ESC.append((prev_fin, prev_fin + 1.4, 'frase', (txt, nar)))
+    ESC.sort(key=lambda e: e[0])
 ZOOM = [(t_pel, LISTA_INI, 'seco'), (a_alto[0], a_det[1] + .25, 'seco'), (t_nopas, t_simil_fin + .2, 'lento')]
 CITA = (t_lam - .15, t_tien_fin + .5, '“Lamento mucho, pero no tenemos una solución con el presupuesto que tienes.”')
-json.dump({'escenas': [(a, b, k) for a, b, k, _ in ESC], 'zooms': ZOOM, 'cita': CITA[:2], 'dur': DUR + COLA}, open('escenas.json', 'w'), indent=1)
+json.dump({'escenas': [(a, b, k) for a, b, k, _ in ESC], 'zooms': ZOOM, 'cita': CITA[:2], 'dur': DUR + COLA}, open(os.environ.get('ESC_JSON', 'escenas.json'), 'w'), indent=1)
 print('escenas:', [(round(a, 2), round(b, 2), k) for a, b, k, _ in ESC]); print('zooms:', [(round(a, 2), round(b, 2), k) for a, b, k in ZOOM])
 
 def escena(t):
@@ -110,6 +120,7 @@ def zoom(t):
     for a, b, k in ZOOM:
         if a <= t < b: return (1.06 if DINAMICO else 1.04) if k == 'seco' else 1 + (.06 if DINAMICO else .04) * suave((t - a) / (b - a))
     if not DINAMICO: return 1.0
+    if en_efecto(t): return 1.0
     # ritmo de editor: en cada palabra clave alterna plano abierto / cerrado (corte seco) + empuje lento de 1.5 %
     prev = [i for i, c in enumerate(CLAVES_T) if c <= t]
     if not prev: return 1.0 + .015 * min(1, t / 4)
@@ -140,7 +151,7 @@ for w, cerca, ico in ICONOS_PLAN if os.environ.get('ICONOS') else []:
     dc.rectangle([0, 172, 175, 175], fill=NARANJA + (255,))
     ICONOS.append([t0, t0 + 1.6, card])
 for a, b in zip(ICONOS, ICONOS[1:]): a[1] = min(a[1], b[0] - .05)
-json.dump([a for a, b, _ in ICONOS], open('iconos.json', 'w'))
+json.dump([a for a, b, _ in ICONOS], open(os.environ.get('ICO_JSON', 'iconos.json'), 'w'))
 print('elementos:', [(round(a, 2), round(b, 2)) for a, b, _ in ICONOS])
 def elemento(img, t):
     for a, b, card in ICONOS:
@@ -153,6 +164,60 @@ def elemento(img, t):
             sh = Image.new('RGBA', c.size, SOMBRA_C + (0,)); sh.putalpha(c.getchannel('A').point(lambda v: int(v * .35)))
             pad = Image.new('RGBA', (c.width + 80, c.height + 80)); pad.alpha_composite(sh, (40, 40)); pad = pad.filter(ImageFilter.GaussianBlur(16))
             img.alpha_composite(pad, (x - 40, y - 40 + 8)); img.alpha_composite(c, (x, y))
+
+# ---------- efectos con recorte: órbita de portafolio y palabra gigante detrás de March ----------
+EFECTOS = bool(os.environ.get('EFECTOS'))
+IMG = '/home/user/portafolio/img'
+ORBITA = DETRAS = None; CARTAS = []
+if EFECTOS:
+    ORBITA = (palabra('todos', 29.05)[0] - .1, palabra('recomienden', 33.2)[1] + .35)
+    DETRAS = []
+    for w, cerca in (('contraproducente', 25.39), ('similares', 129.6), ('advertí', 201.1)):
+        a, b = palabra(w, cerca); DETRAS.append((a - .1, min(b + .9, DUR - .02), limpia_txt := re.sub(r'[^\wáéíóúñü]', '', w)))
+    for caso, sl in ((1, 2), (2, 2), (3, 3), (4, 2), (5, 3), (3, 1)):     # piezas reales del portafolio
+        im = Image.open(f'{IMG}/caso-{caso}/slide-{sl}-sm.jpg').convert('RGB').resize((240, 300), Image.LANCZOS)
+        c = Image.new('RGBA', (256, 316), PAPEL + (255,)); c.paste(im, (8, 8))
+        pad = Image.new('RGBA', (336, 396)); sh = Image.new('RGBA', (256, 316), SOMBRA_C + (90,))
+        pad.alpha_composite(sh, (40, 52)); pad = pad.filter(ImageFilter.GaussianBlur(14)); pad.alpha_composite(c, (40, 40))
+        CARTAS.append(pad)
+    print('órbita', ORBITA, '· detrás', DETRAS)
+
+def en_efecto(t):
+    if not EFECTOS: return None
+    if ORBITA[0] <= t < ORBITA[1]: return 'orbita'
+    for a, b, w in DETRAS:
+        if a <= t < b: return ('detras', a, b, w)
+    return None
+
+def efecto(t, real, al, sub_r):
+    ef = en_efecto(t); img = real.convert('RGBA')
+    persona_ = real.convert('RGBA'); persona_.putalpha(limpia_mate(al))
+    if ef == 'orbita':
+        a, b = ORBITA; tt = t - a; ent = bezier(tt / .45); sal = 1 - suave((t - (b - .35)) / .35)
+        import math
+        cx, cy, rx, ry = 540, 1200, 420 * (.3 + .7 * ent) * (1 + .15 * (1 - sal)), 120
+        capas = []
+        for i, c in enumerate(CARTAS):
+            ang = 2 * math.pi * i / len(CARTAS) + 2 * math.pi * tt / 5.0
+            z = math.sin(ang); sc = 1.2 * (.62 + .38 * (z + 1) / 2) * (.6 + .4 * ent)
+            cc = c.resize((round(c.width * sc), round(c.height * sc)), Image.BILINEAR).rotate(-8 * math.cos(ang), resample=Image.BICUBIC, expand=True)
+            if ent * sal < 1: cc.putalpha(cc.getchannel('A').point(lambda v, k=ent * sal: int(v * k)))
+            capas.append((z, cc, (round(cx + rx * math.cos(ang) - cc.width / 2), round(cy + ry * z - cc.height / 2))))
+        for z, cc, pos in sorted(capas, key=lambda x: x[0]):
+            if z < 0: img.alpha_composite(cc, pos)
+        img.alpha_composite(persona_)
+        for z, cc, pos in sorted(capas, key=lambda x: x[0]):
+            if z >= 0: img.alpha_composite(cc, pos)
+        return img                               # una idea: sin subtítulos durante la órbita
+    _, a, b, w = ef; tt = t - a
+    size = 260; f = fuente(size, 800)
+    while largo(w, f, -.02 * size) > 876: size -= 4; f = fuente(size, 800)
+    capa = Image.new('RGBA', (W_, H_)); dibuja(ImageDraw.Draw(capa), X0, 236, w, f, -.02 * size, GRIS + (235,))
+    p = bezier(tt / .3) * (1 - suave((t - (b - .2)) / .2)); k = 1.08 - .08 * bezier(tt / .5)
+    if k != 1:
+        capa = capa.resize((round(W_ * k), round(H_ * k)), Image.BILINEAR).crop((round((W_ * k - W_) / 2), round(236 * (k - 1)), round((W_ * k - W_) / 2) + W_, round(236 * (k - 1)) + H_))
+    capa.putalpha(capa.getchannel('A').point(lambda v: int(v * p)))
+    img.alpha_composite(capa); return img           # encuadre cerrado: la palabra va al frente para que siempre se lea
 
 logo = Image.open(LOGO).convert('RGBA'); logo = logo.resize((560, round(560 * logo.height / logo.width)), Image.LANCZOS)
 f_lista, f_cita = fuente(40, 700), fuente(44, 600)
@@ -189,7 +254,24 @@ def cierre(t, e):
             cu = Image.new('RGBA', (W_, H_)); dibuja(ImageDraw.Draw(cu), (W_ - largo(url, f, 0)) / 2, y + logo.height + 96, url, f, 0, GRIS)
             cu.putalpha(cu.getchannel('A').point(lambda v: int(v * pu))); img.alpha_composite(cu)
         return img
+def blur_h(img, k):                          # desenfoque de movimiento horizontal (barato)
+    if k < 2: return img
+    w = max(8, img.width // k); return img.resize((w, img.height), Image.BILINEAR).resize(img.size, Image.BILINEAR)
+
+def barrido(a, b, p):                        # a sale a la izquierda, b entra desde la derecha
+    p = bezier(p); off = round(W_ * p); fuerza = round(24 * (1 - abs(2 * p - 1)) + 1)
+    base = Image.new('RGBA', (W_, H_)); base.alpha_composite(blur_h(a.convert('RGBA'), fuerza), (-off, 0))
+    base.alpha_composite(blur_h(b.convert('RGBA'), fuerza), (W_ - off, 0)); return base
+
 def cuadro_resto(t, e, real, fr, al, sub_r, sub_p):
+    if e and e[2] == 'frase':
+        img = Image.new('RGBA', (W_, H_), PAPEL + (255,)); texto, nar = e[3]
+        lineas, size = ajusta(texto, 128); alto = len(lineas) * round(size * 1.02)
+        titulo(lineas, size, 880 - alto // 2, e[0] + .1, t, img, nar)
+        r = escala(real, zoom(t)).convert('RGBA'); tt, rest = t - e[0], e[1] - t
+        if tt < .22: return barrido(r, img, tt / .22)
+        if rest < .2: return barrido(img, r, 1 - rest / .2)
+        return img
     if e and e[2] == 'titulo':
         img = Image.new('RGBA', (W_, H_), PAPEL + (255,)); texto, nar = e[3]
         lineas, size = ajusta(texto, 132); alto = len(lineas) * round(size * 1.02)
@@ -216,6 +298,7 @@ def cuadro_resto(t, e, real, fr, al, sub_r, sub_p):
             img.alpha_composite(capa)
         return img                                       # la lista dice lo mismo: sin subtítulos aquí
     # fondo real (con zoom si toca) + subtítulos + cita
+    if en_efecto(t) and al is not None: img = efecto(t, real, al, sub_r); elemento(img, t); return img
     img = escala(real, zoom(t)).convert('RGBA'); img.alpha_composite(sub_r); elemento(img, t)
     if CITA[0] <= t < CITA[1]:
         pr = bezier((t - CITA[0]) / .3) * (1 - bezier((t - CITA[1] + .2) / .2))
@@ -238,7 +321,9 @@ def lector(path, fmt):
 # el recorte solo existe en los tramos sobre papel (gancho y lista): se lee por tramo, sincronizado por tiempo
 R = f'{P}/2-recorte'
 SUF = os.environ.get('SUF_FRENTE', '')      # '-grade' = recorte con la corrección de luz
+TRAMOS_EF = [(23.9, 'seg-contra'), (27.9, 'seg-orbita'), (128.4, 'seg-simil'), (199.9, 'seg-advert')]
 TRAMOS = [(0.0, f'{R}/dr0.4-frente{SUF}.mp4', f'{R}/dr0.4-alfa.mkv'), (56.5, f'{R}/seg-lista-frente{SUF}.mp4', f'{R}/seg-lista-alfa.mkv')]
+if EFECTOS: TRAMOS += [(a, f'{R}/{n}-frente.mp4', f'{R}/{n}-alfa.mkv') for a, n in TRAMOS_EF]
 class Mate:
     def __init__(s): s.act = None
     def get(s, t):
@@ -263,7 +348,7 @@ for n in range(n_fin):
         try: ultimo = [next(g) for g in src]
         except StopIteration: pass
     if n < n_ini: continue
-    e = escena(t); fr, al = mate.get(t) if e and e[2] in ('gancho', 'lista') else (None, None)
+    e = escena(t); fr, al = mate.get(t) if (e and e[2] in ('gancho', 'lista')) or (not e and en_efecto(t)) else (None, None)
     real, sub_r, sub_p = ultimo
     ff.stdin.write(cuadro(t, real, fr, al, sub_r, sub_p).convert('RGB').tobytes())
     if n % 300 == 0: print(f'{t:6.1f} s', flush=True)
