@@ -59,6 +59,10 @@ Nota: el sitio orangy.com.mx no se pudo leer desde el entorno remoto (bloqueado 
 - Deutschlander descartada; títulos en Montserrat 800 definitivo.
 - Copy y resultados de casos aprobados por March al dar la orden de publicar.
 
+## Skill del portafolio
+
+`.claude/skills/portafolio-orangy/` (nov 2026): reglas de trabajo con March, sistema de diseño, snippets HTML y dos scripts — `scripts/procesar_slides.py` (PDF o imágenes → `slide-N.jpg` 1620×2025 q90 + `-sm` 800×1000 q82, cover 4:5 con `--foco`, o `--contener --fondo` para logos) y `scripts/verificar.py` (rutas, `-sm`, 4:5, solo Montserrat; correr antes de cada commit). Si cambian casos o cifras, actualizar también `references/copy-y-casos.md`.
+
 ## Técnica
 
 - Todo inline en un archivo; sin dependencias externas salvo Google Fonts (Montserrat).
