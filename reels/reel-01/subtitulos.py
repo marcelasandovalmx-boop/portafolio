@@ -100,8 +100,11 @@ def bezier(t, p1=(.16, 1), p2=(.3, 1)):
 
 # ---------- render ----------
 cache = {}
-def cuadro(b, visibles, prog):
-    key = (id(b), visibles, round(prog, 2))
+def back(x, c1=1.70158):                 # easeOutBack: rebote corto
+    x = min(max(x, 0), 1); c3 = c1 + 1; return 1 + c3 * (x - 1) ** 3 + c1 * (x - 1) ** 2
+
+def cuadro(b, visibles, prog, kp=1.0):
+    key = (id(b), visibles, round(prog, 2), round(kp, 2))
     if key in cache: return cache[key]
     txt = Image.new('RGBA', (W_, H_)); d = ImageDraw.Draw(txt)
     blq = Image.new('RGBA', (W_, H_)); db = ImageDraw.Draw(blq)
@@ -116,10 +119,21 @@ def cuadro(b, visibles, prog):
             dibuja(db, (x, y + dy), t, f, tr, col + (255,))
         else:
             dibuja(d, (x, y + dy), t, f, tr, col + (255,))
+    if kp < 1 and blq.getbbox():              # pop de la palabra clave: 75 % → 100 % con rebote
+        bx = blq.getbbox(); reg = blq.crop(bx); sc = .75 + .25 * back(kp)
+        reg = reg.resize((max(1, round(reg.width * sc)), max(1, round(reg.height * sc))), Image.LANCZOS)
+        reg.putalpha(reg.getchannel('A').point(lambda v: int(v * min(1, kp * 2.5))))
+        blq = Image.new('RGBA', (W_, H_)); blq.alpha_composite(reg, (bx[0] + (bx[2] - bx[0] - reg.width) // 2, bx[1] + (bx[3] - bx[1] - reg.height) // 2))
     a = txt.getchannel('A')
-    sombra = Image.new('RGBA', (W_, H_), SOMBRA + (0,))
-    sombra.putalpha(a.point(lambda v: 0 if TEMA == 'papel' else int(v * .45)).filter(ImageFilter.GaussianBlur(12)))
-    capa = Image.new('RGBA', (W_, H_)); capa.alpha_composite(sombra, (0, 4)); capa.alpha_composite(txt); capa.alpha_composite(blq)
+    capa = Image.new('RGBA', (W_, H_))
+    if TEMA != 'papel':                       # sombra doble: difusa + cercana (look pro, sin contorno)
+        for blur, off, op in ((14, 6, .50), (3, 2, .45)):
+            sh = Image.new('RGBA', (W_, H_), SOMBRA + (0,)); sh.putalpha(a.point(lambda v: int(v * op)).filter(ImageFilter.GaussianBlur(blur)))
+            capa.alpha_composite(sh, (0, off))
+    capa.alpha_composite(txt)
+    ab = blq.getchannel('A')                  # sombra suave del bloque
+    shb = Image.new('RGBA', (W_, H_), SOMBRA + (0,)); shb.putalpha(ab.point(lambda v: int(v * .35)).filter(ImageFilter.GaussianBlur(18)))
+    capa.alpha_composite(shb, (0, 8)); capa.alpha_composite(blq)
     if prog < 1: capa.putalpha(capa.getchannel('A').point(lambda v: int(v * prog)))
     cache.clear() if len(cache) > 64 else None
     cache[key] = capa.tobytes(); return cache[key]
@@ -135,7 +149,8 @@ for fr in range(n_fr):
     if not b: ff.stdin.write(vacio); continue
     vis = tuple(i for i in b['w'] if W[i]['start'] <= t or i == b['w'][0])
     prog = bezier(min(1, (t - b['ini']) / ENTRADA))
-    ff.stdin.write(cuadro(b, vis, prog))
+    kp = min(1, (t - W[b['clave']]['start']) / .28) if b['clave'] is not None and b['clave'] in vis else 1.0
+    ff.stdin.write(cuadro(b, vis, prog, max(0.0, kp)))
 ff.stdin.close(); ff.wait()
 json.dump([{'ini': round(b['ini'], 3), 'fin': round(b['fin'], 3), 'texto': ' '.join(W[i]['word'] for i in b['w']),
             'clave': W[b['clave']]['word'] if b['clave'] is not None else None} for b in bloques],

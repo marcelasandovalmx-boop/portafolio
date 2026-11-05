@@ -11,7 +11,7 @@ BARRA = [((229, 80, 28), 48), ((242, 116, 5), 15.5), ((50, 166, 166), 27.4), ((1
 FONT = '/root/reels/fuentes/Montserrat.ttf'
 LOGO = '/home/user/portafolio/img/logo-orangy.png'
 P = '/root/reels/proyecto'
-CORTE = f'{P}/1-corte/corte.mp4'
+CORTE = os.environ.get('CORTE', f'{P}/1-corte/corte.mp4')
 FRENTE = os.environ.get('FRENTE', f'{P}/2-recorte/completo-frente.mp4'); ALFA = os.environ.get('ALFA', f'{P}/2-recorte/completo-alfa.mkv')
 SUB_R, SUB_P = f'{P}/3-subtitulos/subtitulos.mov', f'{P}/3-subtitulos/subtitulos-papel.mov'
 DESDE, HASTA = float(os.environ.get('DESDE', 0)), float(os.environ.get('HASTA', 1e9))
@@ -36,6 +36,9 @@ def bezier(t, p1=(.16, 1), p2=(.3, 1)):
         u = (lo + hi) / 2; x = 3*(1-u)**2*u*p1[0] + 3*(1-u)*u**2*p2[0] + u**3
         lo, hi = (u, hi) if x < t else (lo, u)
     return 3*(1-u)**2*u*p1[1] + 3*(1-u)*u**2*p2[1] + u**3
+def back(x, c1=1.70158):
+    x = min(max(x, 0), 1); c3 = c1 + 1; return 1 + c3 * (x - 1) ** 3 + c1 * (x - 1) ** 2
+SOMBRA_C = (61, 61, 61)
 def suave(t): t = min(max(t, 0), 1); return t * t * (3 - 2 * t)
 
 # ---------- piezas gráficas ----------
@@ -101,10 +104,17 @@ def escena(t):
     for a, b, k, d in ESC:
         if a <= t < b: return a, b, k, d
     return None
+DINAMICO = bool(os.environ.get('DINAMICO'))
+CLAVES_T = [k['start'] for k in json.load(open(f'{P}/3-subtitulos/claves.json'))]
 def zoom(t):
     for a, b, k in ZOOM:
-        if a <= t < b: return 1.04 if k == 'seco' else 1 + .04 * suave((t - a) / (b - a))
-    return 1.0
+        if a <= t < b: return (1.06 if DINAMICO else 1.04) if k == 'seco' else 1 + (.06 if DINAMICO else .04) * suave((t - a) / (b - a))
+    if not DINAMICO: return 1.0
+    # ritmo de editor: en cada palabra clave alterna plano abierto / cerrado (corte seco) + empuje lento de 1.5 %
+    prev = [i for i, c in enumerate(CLAVES_T) if c <= t]
+    if not prev: return 1.0 + .015 * min(1, t / 4)
+    i = prev[-1]; nivel = 1.045 if i % 2 == 0 else 1.0
+    return nivel + .015 * min(1, (t - CLAVES_T[i]) / 4)
 
 CENTRO = (540, 720)
 BAJA = 300                                   # en escenas papel March baja 300 px para liberar arriba                          # zoom hacia la cara
@@ -112,6 +122,37 @@ def escala(img, z):
     if z == 1: return img
     w, h = round(W_ / z), round(H_ / z); x = round(CENTRO[0] - CENTRO[0] / z); y = round(CENTRO[1] - CENTRO[1] / z)
     return img.crop((x, y, x + w, y + h)).resize((W_, H_), Image.LANCZOS)
+
+# ---------- elementos: ícono de línea (Lucide, ISC) en tarjeta papel, disparado en su palabra ----------
+ICO_DIR = '/root/reels/proyecto/7-mejoras/iconos'
+ICONOS_PLAN = [('acuerdo', 9.2, 'handshake'), ('conclusión', 14.7, 'lightbulb'), ('conocen', 29.8, 'users'), ('feliz', 39.5, 'smile'),
+    ('términos', 42.5, 'file-text'), ('recomendar', 47.8, 'thumbs-up'), ('peligroso', 50.2, 'triangle-alert'), ('detente', 81.0, 'hand'),
+    ('cliente', 85.7, 'user-round'), ('barato', 90.6, 'tag'), ('regateó', 94.9, 'badge-percent'), ('deshoras', 98.7, 'moon'),
+    ('decir', 103.3, 'message-square-quote'), ('superbarato', 107.5, 'piggy-bank'), ('ordenado', 110.7, 'folder-open'), ('gratis', 114.4, 'gift'),
+    ('trabajo', 124.3, 'briefcase'), ('negocio', 138.4, 'store'), ('cotización', 143.8, 'receipt'), ('personalidad', 156.3, 'fingerprint'),
+    ('costaba', 169.2, 'wallet'), ('comentarios', 181.6, 'message-circle'), ('correcta', 184.1, 'signpost')]
+ICONOS = []
+for w, cerca, ico in ICONOS_PLAN if os.environ.get('ICONOS') else []:
+    t0 = palabra(w, cerca)[0]
+    card = Image.new('RGBA', (176, 176), PAPEL + (255,)); dc = ImageDraw.Draw(card)
+    dc.rectangle([0, 0, 175, 175], outline=HAIR + (255,), width=2)
+    card.alpha_composite(Image.open(f'{ICO_DIR}/{ico}.png').convert('RGBA').resize((176, 176), Image.LANCZOS))
+    dc.rectangle([0, 172, 175, 175], fill=NARANJA + (255,))
+    ICONOS.append([t0, t0 + 1.6, card])
+for a, b in zip(ICONOS, ICONOS[1:]): a[1] = min(a[1], b[0] - .05)
+json.dump([a for a, b, _ in ICONOS], open('iconos.json', 'w'))
+print('elementos:', [(round(a, 2), round(b, 2)) for a, b, _ in ICONOS])
+def elemento(img, t):
+    for a, b, card in ICONOS:
+        if a <= t < b:
+            k = (t - a) / .3; sal = 1 - suave((t - (b - .2)) / .2)
+            sc = .7 + .3 * back(k) if DINAMICO else 1
+            c = card.resize((max(1, round(176 * sc)), max(1, round(176 * sc))), Image.LANCZOS) if sc != 1 else card.copy()
+            al_ = min(1, k * 2.5) * sal; c.putalpha(c.getchannel('A').point(lambda v: int(v * al_)))
+            x = X0 + (176 - c.width) // 2; y = 250 + (176 - c.height) // 2 + (0 if DINAMICO else round(16 * (1 - bezier(k))))
+            sh = Image.new('RGBA', c.size, SOMBRA_C + (0,)); sh.putalpha(c.getchannel('A').point(lambda v: int(v * .35)))
+            pad = Image.new('RGBA', (c.width + 80, c.height + 80)); pad.alpha_composite(sh, (40, 40)); pad = pad.filter(ImageFilter.GaussianBlur(16))
+            img.alpha_composite(pad, (x - 40, y - 40 + 8)); img.alpha_composite(c, (x, y))
 
 logo = Image.open(LOGO).convert('RGBA'); logo = logo.resize((560, round(560 * logo.height / logo.width)), Image.LANCZOS)
 f_lista, f_cita = fuente(40, 700), fuente(44, 600)
@@ -128,6 +169,16 @@ def persona(fr, al, s, ancla_x):             # recorte escalado, anclado abajo
 def cuadro(t, real, fr, al, sub_r, sub_p):
     e = escena(t)
     if e and e[2] == 'cierre':
+        return empuje(cierre(t, e), real, t - e[0])
+    return cuadro_resto(t, e, real, fr, al, sub_r, sub_p)
+
+def empuje(img, real, tt, d=.28):            # transición: la tarjeta papel sube y empuja el plano real
+    if not DINAMICO or tt >= d or real is None: return img
+    p = bezier(tt / d); base = Image.new('RGBA', (W_, H_)); off = round(H_ * (1 - p))
+    base.alpha_composite(real.convert('RGBA'), (0, off - H_)); base.alpha_composite(img, (0, off)); return base
+
+def cierre(t, e):
+    if True:
         img = Image.new('RGBA', (W_, H_), PAPEL + (255,)); tt = t - e[0]
         p = bezier(tt / .35); lg = logo.copy(); lg.putalpha(lg.getchannel('A').point(lambda v: int(v * p)))
         y = 820 + round(20 * (1 - p)); img.alpha_composite(lg, ((W_ - lg.width) // 2, y))
@@ -138,10 +189,12 @@ def cuadro(t, real, fr, al, sub_r, sub_p):
             cu = Image.new('RGBA', (W_, H_)); dibuja(ImageDraw.Draw(cu), (W_ - largo(url, f, 0)) / 2, y + logo.height + 96, url, f, 0, GRIS)
             cu.putalpha(cu.getchannel('A').point(lambda v: int(v * pu))); img.alpha_composite(cu)
         return img
+def cuadro_resto(t, e, real, fr, al, sub_r, sub_p):
     if e and e[2] == 'titulo':
         img = Image.new('RGBA', (W_, H_), PAPEL + (255,)); texto, nar = e[3]
         lineas, size = ajusta(texto, 132); alto = len(lineas) * round(size * 1.02)
-        titulo(lineas, size, 880 - alto // 2, e[0], t, img, nar); return img
+        titulo(lineas, size, 880 - alto // 2, e[0] + (.12 if DINAMICO else 0), t, img, nar)
+        return empuje(img, real, t - e[0])
     if e and e[2] == 'gancho':
         img = Image.new('RGBA', (W_, H_), PAPEL + (255,))
         barra(img, X0, 236, 600, 10, .2, t)
@@ -163,7 +216,7 @@ def cuadro(t, real, fr, al, sub_r, sub_p):
             img.alpha_composite(capa)
         return img                                       # la lista dice lo mismo: sin subtítulos aquí
     # fondo real (con zoom si toca) + subtítulos + cita
-    img = escala(real, zoom(t)).convert('RGBA'); img.alpha_composite(sub_r)
+    img = escala(real, zoom(t)).convert('RGBA'); img.alpha_composite(sub_r); elemento(img, t)
     if CITA[0] <= t < CITA[1]:
         pr = bezier((t - CITA[0]) / .3) * (1 - bezier((t - CITA[1] + .2) / .2))
         capa = Image.new('RGBA', (W_, H_)); dc = ImageDraw.Draw(capa)
@@ -184,7 +237,8 @@ def lector(path, fmt):
     for f in c.decode(video=0): yield f.to_image() if fmt == 'rgb' else Image.fromarray(f.to_ndarray(format=fmt))
 # el recorte solo existe en los tramos sobre papel (gancho y lista): se lee por tramo, sincronizado por tiempo
 R = f'{P}/2-recorte'
-TRAMOS = [(0.0, f'{R}/dr0.4-frente.mp4', f'{R}/dr0.4-alfa.mkv'), (56.5, f'{R}/seg-lista-frente.mp4', f'{R}/seg-lista-alfa.mkv')]
+SUF = os.environ.get('SUF_FRENTE', '')      # '-grade' = recorte con la corrección de luz
+TRAMOS = [(0.0, f'{R}/dr0.4-frente{SUF}.mp4', f'{R}/dr0.4-alfa.mkv'), (56.5, f'{R}/seg-lista-frente{SUF}.mp4', f'{R}/seg-lista-alfa.mkv')]
 class Mate:
     def __init__(s): s.act = None
     def get(s, t):

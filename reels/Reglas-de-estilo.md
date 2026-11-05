@@ -6,7 +6,7 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 
 ## Marca y tono
 - Orangy: Brand Intelligence & Desarrollo de Negocios. Público: negocios y líderes AAA que piensan a largo plazo.
-- Tono editorial pausado: premium, cercano y claro. "No por velocidad. Por dirección."
+- Tono editorial dinámico: premium, cercano y claro (nov 2026, March pidió más dinamismo y look pro). "No por velocidad. Por dirección."
 - Elegancia = contraste de escala, no de peso ni de efectos.
 - Copy y cifras: solo lo que dice March en el video o lo que ella aprueba. Nunca inventar datos.
 
@@ -17,7 +17,7 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 
 ## Tipografía
 - **Solo Montserrat.** Nunca serif, nunca otra familia.
-- Palabra clave: Montserrat 800, 150 px, tracking −0.02em, minúsculas como se dice (mayúscula inicial solo si inicia frase), sobre un **bloque papel `#F4F1EB`** (esquinas rectas, sin sombra, aire lateral 26 px a 150 px). **Nunca se parte una palabra:** si no cabe en 812 px (bloque incluido) se achica lo justo.
+- Palabra clave: Montserrat 800, 150 px, tracking −0.02em, minúsculas como se dice (mayúscula inicial solo si inicia frase), sobre un **bloque papel `#F4F1EB`** (esquinas rectas, sombra suave `0 8px 18px rgba(61,61,61,.35)`, aire lateral 26 px a 150 px). **Nunca se parte una palabra:** si no cabe en 812 px (bloque incluido) se achica lo justo.
 - Subtítulo de apoyo: Montserrat 600, 64 px, tracking −0.01em, interlineado 1.1.
 - Títulos a pantalla completa: Montserrat 800, 120–160 px, tracking −0.02em, máximo 3 líneas.
 - Etiquetas (solo cuando hacen falta, nunca encima de cada título): Montserrat 600, 30 px, mayúsculas, tracking .14em.
@@ -40,7 +40,7 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 ## Fondo
 - **Fondo real** la mayor parte del reel.
 - **Papel `#F4F1EB`** (March recortada encima) solo en momentos clave: el gancho (0–2 s), los títulos y enseñanzas clave a pantalla completa y el cierre.
-- Sobre papel, el texto va en `#545454`. Sobre el fondo real, el texto va en `#F4F1EB` con sombra suave `0 4px 24px rgba(61,61,61,.45)`. Sin contorno ni brillo.
+- Sobre papel, el texto va en `#545454`. Sobre el fondo real, el texto va en `#F4F1EB` con sombra doble: difusa `0 6px 14px rgba(61,61,61,.50)` + cercana `0 2px 3px rgba(61,61,61,.45)`. Sin contorno ni brillo.
 
 ## Barra segmentada (firma de March)
 - Proporciones reales: `#E5501C` 48% → `#F27405` 15.5% → `#32A6A6` 27.4% → `#99E9F2` 6.8%. Segmentos desiguales, esquinas rectas.
@@ -53,19 +53,21 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 - Cada subtítulo, **mínimo 0.4 s** en pantalla.
 - Nunca encima de la cara: a la altura del pecho, línea base entre y 1250 y y 1500, alineado a la izquierda en x 64 (o centrado si el encuadre lo pide).
 - Ancho máximo 812 px. Sin emojis. Solo la palabra clave lleva bloque; el texto de apoyo va sin caja.
-- Entrada: aparece con opacidad 0→1 y 12 px de subida en 0.2 s. Salida seca.
+- Entrada: aparece con opacidad 0→1 y 12 px de subida en 0.2 s. La palabra clave entra con **pop**: escala 75 %→100 % con rebote corto (easeOutBack) en 0.28 s, justo cuando se dice. Salida seca.
 
 ## Motion graphics
 - Una idea por escena. Contenido real (capturas, piezas del portafolio, logos oficiales) antes que ilustraciones.
 - Entrada de 0.2 a 0.35 s con easing `cubic-bezier(.16,1,.3,1)`, desplazamiento máximo 24 px; se mantiene; sale limpia en 0.2 s.
-- Tarjetas (si hacen falta): fondo `#F4F1EB`, borde 2 px `#E3DED5`, esquinas rectas, sin sombra, sin cristal, sin brillo.
+- Tarjetas: fondo `#F4F1EB`, borde 2 px `#E3DED5`, esquinas rectas, sombra suave `0 8px 16px rgba(61,61,61,.35)`, sin cristal, sin brillo.
+- **Elementos** (cuando March nombra algo): ícono de línea Lucide (licencia ISC) gris `#545454`, trazo 1.75, en tarjeta papel 176 px con filete naranja inferior de 4 px, arriba a la izquierda (x 64, y 250). Entran con pop (70 %→100 %) en su palabra, duran 1.6 s, clic suave a −28 dB.
+- Títulos a pantalla completa y cierre entran con **empuje**: la tarjeta papel sube y empuja el plano en 0.28 s.
 - Texto detrás de March solo en el gancho y en palabras grandes, usando el mate del recorte.
-- Zoom: punch-in de **4% como máximo**; corte seco para enfatizar, lento (≥1.5 s) para tensión. Cada zoom necesita una razón.
+- Zoom: punch-in de **6 % como máximo**; corte seco para enfatizar, lento (≥1.5 s) para tensión. Ritmo de editor: en cada palabra clave se alterna plano abierto (100 %) y cerrado (104.5 %) con corte seco, más un empuje lento de 1.5 % durante el plano.
 
 ## Ritmo y cortes
 - Cortar pausas de más de 0.4 s; dejar 0.1 s de respiración a cada lado del corte.
 - Tomas repetidas: se queda la última toma buena.
-- Un cambio visual cada 3–4 s (subtítulo clave, gráfico, zoom o cambio de fondo).
+- Un cambio visual cada 2–4 s (palabra clave con cambio de plano, elemento, zoom o cambio de fondo).
 
 ## Sonido
 - Voz siempre encima: limpia (paso alto 80 Hz, de-esser suave).

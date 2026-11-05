@@ -12,14 +12,19 @@ who_db = -20.0  # pico aprox. del whoosh normalizado (efecto corto; se nivela po
 cambios = sorted({round(t, 2) for a, b, k in E['escenas'] for t in (a, b) if 0.5 < t < DUR - 0.5 and k != 'cierre'} | {round(E['escenas'][-1][0], 2)})
 toque = E['escenas'][-1][0] + 0.2
 g_mus = (voz_db - 18) - mus_db                               # música 18 dB debajo de la voz
-inputs = ['-i', VIDEO, '-i', 'musica-lofi.wav'] + sum([['-i', 'SFX_WHOOSH_pitch1.0x.wav'] for _ in cambios], []) + ['-i', 'SFX_UICLICK_pitch1.0x.wav']
+import os
+ICO = json.load(open('/root/reels/proyecto/4-graficos/iconos.json')) if os.environ.get('CLICS') else []
+inputs = ['-i', VIDEO, '-i', 'musica-lofi.wav'] + sum([['-i', 'SFX_WHOOSH_pitch1.0x.wav'] for _ in cambios], []) + sum([['-i', 'SFX_UICLICK_pitch1.0x.wav'] for _ in ICO], []) + ['-i', 'SFX_UICLICK_pitch1.0x.wav']
 fc = [f"[0:a]highpass=f=80,deesser=i=0.3,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120,asplit[voz][sc]",
       f"[1:a]atrim=0:{DUR},volume={g_mus:.2f}dB,afade=t=in:d=0.6,afade=t=out:st={DUR-1.5}:d=1.5[m0]",
       "[m0][sc]sidechaincompress=threshold=0.02:ratio=4:attack=40:release=450:makeup=1[mus]"]
 mix = ['[voz]', '[mus]']
 for n, t in enumerate(cambios):   # whoosh centrado en el corte (pico a ~0.4 s del inicio)
     fc.append(f"[{2+n}:a]volume=-22dB,adelay={max(0,int((t-0.4)*1000))}|{max(0,int((t-0.4)*1000))}[w{n}]"); mix.append(f'[w{n}]')
-k = 2 + len(cambios)
+for j, t in enumerate(ICO):     # clic suave en cada elemento (−28 dB): acompaña sin estorbar
+    n = 2 + len(cambios) + j
+    fc.append(f"[{n}:a]volume=-28dB,adelay={int(t*1000)}|{int(t*1000)}[c{j}]"); mix.append(f'[c{j}]')
+k = 2 + len(cambios) + len(ICO)
 fc.append(f"[{k}:a]volume=-16dB,adelay={int(toque*1000)}|{int(toque*1000)}[tq]"); mix.append('[tq]')
 fc.append(''.join(mix) + f"amix=inputs={len(mix)}:normalize=0:duration=first[pre]")
 pre = 'premezcla.wav'
