@@ -6,15 +6,17 @@ def lufs(args):
     o = subprocess.run(['ffmpeg', '-hide_banner', *args, '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
     return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', o)[-1]), float(re.findall(r'Peak:\s+(-?[\d.]+) dBFS', o)[-1])
 voz_db, _ = lufs(['-i', VIDEO, '-map', '0:a'])
-mus_db, _ = lufs(['-i', 'musica-lofi.wav'])
+import os
+MUSICA = os.environ.get('MUSICA', 'musica-lofi.wav')
+mus_db, _ = lufs(['-i', MUSICA])
 who_db = -20.0  # pico aprox. del whoosh normalizado (efecto corto; se nivela por pico)
 # efectos: whoosh en cada cambio de escena (entrada y salida), toque al cierre
 cambios = sorted({round(t, 2) for a, b, k in E['escenas'] for t in (a, b) if 0.5 < t < DUR - 0.5 and k != 'cierre'} | {round(E['escenas'][-1][0], 2)})
 toque = E['escenas'][-1][0] + 0.2
-g_mus = (voz_db - 18) - mus_db                               # música 18 dB debajo de la voz
+g_mus = (voz_db - float(os.environ.get('MUS_DB', 18))) - mus_db                               # música 18 dB debajo de la voz
 import os
 ICO = json.load(open('/root/reels/proyecto/4-graficos/iconos.json')) if os.environ.get('CLICS') else []
-inputs = ['-i', VIDEO, '-i', 'musica-lofi.wav'] + sum([['-i', 'SFX_WHOOSH_pitch1.0x.wav'] for _ in cambios], []) + sum([['-i', 'SFX_UICLICK_pitch1.0x.wav'] for _ in ICO], []) + ['-i', 'SFX_UICLICK_pitch1.0x.wav']
+inputs = ['-i', VIDEO, '-i', MUSICA] + sum([['-i', 'SFX_WHOOSH_pitch1.0x.wav'] for _ in cambios], []) + sum([['-i', 'SFX_UICLICK_pitch1.0x.wav'] for _ in ICO], []) + ['-i', 'SFX_UICLICK_pitch1.0x.wav']
 fc = [f"[0:a]highpass=f=80,deesser=i=0.3,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=120,asplit[voz][sc]",
       f"[1:a]atrim=0:{DUR},volume={g_mus:.2f}dB,afade=t=in:d=0.6,afade=t=out:st={DUR-1.5}:d=1.5[m0]",
       "[m0][sc]sidechaincompress=threshold=0.02:ratio=4:attack=40:release=450:makeup=1[mus]"]

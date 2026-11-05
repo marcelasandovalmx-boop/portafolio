@@ -1,1 +1,1 @@
-hqdn3d=1.5:1.5:4:4,colorbalance=rs=-0.02:bs=0.02:rm=-0.07:gm=0.01:bm=0.05:rh=0.02:bh=-0.03,curves=master='0/0.02 0.25/0.27 0.5/0.56 0.75/0.81 1/0.98',eq=saturation=0.93:gamma=1.05,unsharp=5:5:0.45
+hqdn3d=2:2:5:5,colorbalance=rs=-0.02:bs=0.02:rm=-0.08:gm=0.01:bm=0.05:rh=0.02:bh=-0.03,curves=master='0/0.03 0.2/0.26 0.5/0.62 0.8/0.88 1/0.99',eq=saturation=0.95:gamma=1.04:contrast=1.04,unsharp=7:7:0.8:3:3:0.3
