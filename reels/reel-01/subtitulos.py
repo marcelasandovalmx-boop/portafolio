@@ -8,6 +8,9 @@ Y_APOYO, Y_CLAVE = 1250, 1330      # tops de la línea de apoyo y de la palabra 
 PAPEL, SOMBRA, NARANJA = (244, 241, 235), (61, 61, 61), (229, 80, 28)
 FONT = '/root/reels/fuentes/Montserrat.ttf'
 MIN_DUR, ENTRADA, DESPL = 0.4, 0.2, 12
+import os
+BLOQUE = tuple(int(os.environ.get('BLOQUE', 'F4F1EB')[k:k+2], 16) for k in (0, 2, 4))   # fondo de la palabra clave
+PAD_X = 26                         # aire lateral del bloque a 150 px
 
 W = json.load(open('../1-corte/words.json'))
 claves = {k['i'] for k in json.load(open('claves.json'))}
@@ -78,16 +81,10 @@ def layout(b):
         t = limpia(W[i]['word']); piezas.append((i, x, Y_APOYO, t, f_apoyo, -0.64, PAPEL)); x += largo(t, f_apoyo, -0.64) + sp
     if b['clave'] is not None:
         t = limpia(W[b['clave']]['word']); y = Y_CLAVE if apoyo else Y_APOYO
-        size = 150; f = fuente(size, 800)
-        while largo(t, f, -0.02 * size) > MAXW and size > 115: size -= 1; f = fuente(size, 800)
-        if largo(t, f, -0.02 * size) > MAXW:          # se parte con guion a 150 px
-            f = fuente(150, 800)
-            SILABAS = {'contraproducente': 6}      # contra- / producente
-            corte = SILABAS.get(t.lower(), len(t) // 2)
-            for k, (parte, yy) in enumerate([(t[:corte] + '-', y), (t[corte:], y + 150)]):
-                piezas.append((b['clave'], X0, yy, parte, f, -3, NARANJA))
-        else:
-            piezas.append((b['clave'], X0, y, t, f, -0.02 * size, NARANJA))
+        size = 150; f = fuente(size, 800)            # nunca se parte: se achica lo justo
+        while largo(t, f, -0.02 * size) + 2 * PAD_X * size / 150 > MAXW: size -= 1; f = fuente(size, 800)
+        b['bloque'] = (size, y)
+        piezas.append((b['clave'], X0 + round(PAD_X * size / 150), y, t, f, -0.02 * size, NARANJA))
     b['piezas'] = piezas
 for b in bloques: layout(b)
 
@@ -106,21 +103,30 @@ def cuadro(b, visibles, prog):
     key = (id(b), visibles, round(prog, 2))
     if key in cache: return cache[key]
     txt = Image.new('RGBA', (W_, H_)); d = ImageDraw.Draw(txt)
+    blq = Image.new('RGBA', (W_, H_)); db = ImageDraw.Draw(blq)
     dy = round(DESPL * (1 - prog))
     for (i, x, y, t, f, tr, col) in b['piezas']:
-        if i in visibles: dibuja(d, (x, y + dy), t, f, tr, col + (255,))
+        if i not in visibles: continue
+        if i == b['clave']:                   # bloque papel, esquinas rectas, sin sombra
+            size, yb = b['bloque']
+            top = yb + f.getbbox('dhklÁ')[1] - round(.10 * size); bot = yb + f.getbbox('gpqy')[3] + round(.08 * size)
+            ancho = largo(t, f, tr) + 2 * round(PAD_X * size / 150)
+            db.rectangle([X0, top + dy, X0 + round(ancho), bot + dy], fill=BLOQUE + (255,))
+            dibuja(db, (x, y + dy), t, f, tr, col + (255,))
+        else:
+            dibuja(d, (x, y + dy), t, f, tr, col + (255,))
     a = txt.getchannel('A')
     sombra = Image.new('RGBA', (W_, H_), SOMBRA + (0,))
     sombra.putalpha(a.point(lambda v: int(v * .45)).filter(ImageFilter.GaussianBlur(12)))
-    capa = Image.new('RGBA', (W_, H_)); capa.alpha_composite(sombra, (0, 4)); capa.alpha_composite(txt)
+    capa = Image.new('RGBA', (W_, H_)); capa.alpha_composite(sombra, (0, 4)); capa.alpha_composite(txt); capa.alpha_composite(blq)
     if prog < 1: capa.putalpha(capa.getchannel('A').point(lambda v: int(v * prog)))
     cache.clear() if len(cache) > 64 else None
     cache[key] = capa.tobytes(); return cache[key]
 
 vacio = bytes(W_ * H_ * 4)
 ff = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgba', '-s', f'{W_}x{H_}', '-r', str(FPS),
-                       '-i', '-', '-c:v', 'qtrle', 'subtitulos.mov'], stdin=subprocess.PIPE)
-n_fr = round(DUR * FPS); k = 0
+                       '-i', '-', '-c:v', 'qtrle', ''+os.environ.get('SALIDA','subtitulos.mov')], stdin=subprocess.PIPE)
+n_fr = min(round(DUR * FPS), round(float(os.environ.get('LIMITE', 1e9)) * FPS)); k = 0
 for fr in range(n_fr):
     t = fr / FPS
     while k < len(bloques) and t >= bloques[k]['fin']: k += 1

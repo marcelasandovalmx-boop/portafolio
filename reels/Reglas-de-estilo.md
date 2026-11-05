@@ -17,7 +17,7 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 
 ## Tipografía
 - **Solo Montserrat.** Nunca serif, nunca otra familia.
-- Palabra clave: Montserrat 800, 150 px, tracking −0.02em, minúsculas como se dice (mayúscula inicial solo si inicia frase). Si no cabe en 812 px se reduce lo justo, **mínimo 115 px**; si aun así no cabe, se parte en dos líneas con guion (ej. «contra- / producente») a 150 px.
+- Palabra clave: Montserrat 800, 150 px, tracking −0.02em, minúsculas como se dice (mayúscula inicial solo si inicia frase), sobre un **bloque papel `#F4F1EB`** (esquinas rectas, sin sombra, aire lateral 26 px a 150 px). **Nunca se parte una palabra:** si no cabe en 812 px (bloque incluido) se achica lo justo.
 - Subtítulo de apoyo: Montserrat 600, 64 px, tracking −0.01em, interlineado 1.1.
 - Títulos a pantalla completa: Montserrat 800, 120–160 px, tracking −0.02em, máximo 3 líneas.
 - Etiquetas (solo cuando hacen falta, nunca encima de cada título): Montserrat 600, 30 px, mayúsculas, tracking .14em.
@@ -49,10 +49,10 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 
 ## Subtítulos
 - De 1 a 3 palabras a la vez; cada palabra aparece cuando March la dice (tiempos de `words.json`).
-- Una palabra clave por frase, en Montserrat 800 naranja `#E5501C`; el resto, Montserrat 600 64 px.
+- Una palabra clave por frase, en Montserrat 800 naranja `#E5501C` sobre bloque papel `#F4F1EB` (para contraste sobre el fondo real); el resto, Montserrat 600 64 px.
 - Cada subtítulo, **mínimo 0.4 s** en pantalla.
 - Nunca encima de la cara: a la altura del pecho, línea base entre y 1250 y y 1500, alineado a la izquierda en x 64 (o centrado si el encuadre lo pide).
-- Ancho máximo 812 px. Sin emojis, sin cajas de fondo.
+- Ancho máximo 812 px. Sin emojis. Solo la palabra clave lleva bloque; el texto de apoyo va sin caja.
 - Entrada: aparece con opacidad 0→1 y 12 px de subida en 0.2 s. Salida seca.
 
 ## Motion graphics
