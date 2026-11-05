@@ -1,0 +1,1490 @@
+[
+ {
+  "ini": 0.0,
+  "fin": 1.17,
+  "texto": "Hoy quiero compartirte",
+  "clave": null
+ },
+ {
+  "ini": 1.17,
+  "fin": 1.93,
+  "texto": "algo que dentro",
+  "clave": null
+ },
+ {
+  "ini": 1.93,
+  "fin": 2.53,
+  "texto": "del mundo de",
+  "clave": null
+ },
+ {
+  "ini": 2.53,
+  "fin": 3.45,
+  "texto": "los negocios podría",
+  "clave": null
+ },
+ {
+  "ini": 3.45,
+  "fin": 4.25,
+  "texto": "ser un poco",
+  "clave": null
+ },
+ {
+  "ini": 4.25,
+  "fin": 4.99,
+  "texto": "polémico",
+  "clave": "polémico"
+ },
+ {
+  "ini": 4.99,
+  "fin": 5.71,
+  "texto": "y oigan no",
+  "clave": null
+ },
+ {
+  "ini": 5.71,
+  "fin": 6.31,
+  "texto": "pasa nada.",
+  "clave": null
+ },
+ {
+  "ini": 6.31,
+  "fin": 7.13,
+  "texto": "Ya sabemos que",
+  "clave": null
+ },
+ {
+  "ini": 7.13,
+  "fin": 8.67,
+  "texto": "no todos debemos",
+  "clave": null
+ },
+ {
+  "ini": 8.67,
+  "fin": 9.47,
+  "texto": "estar de acuerdo",
+  "clave": "acuerdo"
+ },
+ {
+  "ini": 9.47,
+  "fin": 10.35,
+  "texto": "siempre.",
+  "clave": null
+ },
+ {
+  "ini": 10.35,
+  "fin": 10.77,
+  "texto": "Y es que",
+  "clave": null
+ },
+ {
+  "ini": 10.77,
+  "fin": 11.81,
+  "texto": "miren,",
+  "clave": null
+ },
+ {
+  "ini": 11.81,
+  "fin": 12.45,
+  "texto": "la semana pasada",
+  "clave": null
+ },
+ {
+  "ini": 12.45,
+  "fin": 13.25,
+  "texto": "platicando con una",
+  "clave": null
+ },
+ {
+  "ini": 13.25,
+  "fin": 14.29,
+  "texto": "cliente llegamos a",
+  "clave": null
+ },
+ {
+  "ini": 14.29,
+  "fin": 15.35,
+  "texto": "una conclusión",
+  "clave": "conclusión"
+ },
+ {
+  "ini": 15.35,
+  "fin": 16.55,
+  "texto": "y es no",
+  "clave": null
+ },
+ {
+  "ini": 16.55,
+  "fin": 17.77,
+  "texto": "quieres que todo",
+  "clave": null
+ },
+ {
+  "ini": 17.77,
+  "fin": 18.59,
+  "texto": "el mundo te",
+  "clave": null
+ },
+ {
+  "ini": 18.59,
+  "fin": 19.27,
+  "texto": "recomiende.",
+  "clave": "recomiende."
+ },
+ {
+  "ini": 19.27,
+  "fin": 19.81,
+  "texto": "Te lo repito",
+  "clave": "repito"
+ },
+ {
+  "ini": 19.81,
+  "fin": 21.05,
+  "texto": "y te explico.",
+  "clave": null
+ },
+ {
+  "ini": 21.05,
+  "fin": 22.21,
+  "texto": "No quieres que",
+  "clave": null
+ },
+ {
+  "ini": 22.21,
+  "fin": 22.83,
+  "texto": "todo el mundo",
+  "clave": "mundo"
+ },
+ {
+  "ini": 22.83,
+  "fin": 24.07,
+  "texto": "te recomiende.",
+  "clave": null
+ },
+ {
+  "ini": 24.07,
+  "fin": 24.47,
+  "texto": "Y es que",
+  "clave": null
+ },
+ {
+  "ini": 24.47,
+  "fin": 25.09,
+  "texto": "podría ser un",
+  "clave": null
+ },
+ {
+  "ini": 25.09,
+  "fin": 26.27,
+  "texto": "poquito contraproducente",
+  "clave": "contraproducente"
+ },
+ {
+  "ini": 26.27,
+  "fin": 26.85,
+  "texto": "porque tú me",
+  "clave": null
+ },
+ {
+  "ini": 26.85,
+  "fin": 27.47,
+  "texto": "podrás decir pero",
+  "clave": null
+ },
+ {
+  "ini": 27.47,
+  "fin": 28.15,
+  "texto": "cómo,",
+  "clave": null
+ },
+ {
+  "ini": 28.15,
+  "fin": 28.55,
+  "texto": "Marcela, o sea,",
+  "clave": null
+ },
+ {
+  "ini": 28.55,
+  "fin": 29.05,
+  "texto": "yo quiero que",
+  "clave": null
+ },
+ {
+  "ini": 29.05,
+  "fin": 29.47,
+  "texto": "todos los que",
+  "clave": null
+ },
+ {
+  "ini": 29.47,
+  "fin": 30.71,
+  "texto": "me conocen,",
+  "clave": "conocen,"
+ },
+ {
+  "ini": 30.71,
+  "fin": 32.03,
+  "texto": "conocen mi trabajo,",
+  "clave": null
+ },
+ {
+  "ini": 32.03,
+  "fin": 33.13,
+  "texto": "les guste y",
+  "clave": null
+ },
+ {
+  "ini": 33.13,
+  "fin": 34.03,
+  "texto": "me recomienden.",
+  "clave": null
+ },
+ {
+  "ini": 34.03,
+  "fin": 34.61,
+  "texto": "Es más,",
+  "clave": null
+ },
+ {
+  "ini": 34.61,
+  "fin": 35.45,
+  "texto": "yo estoy dispuesto",
+  "clave": null
+ },
+ {
+  "ini": 35.45,
+  "fin": 37.17,
+  "texto": "a hacer lo",
+  "clave": null
+ },
+ {
+  "ini": 37.17,
+  "fin": 37.85,
+  "texto": "que sea por",
+  "clave": null
+ },
+ {
+  "ini": 37.85,
+  "fin": 39.05,
+  "texto": "un cliente para",
+  "clave": null
+ },
+ {
+  "ini": 39.05,
+  "fin": 40.23,
+  "texto": "que esté feliz,",
+  "clave": "feliz,"
+ },
+ {
+  "ini": 40.23,
+  "fin": 41.15,
+  "texto": "aunque esto pase",
+  "clave": null
+ },
+ {
+  "ini": 41.15,
+  "fin": 42.45,
+  "texto": "encima de mis",
+  "clave": null
+ },
+ {
+  "ini": 42.45,
+  "fin": 42.89,
+  "texto": "términos",
+  "clave": "términos"
+ },
+ {
+  "ini": 42.89,
+  "fin": 43.63,
+  "texto": "y condiciones,",
+  "clave": null
+ },
+ {
+  "ini": 43.63,
+  "fin": 44.15,
+  "texto": "de la manera",
+  "clave": null
+ },
+ {
+  "ini": 44.15,
+  "fin": 44.55,
+  "texto": "en la que",
+  "clave": null
+ },
+ {
+  "ini": 44.55,
+  "fin": 44.95,
+  "texto": "yo,",
+  "clave": null
+ },
+ {
+  "ini": 44.95,
+  "fin": 45.61,
+  "texto": "pero bueno,",
+  "clave": null
+ },
+ {
+  "ini": 45.61,
+  "fin": 46.09,
+  "texto": "pensando en el",
+  "clave": null
+ },
+ {
+  "ini": 46.09,
+  "fin": 46.91,
+  "texto": "hecho de que",
+  "clave": null
+ },
+ {
+  "ini": 46.91,
+  "fin": 47.53,
+  "texto": "esta persona me",
+  "clave": null
+ },
+ {
+  "ini": 47.53,
+  "fin": 48.89,
+  "texto": "va a recomendar,",
+  "clave": "recomendar,"
+ },
+ {
+  "ini": 48.89,
+  "fin": 49.73,
+  "texto": "yo lo hago.",
+  "clave": "hago."
+ },
+ {
+  "ini": 49.73,
+  "fin": 50.19,
+  "texto": "Y mira qué",
+  "clave": null
+ },
+ {
+  "ini": 50.19,
+  "fin": 50.59,
+  "texto": "peligroso",
+  "clave": "peligroso"
+ },
+ {
+  "ini": 50.59,
+  "fin": 51.09,
+  "texto": "es esto,",
+  "clave": null
+ },
+ {
+  "ini": 51.09,
+  "fin": 52.23,
+  "texto": "porque supongamos que",
+  "clave": null
+ },
+ {
+  "ini": 52.23,
+  "fin": 53.29,
+  "texto": "llega alguien,",
+  "clave": null
+ },
+ {
+  "ini": 53.73,
+  "fin": 54.33,
+  "texto": "una persona,",
+  "clave": null
+ },
+ {
+  "ini": 54.33,
+  "fin": 55.19,
+  "texto": "un prospecto que",
+  "clave": null
+ },
+ {
+  "ini": 55.19,
+  "fin": 56.35,
+  "texto": "te pide un",
+  "clave": null
+ },
+ {
+  "ini": 56.35,
+  "fin": 57.05,
+  "texto": "producto, servicio,",
+  "clave": null
+ },
+ {
+  "ini": 57.05,
+  "fin": 57.57,
+  "texto": "de los que",
+  "clave": null
+ },
+ {
+  "ini": 57.57,
+  "fin": 58.45,
+  "texto": "ofreces.",
+  "clave": null
+ },
+ {
+  "ini": 58.45,
+  "fin": 59.17,
+  "texto": "Te pide que",
+  "clave": null
+ },
+ {
+  "ini": 59.17,
+  "fin": 59.75,
+  "texto": "te bajes un",
+  "clave": null
+ },
+ {
+  "ini": 59.75,
+  "fin": 61.11,
+  "texto": "montón de precio.",
+  "clave": "precio."
+ },
+ {
+  "ini": 61.11,
+  "fin": 61.71,
+  "texto": "Te pide que",
+  "clave": null
+ },
+ {
+  "ini": 61.71,
+  "fin": 62.71,
+  "texto": "tengas concesiones",
+  "clave": "concesiones"
+ },
+ {
+  "ini": 62.71,
+  "fin": 63.81,
+  "texto": "especiales con esa",
+  "clave": null
+ },
+ {
+  "ini": 63.81,
+  "fin": 64.65,
+  "texto": "persona.",
+  "clave": null
+ },
+ {
+  "ini": 64.65,
+  "fin": 65.27,
+  "texto": "Ya sea que",
+  "clave": null
+ },
+ {
+  "ini": 65.27,
+  "fin": 65.87,
+  "texto": "te apures porque",
+  "clave": null
+ },
+ {
+  "ini": 65.87,
+  "fin": 66.87,
+  "texto": "tiene urgencia,",
+  "clave": "urgencia,"
+ },
+ {
+  "ini": 66.87,
+  "fin": 67.27,
+  "texto": "que le des",
+  "clave": null
+ },
+ {
+  "ini": 67.27,
+  "fin": 67.91,
+  "texto": "un poquito más",
+  "clave": "más"
+ },
+ {
+  "ini": 67.91,
+  "fin": 68.31,
+  "texto": "de lo que",
+  "clave": null
+ },
+ {
+  "ini": 68.31,
+  "fin": 69.01,
+  "texto": "incluye tu producto",
+  "clave": null
+ },
+ {
+  "ini": 69.01,
+  "fin": 69.95,
+  "texto": "o servicio.",
+  "clave": null
+ },
+ {
+  "ini": 69.95,
+  "fin": 70.45,
+  "texto": "Y tú podrás",
+  "clave": null
+ },
+ {
+  "ini": 70.45,
+  "fin": 70.93,
+  "texto": "decir,",
+  "clave": null
+ },
+ {
+  "ini": 70.93,
+  "fin": 71.81,
+  "texto": "sí, venga,",
+  "clave": "venga,"
+ },
+ {
+  "ini": 71.81,
+  "fin": 72.53,
+  "texto": "lo voy a",
+  "clave": null
+ },
+ {
+  "ini": 72.53,
+  "fin": 72.97,
+  "texto": "hacer.",
+  "clave": null
+ },
+ {
+  "ini": 72.97,
+  "fin": 73.73,
+  "texto": "Normalmente no hago",
+  "clave": null
+ },
+ {
+  "ini": 73.73,
+  "fin": 74.49,
+  "texto": "este tipo de",
+  "clave": null
+ },
+ {
+  "ini": 74.49,
+  "fin": 74.89,
+  "texto": "cosas,",
+  "clave": null
+ },
+ {
+  "ini": 74.89,
+  "fin": 76.67,
+  "texto": "pero estoy dispuesto,",
+  "clave": null
+ },
+ {
+  "ini": 76.67,
+  "fin": 77.59,
+  "texto": "dispuesta a ceder",
+  "clave": "ceder"
+ },
+ {
+  "ini": 77.59,
+  "fin": 78.47,
+  "texto": "para que esta",
+  "clave": null
+ },
+ {
+  "ini": 78.47,
+  "fin": 80.13,
+  "texto": "persona me recomiende.",
+  "clave": null
+ },
+ {
+  "ini": 80.13,
+  "fin": 81.01,
+  "texto": "Alto ahí,",
+  "clave": null
+ },
+ {
+  "ini": 81.01,
+  "fin": 81.45,
+  "texto": "detente.",
+  "clave": "detente."
+ },
+ {
+  "ini": 81.45,
+  "fin": 82.89,
+  "texto": "Si esta persona,",
+  "clave": null
+ },
+ {
+  "ini": 82.89,
+  "fin": 84.01,
+  "texto": "este prospecto,",
+  "clave": null
+ },
+ {
+  "ini": 84.01,
+  "fin": 84.77,
+  "texto": "esta persona que",
+  "clave": null
+ },
+ {
+  "ini": 84.77,
+  "fin": 85.43,
+  "texto": "ya se convirtió",
+  "clave": null
+ },
+ {
+  "ini": 85.43,
+  "fin": 86.85,
+  "texto": "en tu cliente,",
+  "clave": "cliente,"
+ },
+ {
+  "ini": 86.85,
+  "fin": 87.85,
+  "texto": "logró que le",
+  "clave": null
+ },
+ {
+  "ini": 87.85,
+  "fin": 88.81,
+  "texto": "hicieras un trabajo",
+  "clave": null
+ },
+ {
+  "ini": 88.81,
+  "fin": 89.75,
+  "texto": "con un precio",
+  "clave": null
+ },
+ {
+  "ini": 89.75,
+  "fin": 91.25,
+  "texto": "mucho más barato",
+  "clave": "barato"
+ },
+ {
+  "ini": 91.25,
+  "fin": 92.49,
+  "texto": "que no respetó",
+  "clave": null
+ },
+ {
+  "ini": 92.49,
+  "fin": 93.43,
+  "texto": "tus términos y",
+  "clave": null
+ },
+ {
+  "ini": 93.43,
+  "fin": 94.67,
+  "texto": "condiciones,",
+  "clave": null
+ },
+ {
+  "ini": 94.67,
+  "fin": 95.63,
+  "texto": "o te regateó",
+  "clave": "regateó"
+ },
+ {
+  "ini": 95.63,
+  "fin": 96.27,
+  "texto": "o te pidió",
+  "clave": null
+ },
+ {
+  "ini": 96.27,
+  "fin": 97.23,
+  "texto": "de más,",
+  "clave": null
+ },
+ {
+  "ini": 97.23,
+  "fin": 97.63,
+  "texto": "a lo mejor",
+  "clave": null
+ },
+ {
+  "ini": 97.63,
+  "fin": 98.73,
+  "texto": "te escribía a",
+  "clave": null
+ },
+ {
+  "ini": 98.73,
+  "fin": 99.25,
+  "texto": "deshoras,",
+  "clave": "deshoras,"
+ },
+ {
+  "ini": 99.25,
+  "fin": 100.41,
+  "texto": "mil cosas.",
+  "clave": null
+ },
+ {
+  "ini": 100.41,
+  "fin": 101.13,
+  "texto": "¿Te gustaría que",
+  "clave": null
+ },
+ {
+  "ini": 101.13,
+  "fin": 102.03,
+  "texto": "te recomiende?",
+  "clave": "recomiende?"
+ },
+ {
+  "ini": 102.03,
+  "fin": 102.81,
+  "texto": "¿Tú qué crees",
+  "clave": null
+ },
+ {
+  "ini": 102.81,
+  "fin": 103.33,
+  "texto": "que va a",
+  "clave": null
+ },
+ {
+  "ini": 103.33,
+  "fin": 103.73,
+  "texto": "decir",
+  "clave": "decir"
+ },
+ {
+  "ini": 103.73,
+  "fin": 104.13,
+  "texto": "de ti esa",
+  "clave": null
+ },
+ {
+  "ini": 104.13,
+  "fin": 104.89,
+  "texto": "persona?",
+  "clave": null
+ },
+ {
+  "ini": 104.89,
+  "fin": 105.95,
+  "texto": "Muy seguramente dirá,",
+  "clave": null
+ },
+ {
+  "ini": 105.95,
+  "fin": 106.35,
+  "texto": "oye,",
+  "clave": null
+ },
+ {
+  "ini": 106.35,
+  "fin": 106.77,
+  "texto": "conozco a alguien",
+  "clave": null
+ },
+ {
+  "ini": 106.77,
+  "fin": 107.25,
+  "texto": "que te hace",
+  "clave": null
+ },
+ {
+  "ini": 107.25,
+  "fin": 109.05,
+  "texto": "esto superbarato,",
+  "clave": "superbarato,"
+ },
+ {
+  "ini": 109.05,
+  "fin": 109.73,
+  "texto": "conozco a alguien",
+  "clave": null
+ },
+ {
+  "ini": 109.73,
+  "fin": 110.13,
+  "texto": "que,",
+  "clave": null
+ },
+ {
+  "ini": 110.13,
+  "fin": 110.57,
+  "texto": "aunque no tengas",
+  "clave": null
+ },
+ {
+  "ini": 110.57,
+  "fin": 111.27,
+  "texto": "nada ordenado,",
+  "clave": "ordenado,"
+ },
+ {
+  "ini": 111.27,
+  "fin": 112.09,
+  "texto": "no pasa nada,",
+  "clave": null
+ },
+ {
+  "ini": 112.09,
+  "fin": 113.01,
+  "texto": "te lo ordena",
+  "clave": null
+ },
+ {
+  "ini": 113.01,
+  "fin": 113.59,
+  "texto": "y te lo",
+  "clave": null
+ },
+ {
+  "ini": 113.59,
+  "fin": 114.15,
+  "texto": "hace bueno,",
+  "clave": null
+ },
+ {
+  "ini": 114.15,
+  "fin": 115.03,
+  "texto": "casi gratis.",
+  "clave": "gratis."
+ },
+ {
+  "ini": 115.03,
+  "fin": 115.77,
+  "texto": "Es más,",
+  "clave": "más,"
+ },
+ {
+  "ini": 115.77,
+  "fin": 116.35,
+  "texto": "te da de",
+  "clave": null
+ },
+ {
+  "ini": 116.35,
+  "fin": 116.91,
+  "texto": "más.",
+  "clave": null
+ },
+ {
+  "ini": 117.23,
+  "fin": 118.63,
+  "texto": "¿No pasará entonces",
+  "clave": null
+ },
+ {
+  "ini": 118.63,
+  "fin": 119.31,
+  "texto": "que es un",
+  "clave": null
+ },
+ {
+  "ini": 119.31,
+  "fin": 120.45,
+  "texto": "poco contraproducente",
+  "clave": "contraproducente"
+ },
+ {
+  "ini": 120.45,
+  "fin": 121.31,
+  "texto": "que las personas",
+  "clave": null
+ },
+ {
+  "ini": 121.31,
+  "fin": 122.35,
+  "texto": "que llegan contigo,",
+  "clave": null
+ },
+ {
+  "ini": 122.35,
+  "fin": 122.89,
+  "texto": "que te piden",
+  "clave": null
+ },
+ {
+  "ini": 122.89,
+  "fin": 123.69,
+  "texto": "de más,",
+  "clave": null
+ },
+ {
+  "ini": 123.69,
+  "fin": 124.39,
+  "texto": "que no respetan",
+  "clave": "respetan"
+ },
+ {
+  "ini": 124.39,
+  "fin": 125.09,
+  "texto": "tu trabajo,",
+  "clave": null
+ },
+ {
+  "ini": 125.09,
+  "fin": 126.19,
+  "texto": "que te regatean",
+  "clave": null
+ },
+ {
+  "ini": 126.19,
+  "fin": 127.63,
+  "texto": "y etcétera,",
+  "clave": null
+ },
+ {
+  "ini": 127.63,
+  "fin": 128.37,
+  "texto": "cuando te traen",
+  "clave": null
+ },
+ {
+  "ini": 128.37,
+  "fin": 129.09,
+  "texto": "clientes,",
+  "clave": null
+ },
+ {
+  "ini": 129.09,
+  "fin": 129.99,
+  "texto": "son muy similares",
+  "clave": "similares"
+ },
+ {
+  "ini": 129.99,
+  "fin": 130.97,
+  "texto": "a ellos?",
+  "clave": null
+ },
+ {
+  "ini": 130.97,
+  "fin": 131.43,
+  "texto": "Si tú ya",
+  "clave": null
+ },
+ {
+  "ini": 131.43,
+  "fin": 132.21,
+  "texto": "no quieres más",
+  "clave": null
+ },
+ {
+  "ini": 132.21,
+  "fin": 133.19,
+  "texto": "de esos clientes",
+  "clave": null
+ },
+ {
+  "ini": 133.19,
+  "fin": 133.67,
+  "texto": "que te están",
+  "clave": null
+ },
+ {
+  "ini": 133.67,
+  "fin": 134.77,
+  "texto": "regateando,",
+  "clave": "regateando,"
+ },
+ {
+  "ini": 134.77,
+  "fin": 135.41,
+  "texto": "que no respetan",
+  "clave": null
+ },
+ {
+  "ini": 135.41,
+  "fin": 136.15,
+  "texto": "tus términos y",
+  "clave": null
+ },
+ {
+  "ini": 136.15,
+  "fin": 136.85,
+  "texto": "condiciones,",
+  "clave": null
+ },
+ {
+  "ini": 136.85,
+  "fin": 137.43,
+  "texto": "que te dicen",
+  "clave": null
+ },
+ {
+  "ini": 137.43,
+  "fin": 138.41,
+  "texto": "cómo operar tu",
+  "clave": null
+ },
+ {
+  "ini": 138.41,
+  "fin": 139.53,
+  "texto": "negocio,",
+  "clave": "negocio,"
+ },
+ {
+  "ini": 139.53,
+  "fin": 139.93,
+  "texto": "pues bueno,",
+  "clave": null
+ },
+ {
+  "ini": 139.93,
+  "fin": 140.73,
+  "texto": "lo primero o",
+  "clave": null
+ },
+ {
+  "ini": 140.73,
+  "fin": 141.45,
+  "texto": "el primer paso",
+  "clave": "paso"
+ },
+ {
+  "ini": 141.45,
+  "fin": 142.25,
+  "texto": "es,",
+  "clave": null
+ },
+ {
+  "ini": 142.25,
+  "fin": 143.43,
+  "texto": "sinceramente cuando te",
+  "clave": null
+ },
+ {
+  "ini": 143.43,
+  "fin": 144.29,
+  "texto": "piden una cotización",
+  "clave": "cotización"
+ },
+ {
+  "ini": 144.29,
+  "fin": 144.73,
+  "texto": "y te están",
+  "clave": null
+ },
+ {
+  "ini": 144.73,
+  "fin": 146.55,
+  "texto": "regateando decirles oye",
+  "clave": null
+ },
+ {
+  "ini": 146.55,
+  "fin": 147.45,
+  "texto": "lamento mucho pero",
+  "clave": null
+ },
+ {
+  "ini": 147.45,
+  "fin": 148.31,
+  "texto": "no tenemos una",
+  "clave": null
+ },
+ {
+  "ini": 148.31,
+  "fin": 149.17,
+  "texto": "solución con el",
+  "clave": null
+ },
+ {
+  "ini": 149.17,
+  "fin": 149.61,
+  "texto": "presupuesto",
+  "clave": "presupuesto"
+ },
+ {
+  "ini": 149.61,
+  "fin": 150.99,
+  "texto": "que tienes oye",
+  "clave": null
+ },
+ {
+  "ini": 150.99,
+  "fin": 151.59,
+  "texto": "es que fíjate",
+  "clave": null
+ },
+ {
+  "ini": 151.59,
+  "fin": 152.05,
+  "texto": "que este es",
+  "clave": null
+ },
+ {
+  "ini": 152.05,
+  "fin": 152.45,
+  "texto": "el último",
+  "clave": "último"
+ },
+ {
+  "ini": 152.45,
+  "fin": 153.41,
+  "texto": "precio porque bla",
+  "clave": null
+ },
+ {
+  "ini": 153.41,
+  "fin": 154.31,
+  "texto": "bla bla podrás",
+  "clave": null
+ },
+ {
+  "ini": 154.31,
+  "fin": 155.37,
+  "texto": "o no explicar",
+  "clave": null
+ },
+ {
+  "ini": 155.37,
+  "fin": 156.35,
+  "texto": "depende de tu",
+  "clave": null
+ },
+ {
+  "ini": 156.35,
+  "fin": 156.99,
+  "texto": "personalidad",
+  "clave": "personalidad"
+ },
+ {
+  "ini": 156.99,
+  "fin": 157.45,
+  "texto": "la manera en",
+  "clave": null
+ },
+ {
+  "ini": 157.45,
+  "fin": 157.85,
+  "texto": "la que tú",
+  "clave": null
+ },
+ {
+  "ini": 157.85,
+  "fin": 158.63,
+  "texto": "operas tu negocio",
+  "clave": null
+ },
+ {
+  "ini": 158.63,
+  "fin": 159.77,
+  "texto": "y etcétera pero",
+  "clave": null
+ },
+ {
+  "ini": 159.77,
+  "fin": 160.97,
+  "texto": "algo bien peligroso",
+  "clave": "peligroso"
+ },
+ {
+  "ini": 161.77,
+  "fin": 163.35,
+  "texto": "es que personas",
+  "clave": null
+ },
+ {
+  "ini": 163.35,
+  "fin": 164.13,
+  "texto": "con las que",
+  "clave": null
+ },
+ {
+  "ini": 164.13,
+  "fin": 164.81,
+  "texto": "ya hiciste un",
+  "clave": null
+ },
+ {
+  "ini": 164.81,
+  "fin": 166.11,
+  "texto": "trato y que",
+  "clave": null
+ },
+ {
+  "ini": 166.11,
+  "fin": 166.93,
+  "texto": "no estás tan",
+  "clave": null
+ },
+ {
+  "ini": 166.93,
+  "fin": 167.92,
+  "texto": "satisfecho porque no",
+  "clave": null
+ },
+ {
+  "ini": 167.92,
+  "fin": 169.18,
+  "texto": "pagaron lo que",
+  "clave": null
+ },
+ {
+  "ini": 169.18,
+  "fin": 169.64,
+  "texto": "costaba",
+  "clave": "costaba"
+ },
+ {
+  "ini": 169.64,
+  "fin": 171.14,
+  "texto": "tu trabajo o",
+  "clave": null
+ },
+ {
+  "ini": 171.14,
+  "fin": 172.1,
+  "texto": "que te exigían",
+  "clave": null
+ },
+ {
+  "ini": 172.1,
+  "fin": 172.8,
+  "texto": "de más o",
+  "clave": null
+ },
+ {
+  "ini": 172.8,
+  "fin": 173.6,
+  "texto": "etc.",
+  "clave": null
+ },
+ {
+  "ini": 173.6,
+  "fin": 174.44,
+  "texto": "Pensando en bueno,",
+  "clave": null
+ },
+ {
+  "ini": 174.44,
+  "fin": 175.08,
+  "texto": "tengo que hacerlo",
+  "clave": null
+ },
+ {
+  "ini": 175.08,
+  "fin": 175.74,
+  "texto": "para que me",
+  "clave": null
+ },
+ {
+  "ini": 175.74,
+  "fin": 176.28,
+  "texto": "traigan a más",
+  "clave": null
+ },
+ {
+  "ini": 176.28,
+  "fin": 177.3,
+  "texto": "clientes.",
+  "clave": "clientes."
+ },
+ {
+  "ini": 177.3,
+  "fin": 177.98,
+  "texto": "Piensa que no",
+  "clave": null
+ },
+ {
+  "ini": 177.98,
+  "fin": 178.94,
+  "texto": "quieres más clientes",
+  "clave": null
+ },
+ {
+  "ini": 178.94,
+  "fin": 180.3,
+  "texto": "como ellos.",
+  "clave": "ellos."
+ },
+ {
+  "ini": 180.3,
+  "fin": 180.72,
+  "texto": "Cuéntame tú qué",
+  "clave": null
+ },
+ {
+  "ini": 180.72,
+  "fin": 181.3,
+  "texto": "piensas acá abajo",
+  "clave": null
+ },
+ {
+  "ini": 181.3,
+  "fin": 182.32,
+  "texto": "en los comentarios.",
+  "clave": "comentarios."
+ },
+ {
+  "ini": 182.32,
+  "fin": 182.9,
+  "texto": "Recuerda que no",
+  "clave": null
+ },
+ {
+  "ini": 182.9,
+  "fin": 183.6,
+  "texto": "hay una sola",
+  "clave": null
+ },
+ {
+  "ini": 183.6,
+  "fin": 184.82,
+  "texto": "manera correcta",
+  "clave": "correcta"
+ },
+ {
+  "ini": 184.82,
+  "fin": 185.52,
+  "texto": "de operar los",
+  "clave": null
+ },
+ {
+  "ini": 185.52,
+  "fin": 186.36,
+  "texto": "negocios,",
+  "clave": null
+ },
+ {
+  "ini": 186.36,
+  "fin": 186.76,
+  "texto": "que lo que",
+  "clave": null
+ },
+ {
+  "ini": 186.76,
+  "fin": 187.22,
+  "texto": "yo te comparto",
+  "clave": null
+ },
+ {
+  "ini": 187.22,
+  "fin": 187.62,
+  "texto": "por acá es",
+  "clave": null
+ },
+ {
+  "ini": 187.62,
+  "fin": 188.06,
+  "texto": "lo que nos",
+  "clave": null
+ },
+ {
+  "ini": 188.06,
+  "fin": 188.76,
+  "texto": "sirve a mí",
+  "clave": null
+ },
+ {
+  "ini": 188.76,
+  "fin": 189.4,
+  "texto": "y a mis",
+  "clave": null
+ },
+ {
+  "ini": 189.4,
+  "fin": 190.12,
+  "texto": "clientes.",
+  "clave": null
+ },
+ {
+  "ini": 190.12,
+  "fin": 190.72,
+  "texto": "Si tú piensas",
+  "clave": null
+ },
+ {
+  "ini": 190.72,
+  "fin": 191.48,
+  "texto": "diferente y eres",
+  "clave": null
+ },
+ {
+  "ini": 191.48,
+  "fin": 192.04,
+  "texto": "de aquellos que",
+  "clave": null
+ },
+ {
+  "ini": 192.04,
+  "fin": 192.44,
+  "texto": "dices,",
+  "clave": null
+ },
+ {
+  "ini": 192.44,
+  "fin": 192.84,
+  "texto": "yo sí estoy",
+  "clave": null
+ },
+ {
+  "ini": 192.84,
+  "fin": 193.24,
+  "texto": "dispuesto a hacer",
+  "clave": null
+ },
+ {
+  "ini": 193.24,
+  "fin": 193.86,
+  "texto": "lo que sea,",
+  "clave": "sea,"
+ },
+ {
+  "ini": 193.86,
+  "fin": 194.26,
+  "texto": "dispuesta a hacer",
+  "clave": null
+ },
+ {
+  "ini": 194.26,
+  "fin": 195.02,
+  "texto": "lo que sea,",
+  "clave": null
+ },
+ {
+  "ini": 195.02,
+  "fin": 195.42,
+  "texto": "con tal de",
+  "clave": null
+ },
+ {
+  "ini": 195.42,
+  "fin": 195.82,
+  "texto": "que me traigan",
+  "clave": null
+ },
+ {
+  "ini": 195.82,
+  "fin": 196.34,
+  "texto": "más clientes,",
+  "clave": "clientes,"
+ },
+ {
+  "ini": 196.34,
+  "fin": 196.94,
+  "texto": "aunque esos clientes",
+  "clave": null
+ },
+ {
+  "ini": 196.94,
+  "fin": 197.64,
+  "texto": "no me respeten",
+  "clave": "respeten"
+ },
+ {
+  "ini": 197.64,
+  "fin": 199.33,
+  "texto": "y etcétera cada",
+  "clave": null
+ },
+ {
+  "ini": 199.33,
+  "fin": 199.73,
+  "texto": "quien,",
+  "clave": null
+ },
+ {
+  "ini": 199.73,
+  "fin": 200.35,
+  "texto": "pero luego no",
+  "clave": null
+ },
+ {
+  "ini": 200.35,
+  "fin": 200.91,
+  "texto": "digas que no",
+  "clave": null
+ },
+ {
+  "ini": 200.91,
+  "fin": 201.803,
+  "texto": "te lo advertí",
+  "clave": "advertí"
+ }
+]

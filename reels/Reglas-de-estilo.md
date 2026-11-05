@@ -17,7 +17,7 @@ Del kit de Viegas Estudio solo se toma el **método** (5 pasadas, zona segura, r
 
 ## Tipografía
 - **Solo Montserrat.** Nunca serif, nunca otra familia.
-- Palabra clave: Montserrat 800, 150 px (130–170 según el largo), tracking −0.02em, minúsculas como se dice (mayúscula inicial solo si inicia frase).
+- Palabra clave: Montserrat 800, 150 px, tracking −0.02em, minúsculas como se dice (mayúscula inicial solo si inicia frase). Si no cabe en 812 px se reduce lo justo, **mínimo 115 px**; si aun así no cabe, se parte en dos líneas con guion (ej. «contra- / producente») a 150 px.
 - Subtítulo de apoyo: Montserrat 600, 64 px, tracking −0.01em, interlineado 1.1.
 - Títulos a pantalla completa: Montserrat 800, 120–160 px, tracking −0.02em, máximo 3 líneas.
 - Etiquetas (solo cuando hacen falta, nunca encima de cada título): Montserrat 600, 30 px, mayúsculas, tracking .14em.
