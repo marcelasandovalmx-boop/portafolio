@@ -123,3 +123,13 @@ Piezas:
 - **Verificación de cortes**: transcribir el audio ya cortado con `faster-whisper large-v3` y leerlo de corrido. Si un corte mordió una palabra, aparece como frase rara. Esa misma transcripción da los tiempos por palabra para los captions.
 - **Captions**: máximo 23 caracteres por caja con Montserrat ExtraBold 52 px para no entrar a la columna de iconos (caja de hasta 780 px centrada).
 - Usuarios de redes y dominios que suenan en el audio no se escriben hasta que March confirme la ortografía.
+
+## 13. Palabras clave en bloque, letras que navegan y efectos de sonido (v2 del testimonial, nov 2026)
+
+Pedido de March sobre el reel de Mario: placa de nombre más grande y centrada, palabras clave que pausen el subtítulo y aparezcan en grande, letras que "avanzan en fila de derecha a izquierda", y efectos de sonido. La música la pone ella. Todo vive en `scripts/testimonial/comp2.py` y `sfx.py`.
+
+- **Placa**: caja blanca centrada con el nombre en tipografía ancha y pesada (ella usa **Horizon**; mientras no mande el archivo se usa Unbounded 900 de Google Fonts, variable `FUENTE_NOMBRE`). Debajo, pleca naranja centrada que se abre desde el centro, con el cargo en Montserrat Bold blanco. Ancho total menor a 800 px para no tocar la columna de iconos.
+- **Bloque de palabra clave**: sustituye al caption mientras dura. Caja naranja con texto blanco (o blanca con texto naranja para el "antes"), cada línea ajustada al ancho común como lockup, tope 132 px. Entra con rebote y las letras llegan una por una desde la derecha (28 ms entre letras, 0.24 s de viaje, recortadas al borde de la caja). De 5 a 7 momentos por reel; se eligen resultados y lo que se quiere potenciar, siempre con palabras que la persona sí dijo.
+- **Bloques encadenados** ("seguimiento, planificación, estrategia"; "cero alcance" a "cifras inimaginables"): el bloque se sostiene hasta que entra el siguiente para que no parpadee el caption en medio.
+- **Efectos de sonido sintetizados** con numpy (sin librerías con licencia): `pop` (seno que cae de 560 a 190 Hz), `tick` (ráfaga de 18 ms), `whoosh` (ruido con pasa banda que barre), `swipe` (barrido descendente al entrar el contorno) e `impacto` (seno grave más golpe). Pico de la pista cerca de −7.5 dBFS contra voz a −1; se mezclan con `amix normalize=0` y `alimiter`. No se pueden escuchar desde aquí: avisar a March para que valide niveles.
+- **Render por tramos en paralelo**: `comp2.py t_ini t_fin salida` en tres procesos cortados en cortes secos que no caigan dentro de una pregunta, y unión con `concat -c copy` (`-video_track_timescale 15360` en todos). Baja de 22 a 9 minutos.
