@@ -107,3 +107,19 @@ Revisión: hoja `fps=1/3,scale=270:480,tile=10x3 -frames:v 1 -update 1`; cuadros
 ## 11. Bajar referencias de Instagram
 
 `yt-dlp -f "bv*+ba/b" --merge-output-format mp4 -o ID.mp4 https://www.instagram.com/reel/ID/` (instalado con pip). El video vive en `scontent-ord5-*.cdninstagram.com`; si aparece otro host, pedir permiso para agregarlo al entorno. `--dump-json` da autor y caption. Cortes: `select='gt(scene,0.25)',showinfo` y leer `pts_time`.
+
+## 12. Testimonial con contorno, placa y karaoke (compositor en Python)
+
+Cuando el sistema de texto necesita caja redondeada con palabras que se pintan y contorno de sticker, ASS y overlays de PNG se quedan cortos. Se arma en dos etapas:
+
+1. **Base** (`render_segs.py`): un ffmpeg por tramo con `-ss/-t` de entrada, `trim=end_frame`, `crop`, `scale=1080:1920`, y se unen con el demuxer `concat -c copy`. Abrir todos los tramos 4K en un solo `filter_complex` mata el proceso por memoria.
+2. **Compositor** (`comp.py`, `/usr/bin/python3` con PIL, numpy y onnxruntime): lee la base por pipe en rgb24, compone y escribe a libx264 con el audio ya cortado.
+
+Piezas:
+- **Material iPhone HDR** (HEVC 10 bit, `arib-std-b67`, rotación −90): convertir con `zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,format=yuv420p` **después** de recortar y escalar (cuatro veces más rápido que hacerlo en 4K). Con fuente 4K se puede acercar hasta 1.3 sin perder nitidez en 1080.
+- **Contorno**: matte con MODNet (`huggingface.co/Xenova/modnet`, `onnx/model.onnx`, 25 MB, entrada 512×896 normalizada a −1..1). Umbral 0.5, `MaxFilter(17)` a media resolución, desenfoque y anillo = dilatado × (1 − interior). Calcular un cuadro sí y uno no y promediar con el anterior para que no vibre. Cerca de 0.7 s por inferencia en 4 núcleos.
+- **Corte suave**: al quitar silencios sin cambiar de encuadre, mezclar los 3 primeros cuadros del tramo nuevo con el último del anterior (25, 50 y 75 %). El salto deja de verse. Los cortes de contenido sí cambian de encuadre (1.0 / 1.14 / 1.28) y van secos.
+- **Silencios**: `silencedetect=noise=-30dB:d=0.35`. La voz de March fuera de cámara llega por debajo del umbral, así que **no se recortan silencios dentro de sus preguntas** o se pierden palabras completas.
+- **Verificación de cortes**: transcribir el audio ya cortado con `faster-whisper large-v3` y leerlo de corrido. Si un corte mordió una palabra, aparece como frase rara. Esa misma transcripción da los tiempos por palabra para los captions.
+- **Captions**: máximo 23 caracteres por caja con Montserrat ExtraBold 52 px para no entrar a la columna de iconos (caja de hasta 780 px centrada).
+- Usuarios de redes y dominios que suenan en el audio no se escriben hasta que March confirme la ortografía.

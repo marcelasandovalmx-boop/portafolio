@@ -27,3 +27,13 @@
 1. Lo que más le gusta de estas referencias es la **tipografía con intención** (editorial, serif, pocas cosas) y los **insertos con contenido real**, no la cantidad de efectos.
 2. Cualquier sistema se adapta a su marca: Montserrat 800 caps, Playfair, sus scripts, placa roja, chips, teal en detalles.
 3. El siguiente salto de calidad está en la grabación, no en la edición: luz natural o de ventana, cámara trasera en 4K, aire sobre la cabeza, foco y exposición bloqueados, micrófono de solapa.
+
+## March Sandoval · testimonial de Ale, Kaleia (@march.sandoval) · reel Dc2MFA5RWzN (172 s) · referencia para testimoniales de clientes y aliados (nov 2026)
+
+- Formato entrevista: March pregunta fuera de cámara, la persona responde a cuadro. Casi una sola toma; los cortes visibles son entradas y salidas de b-roll con material real (empaques, logos, videollamadas).
+- **Contorno blanco de sticker** alrededor de la persona **solo mientras March pregunta**. Es la señal visual de "ahora escucha". Se quita cuando empieza la respuesta.
+- **Captions en caja blanca redondeada**, sans bold, 2 a 4 palabras por caja, centradas al 73 % de la altura. La palabra dicha va en naranja Orangy y las que faltan en naranja claro (karaoke por palabra).
+- **Placa de nombre** en los primeros segundos: caja blanca con el nombre en caps negras naranjas que entra palabra por palabra, y debajo una caja naranja más ancha, corrida a la izquierda, con el cargo en texto oscuro delgado. Dura unos 5 s.
+- Sin tarjeta final: cierra con "¿dónde te podemos encontrar?" y la respuesta.
+- Este formato lleva identidad **Orangy** (Montserrat, naranja `#E5501C`), no la marca personal de March.
+- Aplicado a Mario Barrera, aliado estratégico (nov 2026): scratchpad `mario/work` (`edl.py` cortes, `render_segs.py` base, `caps.py` subtítulos, `comp.py` compositor).
