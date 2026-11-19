@@ -133,3 +133,12 @@ Pedido de March sobre el reel de Mario: placa de nombre más grande y centrada, 
 - **Bloques encadenados** ("seguimiento, planificación, estrategia"; "cero alcance" a "cifras inimaginables"): el bloque se sostiene hasta que entra el siguiente para que no parpadee el caption en medio.
 - **Efectos de sonido sintetizados** con numpy (sin librerías con licencia): `pop` (seno que cae de 560 a 190 Hz), `tick` (ráfaga de 18 ms), `whoosh` (ruido con pasa banda que barre), `swipe` (barrido descendente al entrar el contorno) e `impacto` (seno grave más golpe). Pico de la pista cerca de −7.5 dBFS contra voz a −1; se mezclan con `amix normalize=0` y `alimiter`. No se pueden escuchar desde aquí: avisar a March para que valide niveles.
 - **Render por tramos en paralelo**: `comp2.py t_ini t_fin salida` en tres procesos cortados en cortes secos que no caigan dentro de una pregunta, y unión con `concat -c copy` (`-video_track_timescale 15360` en todos). Baja de 22 a 9 minutos.
+
+## Transición de marca Orangy: «la barra que se abre» (nov 2026)
+
+Diseñada con March para los videos de Orangy (no para su marca personal). La barra segmentada, que es su firma visual, se dibuja de izquierda a derecha a media pantalla, se abre como telón hasta cubrir el cuadro, y se cierra hacia abajo dejando ver el plano siguiente; termina un instante como barra al pie, igual que en el sitio.
+
+- Generador: `scripts/transicion_orangy.py <carpeta> [ancho alto]` → `t_00.png … t_17.png` con alfa. 18 cuadros (0.6 s), pantalla llena en los cuadros 8 y 9; **el corte va en el cuadro 8**.
+- En ffmpeg: `-framerate 30 -i carpeta/t_%02d.png`, luego `format=rgba,setpts=PTS+(t_corte-8/30)/TB` y `overlay=eof_action=pass`.
+- Sonido que la acompaña (sintetizado, sin material de terceros): whoosh de 0.5 s que empieza 0.30 s antes del corte y un golpe grave en el corte.
+- Uso: una o dos por video, en cambios de tema. No en cada corte.
