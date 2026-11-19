@@ -37,3 +37,14 @@
 - Sin tarjeta final: cierra con "¿dónde te podemos encontrar?" y la respuesta.
 - Este formato lleva identidad **Orangy** (Montserrat, naranja `#E5501C`), no la marca personal de March.
 - Aplicado a Mario Barrera, aliado estratégico (nov 2026): scratchpad `mario/work` (`edl.py` cortes, `render_segs.py` base, `caps.py` subtítulos, `comp.py` compositor).
+
+## Referencia "caja amarilla" · reel propio de March (DfoHPUTR-Mk, nov 2026)
+
+March la mandó con la instrucción "que quede así la edición" para el reel "El efecto gimnasio en enero". 72 s, cortes cada 2 a 4 s.
+
+- **Texto**: un solo sistema. Captions en Montserrat Bold caps, blancos, 2 líneas máximo de unas 18 letras, centrados sobre el pecho (y ≈ 1200 a 1300). Una caja amarilla redondeada (`#F0B818`) salta de palabra en palabra detrás de la palabra que se está diciendo; el texto no cambia de color. La segunda línea aparece cuando se llega a ella.
+- **Palabras clave**: de 8 a 12 por reel salen solas y grandes (ExtraBold ~100 px, caja amarilla, texto blanco) en la misma posición.
+- **Insertos**: b-roll de stock a pantalla completa con los captions encima; a veces entra como recuadro con filo blanco y cursor que se expande. Requiere clips con licencia que March sube a Drive; nunca buscarlos por cuenta propia.
+- **Transición**: círculo naranja con punto teal que crece y se encoge (12 cuadros en total, lleno 2 o 3 cuadros). Una por reel, en el salto de contenido más grande.
+- **Planos**: punch-in alternado, sin título de apertura ni placas.
+- **Cómo se hizo**: los captions no salen con ASS (no da cajas redondeadas por palabra). Se renderiza un PNG 1080×400 con alfa por cada estado con Playwright y se arma con el demuxer `concat` (`duration` por estado), luego un solo `overlay` en y=1050. Los planos se renderizan uno por uno y se concatenan: un filtergraph con más de 30 `trim` del mismo archivo se queda sin memoria.
