@@ -48,3 +48,16 @@ March la mandó con la instrucción "que quede así la edición" para el reel "E
 - **Transición**: círculo naranja con punto teal que crece y se encoge (12 cuadros en total, lleno 2 o 3 cuadros). Una por reel, en el salto de contenido más grande.
 - **Planos**: punch-in alternado, sin título de apertura ni placas.
 - **Cómo se hizo**: los captions no salen con ASS (no da cajas redondeadas por palabra). Se renderiza un PNG 1080×400 con alfa por cada estado con Playwright y se arma con el demuxer `concat` (`duration` por estado), luego un solo `overlay` en y=1050. Los planos se renderizan uno por uno y se concatenan: un filtergraph con más de 30 `trim` del mismo archivo se queda sin memoria.
+
+## Referencia "titular arriba + una palabra" · reel DgGRUprB527 (120 s, nov 2026)
+
+March la mandó con la instrucción "este es el ejemplo de la edición que quiero, solo adecua sus letras y colores" para una prueba de video de una clienta (webinar).
+
+- **Franja superior fija**: degradado oscuro en el tercio de arriba. Ahí vive el titular por idea: renglón chico (serif itálica en la referencia) + renglón grande en caps condensadas con placa de color. Cambia cada 3 a 6 s y entra con pop.
+- **Una palabra a la vez** al pecho (y ≈ 62 a 65 %), minúsculas, sans, blanca; las palabras clave cambian a un color de acento. Nunca se detiene, ni en los momentos oscuros.
+- **Insertos en la franja de arriba**: tarjetas claras que se van llenando conforme ella enumera (la matriz), siempre arriba de la cabeza.
+- **Momentos "dim"**: video desenfocado y oscurecido con tarjetas o capturas flotando (testimonios, esquema). De 2 a 4 por reel.
+- **Cortes**: misma toma con tres encuadres (abierto, medio, cerrado), corte seco en inicio de frase.
+- **Cierre**: tarjeta a pantalla completa con la llamada a la acción mientras sigue el audio.
+- **Cómo se adaptó a otra marca**: mismos lugares y tiempos, pero tipografía y colores de la invitación de la clienta (sans redonda bold con palabra en dorado, velo ciruela arriba y abajo, píldora de fecha, chips crema numerados, fotos circulares con aro dorado). Scratchpad `sembremos/work`: `overlay.html` con una función `render(t)` que dibuja todo el estado en el tiempo t, `render.js` saca un PNG con alfa por cuadro (4 páginas en paralelo, unos 1,600 cuadros) y ffmpeg lo superpone a `base.mp4` (punch-ins con `scale eval=frame`, desenfoque de los "dim" con dos ramas `gblur` + `fade alpha`).
+- **Trampa**: cuando el encuadre no tiene aire arriba, ancla el zoom arriba (`crop y = (ih-1920)*0.12`) para que el punch-in baje la cabeza en vez de meterla en el titular.
