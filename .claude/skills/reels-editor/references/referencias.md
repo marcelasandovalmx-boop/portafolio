@@ -61,3 +61,14 @@ March la mandó con la instrucción "este es el ejemplo de la edición que quier
 - **Cierre**: tarjeta a pantalla completa con la llamada a la acción mientras sigue el audio.
 - **Cómo se adaptó a otra marca**: mismos lugares y tiempos, pero tipografía y colores de la invitación de la clienta (sans redonda bold con palabra en dorado, velo ciruela arriba y abajo, píldora de fecha, chips crema numerados, fotos circulares con aro dorado). Scratchpad `sembremos/work`: `overlay.html` con una función `render(t)` que dibuja todo el estado en el tiempo t, `render.js` saca un PNG con alfa por cuadro (4 páginas en paralelo, unos 1,600 cuadros) y ffmpeg lo superpone a `base.mp4` (punch-ins con `scale eval=frame`, desenfoque de los "dim" con dos ramas `gblur` + `fade alpha`).
 - **Trampa**: cuando el encuadre no tiene aire arriba, ancla el zoom arriba (`crop y = (ih-1920)*0.12`) para que el punch-in baje la cabeza en vez de meterla en el titular.
+
+## Tati Uribe · reel DgOPrGbKX5d (77 s, "3 hábitos para tu primer millón") · referencia "titular + tarjetas animadas" (nov 2026)
+
+March la mandó para editar un video propio "con mis colores".
+
+- **Dos estados que se alternan cada 6 a 9 s**: ella a cuadro, y tarjeta a pantalla completa (el mismo video desenfocado y oscurecido, el audio sigue).
+- **A cuadro**: píldora blanca chica con la frase resumida y puntos suspensivos donde va la palabra clave, y debajo la palabra clave gigante en caps (se escribe letra por letra). Subtítulos chicos al pecho que crecen palabra por palabra. Unos 12 titulares en 77 s.
+- **Tarjetas** (8 en 77 s): arriba la frase en chico, que también crece palabra por palabra; al centro un gráfico de línea muy simple que se anima con lo que dice (gráfica que sube, notas adhesivas que aparecen una por una, barras, anillo que se llena, reloj, corazón que se dibuja); abajo un rótulo en caps a dos tonos.
+- **Paleta de un solo tono** (crema sobre café oscuro). Nada de emojis ni fotos de archivo.
+- **Tarjeta de nombre** cerca del final (nombre + a qué se dedica) y cierre con "sígueme".
+- **Cómo se adaptó a March** (scratchpad `video-nov27/`): píldora en placa roja `#c92520`, palabra clave crema `#EFEDEA` en Montserrat 800, tarjetas con crema y un solo acento rojo por tarjeta, teal solo en detalles. Como su material no tiene aire arriba (cara en la mitad superior), el titular va al pecho (y 1066 a 1300) y el subtítulo debajo (y 1368), todo dentro de zonas seguras. `overlay.html` con `render(t)` + `render.js` (PNG con alfa por cuadro) y el desenfoque con `maskedmerge` y una máscara `geq` de 16×16 que sigue los tiempos de las tarjetas.
