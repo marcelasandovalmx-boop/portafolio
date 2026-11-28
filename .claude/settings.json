@@ -14,7 +14,21 @@
       "mcp__Canva__list-folder-items",
       "mcp__Canva__search-designs",
       "mcp__Canva__search-folders",
-      "mcp__Canva__read-design"
+      "mcp__Canva__read-design",
+      "SendMessage",
+      "Skill",
+      "ToolSearch",
+      "SendUserFile",
+      "mcp__Google_Drive__update_file",
+      "mcp__Canva__list-brand-kits",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(ls:*)",
+      "Bash(cp:*)",
+      "Bash(zip:*)",
+      "Bash(unzip:*)",
+      "Bash(sha256sum:*)",
+      "Bash(mkdir:*)"
     ]
   }
 }
